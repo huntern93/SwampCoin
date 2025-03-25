@@ -11,9 +11,7 @@
   margin-bottom: 7.9vw;
 }
 
-.about h2 {
-  font-size: 90px;
-}
+/* Removed the h2 styling as we're now using the global section-title class */
 
 .aboutImg1 {
   position: absolute;
@@ -44,26 +42,24 @@
   border: 2px solid #000000;
   box-shadow: -1px 3px 0px #000000;
   border-radius: 12px;
+  transition: 0.3s all;
+}
+
+.buyNow:hover {
+  background-color: #ff2424;
 }
 
 @media screen and (max-width: 1490px) {
-  .about h2 {
-    font-size: 70px;
-  }
-}
-
-@media screen and (max-width: 1490px) {
-  .about h2 {
-    font-size: 60px;
-  }
+  /* Removed h2 styling - using global section-title now */
 }
 
 @media screen and (max-width: 991px) {
-  .about h2 {
-    font-size: 45px;
+  /* Removed h2 styling - using global section-title now */
+  
+  .buyNow {
+    width: 250px;
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .aboutImg1 {
@@ -84,5 +80,12 @@
   .buyNow {
     padding: 5px 10px;
     width: 150px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .aboutInner {
+    padding: 15px;
+    border-width: 5px;
   }
 }
