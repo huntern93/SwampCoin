@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 6px;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .socials a {
@@ -19,9 +20,14 @@
   transition: 0.3s all;
 }
 
-.socials a:hover {
+.socialButton:hover {
   transform: translateY(-2px);
   box-shadow: -1px 5px 0px #000000;
+}
+
+.socialButton:active {
+  transform: translateY(1px);
+  box-shadow: -1px 2px 0px #000000;
 }
 
 /* This wrapper class will help with mobile and desktop centering */
@@ -31,6 +37,17 @@
   align-items: center;
   text-align: center;
   width: 100%;
+}
+
+.memberCount {
+  font-size: 16px;
+  background-color: #FFCF00;
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-left: 8px;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid #000;
 }
 
 @media screen and (min-width: 767px) {
@@ -48,5 +65,9 @@
 @media screen and (max-width: 767px) {
   .communityWrapper {
     margin-top: 15px;
+  }
+  
+  .socials a {
+    transform: scale(1.05);
   }
 }

@@ -29,20 +29,54 @@
 
 .heroBtn {
   width: 100%;
-  background: #FF3D3D;
+  background: linear-gradient(to bottom, #FF5252, #FF3D3D);
   border: 4px solid #000000;
   border-radius: 1.1vw;
   text-align: center;
   text-transform: uppercase;
   color: #FFFFFF;
+  transition: all 0.3s ease;
 }
-.heroBtn:hover {
-  background-color: #FF3D3D;
+
+.heroBtn:hover, .heroBtn:active {
+  background: linear-gradient(to bottom, #FF3D3D, #FF2828);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #FFFFFF;
+}
+
+.inputWrapper {
+  position: relative;
+  margin-bottom: 1.7vw;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
 }
 
 .heroForm :global .form-control {
-  padding: 1.1vw;
-  margin-bottom: 1.7vw;
+  padding: 1.1vw 1.1vw 1.1vw 45px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.auditedBy {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.trustSafety {
+  margin-bottom: 15px;
+}
+
+.auditLogos {
+  margin-bottom: 20px;
 }
 
 .marquee {
@@ -96,6 +130,13 @@
   .heroForm {
     margin-top: 160px;
     max-width: 475px;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  .heroForm {
+    width: 88%;
+    margin-left: auto;
     margin-right: auto;
   }
 }

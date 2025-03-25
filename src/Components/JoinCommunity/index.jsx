@@ -66,11 +66,11 @@ export const JoinCommunity = ({ size, className }) => {
   ]
   return (
     <div className={`${styles.communityWrapper} ${className || ''}`}>
-      <p className="size-24 mb-2 fw-bold">Join the community</p>
+      <p className="size-24 mb-2 fw-bold">Join the community <span className={styles.memberCount}>10k+</span></p>
       <div className={`${styles.socials} ${size == "small" ? styles.small : styles.big}`}>
         {list.map((item, index) => {
           return (
-            <a key={index} href={item.link}>
+            <a key={index} href={item.link} className={styles.socialButton}>
               {item.icon}
             </a>
           )
