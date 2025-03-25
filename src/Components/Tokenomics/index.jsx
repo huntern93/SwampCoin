@@ -45,7 +45,9 @@ export const Tokenomics = () => {
       <section id="tokenomics" className={styles.tokenomics}>
         <Container className="big-container">
           <h2 className="section-title pb-md-5 pb-3">TOKENOMICS</h2>
-          <div className={styles.tokenomicsInner}>
+          
+          {/* Desktop View */}
+          <div className={`${styles.tokenomicsInner} d-none d-lg-block`}>
             <div className="ps-md-5">
               <h4 className="size-36 fw-bold mb-0">Total Supply: 10,000,000,000 SWAMP</h4>
               <p className="size-24 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules. Every SWAMP token is accounted for from day one - no surprises, no hidden team wallets.</p>
@@ -76,7 +78,47 @@ export const Tokenomics = () => {
               <Col>
               </Col>
             </Row>
-            <img src={TokenomicsImg} className={`${styles.tokenomicsImg} d-none d-lg-block`} />
+            <img src={TokenomicsImg} className={styles.tokenomicsImg} />
+          </div>
+          
+          {/* Mobile View */}
+          <div className={`${styles.tokenomicsMobile} d-block d-lg-none`}>
+            <div>
+              <h4 className="size-24 fw-bold mb-2">Total Supply: 10,000,000,000 SWAMP</h4>
+              <p className="size-20 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules.</p>
+            </div>
+            
+            {/* Mobile Pie Chart */}
+            <div className={styles.pieChartContainer}>
+              <svg viewBox="0 0 200 200" className={styles.pieChart}>
+                {/* SVG Pie Chart Segments */}
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#FF3D3D" strokeWidth="80" strokeDasharray="201.1 301.6" strokeDashoffset="0" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#A5FF27" strokeWidth="80" strokeDasharray="100.5 402.1" strokeDashoffset="-201.1" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#096AA5" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-301.6" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#26BCFF" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-351.9" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#615349" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-402.1" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#505D6B" strokeWidth="80" strokeDasharray="25.1 477.5" strokeDashoffset="-452.4" transform="rotate(-90 100 100)" />
+                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#FCCC00" strokeWidth="80" strokeDasharray="25.1 477.5" strokeDashoffset="-477.5" transform="rotate(-90 100 100)" />
+              </svg>
+            </div>
+            
+            <div className={styles.mobileAllocations}>
+              {TokenomicsData.map((item, index) => {
+                return (
+                  <div key={index} className={styles.mobileAllocationItem}>
+                    <div className={styles.mobileAllocationHeader}>
+                      <Icon color={item.iconColor} />
+                      <h4 className="size-18 fw-bold mb-0">{item.title}</h4>
+                    </div>
+                    <p className="size-16 fw-medium mb-0 ps-5">{item.text}</p>
+                  </div>
+                )
+              })}
+            </div>
+            
+            <div className={styles.price}>
+              <p className="size-18 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potential: 30x</p>
+            </div>
           </div>
         </Container>
       </section>
