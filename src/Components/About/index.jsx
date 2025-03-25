@@ -1,4 +1,4 @@
-// Updated About/index.jsx with mobile centering
+// Updated About/index.jsx with correct community text placement
 import { Col, Container, Row } from "react-bootstrap"
 import AboutImg1 from "./../../assets/images/shrek-swamp-hand.png";
 import AboutImg2 from "./../../assets/images/stayaway.png";
@@ -25,9 +25,7 @@ export const About = () => {
                     </svg>
                   </a>
                 </div>
-                <div className={styles.communityContainer}>
-                  <JoinCommunity size="small" />
-                </div>
+                <JoinCommunity size="small" className={styles.joinCommunity} />
               </Col>
             </Row>
             <img src={AboutImg2} className={styles.aboutImg2} alt="Stay away sign" />

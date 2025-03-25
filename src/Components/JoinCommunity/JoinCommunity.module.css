@@ -1,6 +1,7 @@
 .socials {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
@@ -14,10 +15,21 @@
   border: 2px solid #000000;
   box-shadow: -1px 3px 0px #000000;
   border-radius: 12px;
+  transition: 0.3s all;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  box-shadow: -1px 5px 0px #000000;
+}
+
+/* This wrapper class will help with mobile centering */
+.communityWrapper {
+  display: block;
+  width: 100%;
 }
 
 @media screen and (min-width: 767px) {
-
   .big.socials a {
     width: 55px;
     height: 55px;
@@ -26,5 +38,19 @@
   .big.socials a svg {
     width: 34px;
     height: 34px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .communityWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .socials {
+    justify-content: center;
   }
 }

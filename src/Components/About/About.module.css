@@ -1,4 +1,3 @@
-/* Updated About.module.css with mobile centering */
 .aboutInner {
   background: #EFF2F0 url('../../assets/images/about-bg.jpg') no-repeat center;
   background-size: cover;
@@ -48,9 +47,14 @@
   background-color: #ff2424;
 }
 
-.btnContainer, .communityContainer {
+.btnContainer {
   display: flex;
   justify-content: flex-start;
+}
+
+.aboutCommunity {
+  /* Add specific styles for the community section in the About component */
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 991px) {
@@ -64,7 +68,7 @@
     text-align: center;
   }
   
-  .btnContainer, .communityContainer {
+  .btnContainer {
     justify-content: center;
   }
   
@@ -84,8 +88,9 @@
   }
 
   .buyNow {
-    padding: 5px 10px;
-    width: 150px;
+    padding: 10px 15px;
+    width: 200px; /* Wider button on mobile */
+    margin: 0 auto;
   }
 }
 
@@ -93,5 +98,9 @@
   .aboutInner {
     padding: 15px;
     border-width: 5px;
+  }
+  
+  .buyNow {
+    width: 220px; /* Even wider button on very small screens */
   }
 }
