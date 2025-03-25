@@ -47,6 +47,14 @@ export const Header = () => {
       <header id="home" className="text-white text-center">
         <Container className="big-container">
           <nav className={styles.headerNav}>
+            {/* Added Logo */}
+            <div className={styles.logoContainer}>
+              <a href="#" className={styles.logoLink}>
+                <span className={styles.logoText}>SWAMP</span>
+                <span className={styles.logoIcon}>🐸</span>
+              </a>
+            </div>
+            
             <div className={`size-20 ${styles.links} gap-xxl-4 gap-3 ${showMenu ? styles.show: ""} `}>
               {links.map((link, index) => {
                 return (
