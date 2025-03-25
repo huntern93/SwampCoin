@@ -1,11 +1,13 @@
 import { Col, Container, Row, OverlayTrigger, Tooltip } from "react-bootstrap"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import styles from "./Tokenomics.module.css"
 import TokenomicsImg from "../../assets/images/tokenomics.png"
+import ShrekFace from "../../assets/images/shrek-face.png" // Add this image to your assets
 
 export const Tokenomics = () => {
   // State for tracking active segment
   const [activeSegment, setActiveSegment] = useState(null);
+  const [animationComplete, setAnimationComplete] = useState(false);
   
   // Refs for allocation items to scroll to
   const allocationRefs = useRef([]);
@@ -17,7 +19,8 @@ export const Tokenomics = () => {
       text: "Get in early before the swamp fills up! Initial price is 25x less than launch price",
       percentage: 40,
       dasharray: "201.1 301.6",
-      dashoffset: "0"
+      dashoffset: "0",
+      tokens: 4000000000 // 4 billion
     },
     {
       iconColor: "#A5FF27",
@@ -25,7 +28,8 @@ export const Tokenomics = () => {
       text: "Earn passive rewards for 2 years just by holding. Bonus for longer terms. Up to 110% APY",
       percentage: 20,
       dasharray: "100.5 402.1",
-      dashoffset: "-201.1"
+      dashoffset: "-201.1",
+      tokens: 2000000000 // 2 billion
     },
     {
       iconColor: "#096AA5",
@@ -33,7 +37,8 @@ export const Tokenomics = () => {
       text: "Powering our exclusive AI trading bot for holders. Vested over 10 months. ",
       percentage: 10,
       dasharray: "50.3 452.4",
-      dashoffset: "-301.6"
+      dashoffset: "-301.6",
+      tokens: 1000000000 // 1 billion
     },
     {
       iconColor: "#26BCFF",
@@ -41,7 +46,8 @@ export const Tokenomics = () => {
       text: "Monthly prizes for the top 10 gamers & top 10 wallets.",
       percentage: 10,
       dasharray: "50.3 452.4",
-      dashoffset: "-351.9"
+      dashoffset: "-351.9",
+      tokens: 1000000000 // 1 billion
     },
     {
       iconColor: "#615349",
@@ -49,7 +55,8 @@ export const Tokenomics = () => {
       text: "Locked & loaded for stable trading. Vested over 10 months.",
       percentage: 10,
       dasharray: "50.3 452.4",
-      dashoffset: "-402.1"
+      dashoffset: "-402.1",
+      tokens: 1000000000 // 1 billion
     },
     {
       iconColor: "#505D6B",
@@ -57,7 +64,8 @@ export const Tokenomics = () => {
       text: "Fueling the hype & global reach. Vested over 10 months.",
       percentage: 5,
       dasharray: "25.1 477.5",
-      dashoffset: "-452.4"
+      dashoffset: "-452.4",
+      tokens: 500000000 // 500 million
     },
     {
       iconColor: "#FCCC00",
@@ -65,9 +73,24 @@ export const Tokenomics = () => {
       text: "Supporting giveaways, partnerships, & ecosystem growth.",
       percentage: 5,
       dasharray: "25.1 477.5",
-      dashoffset: "-477.5"
+      dashoffset: "-477.5",
+      tokens: 500000000 // 500 million
     },
   ]
+  
+  // Format large numbers with commas
+  const formatNumber = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+  
+  // Start animation after component mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationComplete(true);
+    }, 2000); // Match this with the CSS animation duration
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   // Handle segment click to scroll to corresponding allocation
   const handleSegmentClick = (index) => {
@@ -134,10 +157,63 @@ export const Tokenomics = () => {
               <p className="size-20 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules.</p>
             </div>
             
-            {/* Mobile Pie Chart */}
+            {/* NEW Animated Pie Chart with Shrek Image */}
+            <div className={styles.animatedPieContainer}>
+              <div className={styles.animatedPie}>
+                {TokenomicsData.map((segment, index) => (
+                  <OverlayTrigger
+                    key={index}
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-${index}`}>
+                        <strong>{segment.title}</strong><br />
+                        {formatNumber(segment.tokens)} SWAMP
+                      </Tooltip>
+                    }
+                  >
+                    <div
+                      className={`${styles.pieSegmentNew} ${animationComplete ? styles.animate : ''} ${activeSegment === index ? styles.active : ''}`}
+                      style={{
+                        '--start-angle': `${index === 0 ? 0 : TokenomicsData.slice(0, index).reduce((sum, item) => sum + item.percentage, 0) * 3.6}deg`,
+                        '--end-angle': `${TokenomicsData.slice(0, index + 1).reduce((sum, item) => sum + item.percentage, 0) * 3.6}deg`,
+                        '--segment-color': segment.iconColor,
+                        '--animation-delay': `${index * 0.2}s`
+                      }}
+                      onMouseEnter={() => setActiveSegment(index)}
+                      onMouseLeave={() => setActiveSegment(null)}
+                      onClick={() => handleSegmentClick(index)}
+                    ></div>
+                  </OverlayTrigger>
+                ))}
+                <div className={styles.centerImageContainer}>
+                  <img src={ShrekFace} alt="Shrek" className={styles.centerImage} />
+                </div>
+              </div>
+            </div>
+            
+            {/* Token Allocation List */}
+            <div className={styles.tokenAllocationContainer}>
+              {TokenomicsData.map((segment, index) => (
+                <div 
+                  key={index} 
+                  className={`${styles.allocationItem} ${activeSegment === index ? styles.activeAllocation : ''}`}
+                  ref={el => allocationRefs.current[index] = el}
+                  onMouseEnter={() => setActiveSegment(index)}
+                  onMouseLeave={() => setActiveSegment(null)}
+                >
+                  <div className={styles.colorIndicator} style={{ backgroundColor: segment.iconColor }}></div>
+                  <div className={styles.allocationDetails}>
+                    <div className={styles.allocationTitle}>{segment.title}</div>
+                    <div className={styles.tokenAmount}>{formatNumber(segment.tokens)} SWAMP</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* PREVIOUS Mobile Pie Chart - Commented out but kept for reference */}
+            {/* 
             <div className={styles.pieChartContainer}>
               <svg viewBox="0 0 200 200" className={styles.pieChart}>
-                {/* SVG Pie Chart Segments with Interactivity */}
                 {TokenomicsData.map((item, index) => (
                   <OverlayTrigger
                     key={index}
@@ -167,7 +243,6 @@ export const Tokenomics = () => {
                   </OverlayTrigger>
                 ))}
                 
-                {/* Center circle for aesthetics */}
                 <circle cx="100" cy="100" r="30" fill="#EFF2F0" stroke="#000" strokeWidth="1" />
               </svg>
             </div>
@@ -189,6 +264,7 @@ export const Tokenomics = () => {
                 )
               })}
             </div>
+            */}
             
             <div className={styles.price}>
               <p className="size-18 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potential: 30x</p>
