@@ -1,45 +1,91 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Container, Row, OverlayTrigger, Tooltip } from "react-bootstrap"
+import { useRef, useState } from "react"
 import styles from "./Tokenomics.module.css"
 import TokenomicsImg from "../../assets/images/tokenomics.png"
 
 export const Tokenomics = () => {
+  // State for tracking active segment
+  const [activeSegment, setActiveSegment] = useState(null);
+  
+  // Refs for allocation items to scroll to
+  const allocationRefs = useRef([]);
+  
   const TokenomicsData = [
     {
       iconColor: "#FF3D3D",
       title: "PRE SALE (40%)",
       text: "Get in early before the swamp fills up! Initial price is 25x less than launch price",
+      percentage: 40,
+      dasharray: "201.1 301.6",
+      dashoffset: "0"
     },
     {
       iconColor: "#A5FF27",
       title: "STAKING REWARDS (20%)",
       text: "Earn passive rewards for 2 years just by holding. Bonus for longer terms. Up to 110% APY",
+      percentage: 20,
+      dasharray: "100.5 402.1",
+      dashoffset: "-201.1"
     },
     {
       iconColor: "#096AA5",
       title: "AI BOT (10%)",
       text: "Powering our exclusive AI trading bot for holders. Vested over 10 months. ",
+      percentage: 10,
+      dasharray: "50.3 452.4",
+      dashoffset: "-301.6"
     },
     {
       iconColor: "#26BCFF",
       title: "GAME REWARDS (10%)",
       text: "Monthly prizes for the top 10 gamers & top 10 wallets.",
+      percentage: 10,
+      dasharray: "50.3 452.4",
+      dashoffset: "-351.9"
     },
     {
       iconColor: "#615349",
       title: "LIQUIDITY (10%)",
       text: "Locked & loaded for stable trading. Vested over 10 months.",
+      percentage: 10,
+      dasharray: "50.3 452.4",
+      dashoffset: "-402.1"
     },
     {
       iconColor: "#505D6B",
       title: "MARKETING (5%)",
       text: "Fueling the hype & global reach. Vested over 10 months.",
+      percentage: 5,
+      dasharray: "25.1 477.5",
+      dashoffset: "-452.4"
     },
     {
       iconColor: "#FCCC00",
       title: "COMMUNITY (5%)",
       text: "Supporting giveaways, partnerships, & ecosystem growth.",
+      percentage: 5,
+      dasharray: "25.1 477.5",
+      dashoffset: "-477.5"
     },
   ]
+  
+  // Handle segment click to scroll to corresponding allocation
+  const handleSegmentClick = (index) => {
+    setActiveSegment(index);
+    if (allocationRefs.current[index]) {
+      allocationRefs.current[index].scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+      
+      // Highlight the item temporarily
+      allocationRefs.current[index].classList.add(styles.highlighted);
+      setTimeout(() => {
+        allocationRefs.current[index].classList.remove(styles.highlighted);
+      }, 1500);
+    }
+  };
+  
   return (
     <>
       <section id="tokenomics" className={styles.tokenomics}>
@@ -70,7 +116,7 @@ export const Tokenomics = () => {
                   })}
                   <Col>
                     <div className={styles.price}>
-                      <p className="size-20 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potiential: 30x</p>
+                      <p className="size-20 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potential: 30x</p>
                     </div>
                   </Col>
                 </Row>
@@ -78,7 +124,7 @@ export const Tokenomics = () => {
               <Col>
               </Col>
             </Row>
-            <img src={TokenomicsImg} className={styles.tokenomicsImg} />
+            <img src={TokenomicsImg} className={styles.tokenomicsImg} alt="Tokenomics" />
           </div>
           
           {/* Mobile View */}
@@ -91,21 +137,49 @@ export const Tokenomics = () => {
             {/* Mobile Pie Chart */}
             <div className={styles.pieChartContainer}>
               <svg viewBox="0 0 200 200" className={styles.pieChart}>
-                {/* SVG Pie Chart Segments */}
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#FF3D3D" strokeWidth="80" strokeDasharray="201.1 301.6" strokeDashoffset="0" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#A5FF27" strokeWidth="80" strokeDasharray="100.5 402.1" strokeDashoffset="-201.1" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#096AA5" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-301.6" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#26BCFF" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-351.9" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#615349" strokeWidth="80" strokeDasharray="50.3 452.4" strokeDashoffset="-402.1" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#505D6B" strokeWidth="80" strokeDasharray="25.1 477.5" strokeDashoffset="-452.4" transform="rotate(-90 100 100)" />
-                <circle cx="100" cy="100" r="80" fill="transparent" stroke="#FCCC00" strokeWidth="80" strokeDasharray="25.1 477.5" strokeDashoffset="-477.5" transform="rotate(-90 100 100)" />
+                {/* SVG Pie Chart Segments with Interactivity */}
+                {TokenomicsData.map((item, index) => (
+                  <OverlayTrigger
+                    key={index}
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-${index}`}>
+                        <strong>{item.title}</strong><br />
+                        {item.percentage}% of total supply
+                      </Tooltip>
+                    }
+                  >
+                    <circle 
+                      cx="100" 
+                      cy="100" 
+                      r="80" 
+                      fill="transparent" 
+                      stroke={item.iconColor} 
+                      strokeWidth="80" 
+                      strokeDasharray={item.dasharray} 
+                      strokeDashoffset={item.dashoffset} 
+                      transform="rotate(-90 100 100)"
+                      className={`${styles.pieSegment} ${activeSegment === index ? styles.activeSegment : ''}`}
+                      onClick={() => handleSegmentClick(index)}
+                      onMouseEnter={() => setActiveSegment(index)}
+                      onMouseLeave={() => setActiveSegment(null)}
+                    />
+                  </OverlayTrigger>
+                ))}
+                
+                {/* Center circle for aesthetics */}
+                <circle cx="100" cy="100" r="30" fill="#EFF2F0" stroke="#000" strokeWidth="1" />
               </svg>
             </div>
             
             <div className={styles.mobileAllocations}>
               {TokenomicsData.map((item, index) => {
                 return (
-                  <div key={index} className={styles.mobileAllocationItem}>
+                  <div 
+                    key={index} 
+                    className={`${styles.mobileAllocationItem} ${activeSegment === index ? styles.activeItem : ''}`}
+                    ref={el => allocationRefs.current[index] = el}
+                  >
                     <div className={styles.mobileAllocationHeader}>
                       <Icon color={item.iconColor} />
                       <h4 className="size-18 fw-bold mb-0">{item.title}</h4>
