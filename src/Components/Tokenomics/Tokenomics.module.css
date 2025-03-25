@@ -1,0 +1,48 @@
+.tokenomicsInner {
+  background-color: #EFF2F0;
+  padding: 30px;
+  border: 10px solid #000;
+  border-radius: 34px;
+  position: relative;
+}
+
+.tokenomicsImg {
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+  max-width: 50%;
+  max-height: 80%;
+}
+
+.tokenomics {
+  margin-bottom: 30px;
+}
+
+.tokenomics h2 {
+  transform: rotate(-3.08deg);
+}
+
+.price {
+  background: #FF3D3D;
+  border: 2px solid #000000;
+  box-shadow: -1px 3px 0px #000000;
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px;
+}
+
+@media screen and (max-width: 490px) {
+  .tokenomics h2 {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .tokenomicsInner {
+    padding: 20px;
+  }
+  .tokenomicsInner svg {
+    width: 30px;
+  }
+}
+

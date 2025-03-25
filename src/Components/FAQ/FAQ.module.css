@@ -1,0 +1,17 @@
+.FAQs {
+  background-color: #EFF2F0;
+  border-radius: 25px;
+  border: 10px solid #000;
+  margin-bottom: 5.7vw;
+  padding: 3vw;
+}
+.FAQs :global .accordion-item {
+  padding: 1vw;
+  border-color: #000;
+  color: #6F6C90;
+}
+
+.FAQs :global .accordion-button {
+  background-color: transparent;
+  box-shadow: none;
+}

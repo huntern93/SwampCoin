@@ -1,0 +1,30 @@
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: #FCCC00;
+  border: 2px solid #000000;
+  box-shadow: -1px 3px 0px #000000;
+  border-radius: 12px;
+}
+
+@media screen and (min-width: 767px) {
+
+  .big.socials a {
+    width: 55px;
+    height: 55px;
+  }
+
+  .big.socials a svg {
+    width: 34px;
+    height: 34px;
+  }
+}

@@ -1,0 +1,27 @@
+.hero-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
+    url('./assets/images/hero.jpg') no-repeat;
+  background-size: cover;
+}
+
+.mid-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
+    url('./assets/images/mid-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
+.bottom-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
+    url('./assets/images/bottom-bg.jpg') no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 490px) {
+  .hero-bg {
+    background: url('./assets/images/hero-mob.jpg') no-repeat;
+    background-size: contain;
+  }
+}

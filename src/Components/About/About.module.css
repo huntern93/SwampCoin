@@ -1,0 +1,88 @@
+.aboutInner {
+  background: #EFF2F0 url('../../assets/images/about-bg.jpg') no-repeat center;
+  background-size: cover;
+  padding: 30px;
+  border: 10px solid #000;
+  border-radius: 34px;
+  position: relative;
+}
+
+.about {
+  margin-bottom: 7.9vw;
+}
+
+.about h2 {
+  font-size: 90px;
+}
+
+.aboutImg1 {
+  position: absolute;
+  left: 2%;
+  top: 2%;
+  max-width: 29%;
+}
+
+.aboutImg2 {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  max-width: 20%;
+}
+
+.buyNow {
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 13px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  width: 293px;
+  background: #FF3D3D;
+  border: 2px solid #000000;
+  box-shadow: -1px 3px 0px #000000;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 1490px) {
+  .about h2 {
+    font-size: 70px;
+  }
+}
+
+@media screen and (max-width: 1490px) {
+  .about h2 {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .about h2 {
+    font-size: 45px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .aboutImg1 {
+    position: static;
+    max-width: 40%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .aboutImg2 {
+    display: none;
+  }
+
+  .aboutInner {
+    padding: 20px;
+  }
+
+  .buyNow {
+    padding: 5px 10px;
+    width: 150px;
+  }
+}

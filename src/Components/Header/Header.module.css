@@ -1,0 +1,91 @@
+header {
+  padding: 3vw 0 5vw;
+}
+
+.headerNav {
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-shadow: -1px 6px 0px #000000;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vw 1.6vw;
+}
+
+.btn {
+  background-color: #615349;
+  border: 2px solid #000000;
+  box-shadow: -1px 3px 0px #000000;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5vw 1vw;
+  display: inline-block;
+  transition: 0.3s all;
+}
+
+.joinArmy {
+  background-color: #FF3D3D;
+}
+
+.buyNow {
+  background-color: #FFCF00;
+  color: #000;
+}
+
+.btn:hover {
+  background-color: whitesmoke;
+  color: #000;
+}
+
+.links {
+  display: flex;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s all;
+}
+
+.links a:hover {
+  text-decoration: none;
+  color: #FF3D3D;
+}
+
+@media screen and (max-width: 490px) {
+  .headerNav {
+    box-shadow: -1px 2px 0px #000000;
+    padding: 10px 10px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  header {
+    padding-top: 0;
+  }
+
+  .links {
+    position: fixed;
+    background: #fff;
+    top: 66px;
+    left: 12px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100vw);
+    z-index: 1;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.3s all;
+  }
+
+  .show {
+    transform: translateX(0);
+  }
+}

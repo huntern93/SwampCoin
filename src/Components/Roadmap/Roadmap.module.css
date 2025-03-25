@@ -1,0 +1,65 @@
+.roadmapCard {
+  padding: 2.5vw;
+  background-color: #EFF2F0;
+  border: 10px solid #000;
+  border-radius: 34px;
+  margin-top: 4vw;
+}
+
+.roadmapCard h3 {
+  font-size: 48px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.roadmap {
+  margin-bottom: 6.7vw;
+  margin-top: 50px;
+}
+
+.roadmapRod {
+  position: relative;
+}
+
+.roadmapRod:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 1px;
+  height: calc(100% + 80px);
+  border: 10px solid #000;
+}
+
+.roadmapRod:after {
+  content: "";
+  position: absolute;
+  bottom: -95px;
+  right: -75px;
+  width: 150px;
+  height: 75px;
+  background-size: 100% 100%;
+  background-image: url('data:image/svg+xml,<svg width="148" height="84" viewBox="0 0 148 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M66.9287 81.0712C70.8339 84.9764 77.1656 84.9764 81.0708 81.0712L144.71 17.4316C148.616 13.5263 148.616 7.19466 144.71 3.28942C140.805 -0.615821 134.474 -0.615821 130.568 3.28942L73.9998 59.858L17.4312 3.28942C13.526 -0.615821 7.19432 -0.615821 3.28908 3.28942C-0.616165 7.19466 -0.616165 13.5263 3.28908 17.4316L66.9287 81.0712ZM63.9998 74V74.0001H83.9998V74H63.9998Z" fill="black"/></svg>');
+}
+
+@media screen and (max-width: 1690px) {
+  .roadmapCard h3 {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 1490px) {
+  .roadmapCard h3 {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .roadmapCard h3 {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .roadmapRod:after,
+  .roadmapRod:before {
+    content: none;
+  }
+}

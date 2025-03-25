@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  background-color: #9CB763;
+  font-family: "Kanit", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+}
+
+.size-36 {
+  font-size: 36px;
+}
+
+.size-30 {
+  font-size: 30px;
+}
+
+.size-24 {
+  font-size: 24px;
+}
+
+.size-20 {
+  font-size: 20px;
+}
+
+.section-title {
+  font-weight: 900;
+  font-size: 128px;
+  color: #FCCC00;
+  text-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 0.3vw #fff;
+}
+
+.big-container {
+  max-width: 1620px;
+}
+
+.mid-container {
+  max-width: 1520px;
+}
+
+
+@media screen and (max-width: 1690px) {
+  .size-36 {
+    font-size: 30px;
+  }
+  
+  .size-30 {
+    font-size: 26px;
+  }
+  
+  .size-24 {
+    font-size: 20px;
+  }
+  
+  .size-20 {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 100px;
+  }
+}
+
+
+@media screen and (max-width: 1490px) {
+  .size-36 {
+    font-size: 26px;
+  }
+  
+  .size-30 {
+    font-size: 24px;
+  }
+  
+  .size-24 {
+    font-size: 18px;
+  }
+  
+  .size-20 {
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .size-36 {
+    font-size: 22px;
+  }
+  
+  .size-30 {
+    font-size: 20px;
+  }
+  
+  .size-24 {
+    font-size: 16px;
+  }
+  
+  .size-20 {
+    font-size: 14px;
+  }
+  
+  .section-title {
+    font-size: 60px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .size-36 {
+    font-size: 18px;
+  }
+  
+  .size-30 {
+    font-size: 16px;
+  }
+  
+  .section-title {
+    font-size: 45px;
+  }
+}
