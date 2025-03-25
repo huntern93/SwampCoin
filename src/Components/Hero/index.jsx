@@ -25,7 +25,7 @@ export const Hero = () => {
                   <path d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM18 4L10 9L2 4V2L10 7L18 2V4Z" fill="#999999"/>
                 </svg>
               </span>
-              <Form.Control size="lg" type="email" placeholder="Enter your email for early access" />
+              <Form.Control size="lg" type="email" placeholder="Enter your email" />
             </div>
             
             <button onClick={topRight} className={`btn size-36 fw-bold ${styles.heroBtn}`}>JOIN THE SWAMP</button>

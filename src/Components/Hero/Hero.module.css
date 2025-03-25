@@ -139,15 +139,39 @@
     margin-left: auto;
     margin-right: auto;
   }
+  
+  .inputWrapper {
+    margin-bottom: 15px;
+  }
+  
+  .heroForm :global .form-control {
+    padding: 10px 10px 10px 40px;
+  }
+  
+  .inputIcon {
+    left: 12px;
+  }
 }
 @media screen and (max-width: 490px) {
   .heroForm {
     margin-top: 100px;
+    padding: 20px 15px;
   }
   .heroForm h2 {
     font-size: 45px;
   }
   .heroForm h3 {
     font-size: 35px;
+  }
+  .heroForm :global .form-control {
+    font-size: 14px;
+    height: auto;
+    padding: 12px 10px 12px 38px;
+  }
+  .auditedBy {
+    font-size: 16px;
+  }
+  .trustSafety {
+    font-size: 18px;
   }
 }
