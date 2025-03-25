@@ -2,12 +2,10 @@ import { Col, Container, Row, OverlayTrigger, Tooltip } from "react-bootstrap"
 import { useRef, useState, useEffect } from "react"
 import styles from "./Tokenomics.module.css"
 import TokenomicsImg from "../../assets/images/tokenomics.png"
-import ShrekFace from "../../assets/images/shrek-face.png" // Add this image to your assets
 
 export const Tokenomics = () => {
   // State for tracking active segment
   const [activeSegment, setActiveSegment] = useState(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
   
   // Refs for allocation items to scroll to
   const allocationRefs = useRef([]);
@@ -83,15 +81,6 @@ export const Tokenomics = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   
-  // Start animation after component mounts
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationComplete(true);
-    }, 2000); // Match this with the CSS animation duration
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
   // Handle segment click to scroll to corresponding allocation
   const handleSegmentClick = (index) => {
     setActiveSegment(index);
@@ -157,32 +146,7 @@ export const Tokenomics = () => {
               <p className="size-20 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules.</p>
             </div>
             
-{/* Shrek and Token Allocation Display */}
-<div className={styles.animatedPieContainer}>
-  <div className={styles.shrekImage}>
-    <img src={ShrekFace} alt="Shrek" />
-  </div>
-  <div className={styles.tokenAmounts}>
-    {TokenomicsData.map((segment, index) => (
-      <div 
-        key={index} 
-        className={`${styles.tokenAmountItem} ${activeSegment === index ? styles.activeAmount : ''}`}
-        ref={el => allocationRefs.current[index] = el}
-        onMouseEnter={() => setActiveSegment(index)}
-        onMouseLeave={() => setActiveSegment(null)}
-      >
-        <div className={styles.colorBox} style={{ backgroundColor: segment.iconColor }}></div>
-        <div className={styles.tokenAmountDetails}>
-          <div className={styles.tokenTitle}>{segment.title}</div>
-          <div className={styles.tokenValue}>{formatNumber(segment.tokens)} SWAMP</div>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-            
-            {/* PREVIOUS Mobile Pie Chart - Commented out but kept for reference */}
-            {/* 
+            {/* SVG Pie Chart with Token Allocation Display */}
             <div className={styles.pieChartContainer}>
               <svg viewBox="0 0 200 200" className={styles.pieChart}>
                 {TokenomicsData.map((item, index) => (
@@ -192,7 +156,7 @@ export const Tokenomics = () => {
                     overlay={
                       <Tooltip id={`tooltip-${index}`}>
                         <strong>{item.title}</strong><br />
-                        {item.percentage}% of total supply
+                        {formatNumber(item.tokens)} SWAMP
                       </Tooltip>
                     }
                   >
@@ -213,29 +177,31 @@ export const Tokenomics = () => {
                     />
                   </OverlayTrigger>
                 ))}
-                
-                <circle cx="100" cy="100" r="30" fill="#EFF2F0" stroke="#000" strokeWidth="1" />
+                {/* Border for the pie chart */}
+                <circle cx="100" cy="100" r="81" fill="transparent" stroke="#000" strokeWidth="2" />
               </svg>
             </div>
-            
-            <div className={styles.mobileAllocations}>
-              {TokenomicsData.map((item, index) => {
-                return (
-                  <div 
-                    key={index} 
-                    className={`${styles.mobileAllocationItem} ${activeSegment === index ? styles.activeItem : ''}`}
-                    ref={el => allocationRefs.current[index] = el}
-                  >
-                    <div className={styles.mobileAllocationHeader}>
-                      <Icon color={item.iconColor} />
-                      <h4 className="size-18 fw-bold mb-0">{item.title}</h4>
-                    </div>
-                    <p className="size-16 fw-medium mb-0 ps-5">{item.text}</p>
+
+            {/* Token Allocation Table */}
+            <div className={styles.tokenAllocationTable}>
+              {TokenomicsData.map((segment, index) => (
+                <div 
+                  key={index} 
+                  className={`${styles.allocationRow} ${activeSegment === index ? styles.activeRow : ''}`}
+                  ref={el => allocationRefs.current[index] = el}
+                  onMouseEnter={() => setActiveSegment(index)}
+                  onMouseLeave={() => setActiveSegment(null)}
+                  onClick={() => setActiveSegment(activeSegment === index ? null : index)}
+                >
+                  <div className={styles.colorIndicator} style={{ backgroundColor: segment.iconColor }}></div>
+                  <div className={styles.allocationContent}>
+                    <div className={styles.allocationTitle}>{segment.title}</div>
+                    <div className={styles.allocationTokens}>{formatNumber(segment.tokens)} SWAMP</div>
+                    <div className={styles.allocationDescription}>{segment.text}</div>
                   </div>
-                )
-              })}
+                </div>
+              ))}
             </div>
-            */}
             
             <div className={styles.price}>
               <p className="size-18 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potential: 30x</p>
@@ -255,3 +221,5 @@ const Icon = ({ color = "#ff#D#D" }) => {
     </svg>
   )
 }
+
+export default Tokenomics;

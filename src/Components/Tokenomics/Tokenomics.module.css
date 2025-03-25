@@ -40,10 +40,10 @@
   border-radius: 20px;
 }
 
-/* Original Pie Chart Styles - Kept for reference */
+/* Pie Chart Styles */
 .pieChartContainer {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   margin: 20px auto;
   position: relative;
 }
@@ -59,136 +59,79 @@
 }
 
 .pieSegment:hover {
-  stroke-width: 90px;  /* Expand on hover */
+  stroke-width: 85px;  /* Shrink slightly on hover */
   filter: brightness(1.1);  /* Brighten on hover */
 }
 
 .activeSegment {
-  stroke-width: 90px;
+  stroke-width: 85px;
   filter: brightness(1.2);
-  transform-origin: 100px 100px;
   animation: pulse 1.5s infinite alternate;
 }
 
-.mobileAllocations {
+/* Token Allocation Table Styles */
+.tokenAllocationTable {
   margin-top: 20px;
-  border-top: 2px dashed rgba(0, 0, 0, 0.1);
-  padding-top: 15px;
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 12px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.mobileAllocationItem {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+.allocationRow {
+  display: flex;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-.mobileAllocationHeader {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 5px;
-}
-
-.mobileAllocationItem:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-}
-
-.activeItem {
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  padding: 10px;
-  margin-left: -10px;
-  margin-right: -10px;
+.allocationRow:last-child {
   border-bottom: none;
 }
 
-.highlighted {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transform: scale(1.02);
-  border-radius: 10px;
-  padding: 10px;
-  margin-left: -10px;
-  margin-right: -10px;
-  border-bottom: none;
-  transition: all 0.3s ease;
-}
-
-/* FIXED Shrek and Allocation Display */
-.animatedPieContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-}
-
-.shrekImage {
-  width: 180px;
-  height: 180px;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid #000;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.shrekImage img {
-  width: 95%;
-  height: 95%;
-  object-fit: contain;
-}
-
-.tokenAmounts {
-  width: 100%;
-  max-width: 300px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
-  padding: 12px;
-  border: 2px solid #000;
-}
-
-.tokenAmountItem {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  padding: 5px;
-  transition: all 0.3s ease;
-}
-
-.colorBox {
+.colorIndicator {
   width: 15px;
   height: 15px;
   border-radius: 3px;
   margin-right: 10px;
   border: 1px solid #000;
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
-.tokenAmountDetails {
+.allocationContent {
   flex: 1;
 }
 
-.tokenTitle {
+.allocationTitle {
   font-weight: bold;
+  font-size: 16px;
+}
+
+.allocationTokens {
   font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
 }
 
-.tokenValue {
+.allocationDescription {
   font-size: 13px;
+  line-height: 1.3;
+  margin-top: 4px;
 }
 
-.activeAmount {
-  background-color: rgba(255, 255, 255, 0.9);
-  transform: translateX(5px);
-  border-radius: 6px;
+.activeRow {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0 -8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Preserved animation keyframes */
+/* Animation keyframes */
 @keyframes pulse {
   0% {
     filter: brightness(1);
@@ -198,30 +141,16 @@
   }
 }
 
-/* Removing unused animation */
-/* @keyframes fillIn {
-  0% {
-    clip-path: polygon(50% 50%, 50% 0, 50% 0);
-  }
-  100% {
-    clip-path: polygon(
-      50% 50%,
-      50% 0,
-      calc(50% + 50% * cos(var(--start-angle))) calc(50% - 50% * sin(var(--start-angle))),
-      calc(50% + 50% * cos(var(--end-angle))) calc(50% - 50% * sin(var(--end-angle)))
-    );
-  }
-} */
-
+/* Media queries */
 @media screen and (max-width: 767px) {
   .tokenomicsMobile svg.flex-shrink-0 {
     width: 35px;
     height: 38px;
   }
   
-  .shrekImage {
-    width: 160px;
-    height: 160px;
+  .pieChartContainer {
+    width: 200px;
+    height: 200px;
   }
 }
 
@@ -235,17 +164,16 @@
     height: 180px;
   }
   
-  .shrekImage {
-    width: 140px;
-    height: 140px;
+  .allocationTitle {
+    font-size: 15px;
   }
   
-  .tokenTitle {
+  .allocationTokens {
     font-size: 13px;
   }
   
-  .tokenValue {
-    font-size: 12px;
+  .tokenAllocationTable {
+    padding: 10px;
   }
 }
 
@@ -268,22 +196,35 @@
   }
   
   .pieChartContainer {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     margin: 15px auto;
   }
   
-  .shrekImage {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 15px;
+  .allocationDescription {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .pieChartContainer {
+    width: 140px;
+    height: 140px;
   }
   
-  .tokenAmounts {
-    padding: 10px;
+  .allocationTitle {
+    font-size: 14px;
   }
   
-  .colorBox {
+  .allocationTokens {
+    font-size: 12px;
+  }
+  
+  .allocationDescription {
+    font-size: 11px;
+  }
+  
+  .colorIndicator {
     width: 12px;
     height: 12px;
   }
