@@ -3,6 +3,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 6px;
+  justify-content: center;
 }
 
 .socials a {
@@ -23,9 +24,12 @@
   box-shadow: -1px 5px 0px #000000;
 }
 
-/* This wrapper class will help with mobile centering */
+/* This wrapper class will help with mobile and desktop centering */
 .communityWrapper {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 100%;
 }
 
@@ -43,14 +47,6 @@
 
 @media screen and (max-width: 767px) {
   .communityWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     margin-top: 15px;
-  }
-  
-  .socials {
-    justify-content: center;
   }
 }

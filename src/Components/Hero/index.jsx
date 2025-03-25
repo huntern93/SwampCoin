@@ -20,14 +20,14 @@ export const Hero = () => {
             <p className="size-24 fw-medium">GET EXCLUSIVE ACCESS FIRST</p>
             <Form.Control size="lg" type="email" placeholder="Enter your email for early access" />
             <button onClick={topRight} className={`btn size-36 fw-bold ${styles.heroBtn}`}>JOIN THE SWAMP</button>
-                          <p className="size-24 fw-bold text-uppercase mt-2">AUDITED BY</p>
-              <p className="size-24 fw-bold text-uppercase">TRUST AND SAFETY AUDITS</p>
+            <p className="size-24 fw-bold text-uppercase mt-2">AUDITED BY</p>
+            <p className="size-24 fw-bold text-uppercase">TRUST AND SAFETY AUDITS</p>
             <div className="d-flex gap-4 justify-content-center align-items-center">
               <img src={SolidLogo} alt="SolidProof audit" className="w-25" />
               <img src={Coinsuit} alt="Coinsult audit" className="w-25" />
             </div>
             <div className="d-flex justify-content-center align-items-center flex-column mt-4">
-              <JoinCommunity size="big" />
+              <JoinCommunity size="big" className={styles.heroCommunity} />
             </div>
           </div>
         </Container>
