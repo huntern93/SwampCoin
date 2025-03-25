@@ -1,3 +1,4 @@
+/* Updated About.module.css with mobile centering */
 .aboutInner {
   background: #EFF2F0 url('../../assets/images/about-bg.jpg') no-repeat center;
   background-size: cover;
@@ -10,8 +11,6 @@
 .about {
   margin-bottom: 7.9vw;
 }
-
-/* Removed the h2 styling as we're now using the global section-title class */
 
 .aboutImg1 {
   position: absolute;
@@ -49,24 +48,31 @@
   background-color: #ff2424;
 }
 
-@media screen and (max-width: 1490px) {
-  /* Removed h2 styling - using global section-title now */
+.btnContainer, .communityContainer {
+  display: flex;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 991px) {
-  /* Removed h2 styling - using global section-title now */
-  
   .buyNow {
     width: 250px;
   }
 }
 
 @media screen and (max-width: 767px) {
+  .contentCol {
+    text-align: center;
+  }
+  
+  .btnContainer, .communityContainer {
+    justify-content: center;
+  }
+  
   .aboutImg1 {
     position: static;
     max-width: 40%;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 20px;
   }
 
   .aboutImg2 {
