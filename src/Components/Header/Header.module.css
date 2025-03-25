@@ -74,14 +74,8 @@ header {
   font-weight: 900;
   color: #9CB763;
   text-transform: uppercase;
-  margin-right: 5px;
   letter-spacing: 1px;
   text-shadow: 1px 1px 0px #000000;
-}
-
-.logoIcon {
-  font-size: 24px;
-  display: inline-block;
 }
 
 @media screen and (max-width: 490px) {
