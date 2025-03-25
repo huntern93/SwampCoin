@@ -157,58 +157,29 @@ export const Tokenomics = () => {
               <p className="size-20 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules.</p>
             </div>
             
-            {/* NEW Animated Pie Chart with Shrek Image */}
-            <div className={styles.animatedPieContainer}>
-              <div className={styles.animatedPie}>
-                {TokenomicsData.map((segment, index) => (
-                  <OverlayTrigger
-                    key={index}
-                    placement="top"
-                    overlay={
-                      <Tooltip id={`tooltip-${index}`}>
-                        <strong>{segment.title}</strong><br />
-                        {formatNumber(segment.tokens)} SWAMP
-                      </Tooltip>
-                    }
-                  >
-                    <div
-                      className={`${styles.pieSegmentNew} ${animationComplete ? styles.animate : ''} ${activeSegment === index ? styles.active : ''}`}
-                      style={{
-                        '--start-angle': `${index === 0 ? 0 : TokenomicsData.slice(0, index).reduce((sum, item) => sum + item.percentage, 0) * 3.6}deg`,
-                        '--end-angle': `${TokenomicsData.slice(0, index + 1).reduce((sum, item) => sum + item.percentage, 0) * 3.6}deg`,
-                        '--segment-color': segment.iconColor,
-                        '--animation-delay': `${index * 0.2}s`
-                      }}
-                      onMouseEnter={() => setActiveSegment(index)}
-                      onMouseLeave={() => setActiveSegment(null)}
-                      onClick={() => handleSegmentClick(index)}
-                    ></div>
-                  </OverlayTrigger>
-                ))}
-                <div className={styles.centerImageContainer}>
-                  <img src={ShrekFace} alt="Shrek" className={styles.centerImage} />
-                </div>
-              </div>
-            </div>
-            
-            {/* Token Allocation List */}
-            <div className={styles.tokenAllocationContainer}>
-              {TokenomicsData.map((segment, index) => (
-                <div 
-                  key={index} 
-                  className={`${styles.allocationItem} ${activeSegment === index ? styles.activeAllocation : ''}`}
-                  ref={el => allocationRefs.current[index] = el}
-                  onMouseEnter={() => setActiveSegment(index)}
-                  onMouseLeave={() => setActiveSegment(null)}
-                >
-                  <div className={styles.colorIndicator} style={{ backgroundColor: segment.iconColor }}></div>
-                  <div className={styles.allocationDetails}>
-                    <div className={styles.allocationTitle}>{segment.title}</div>
-                    <div className={styles.tokenAmount}>{formatNumber(segment.tokens)} SWAMP</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+{/* Shrek and Token Allocation Display */}
+<div className={styles.animatedPieContainer}>
+  <div className={styles.shrekImage}>
+    <img src={ShrekFace} alt="Shrek" />
+  </div>
+  <div className={styles.tokenAmounts}>
+    {TokenomicsData.map((segment, index) => (
+      <div 
+        key={index} 
+        className={`${styles.tokenAmountItem} ${activeSegment === index ? styles.activeAmount : ''}`}
+        ref={el => allocationRefs.current[index] = el}
+        onMouseEnter={() => setActiveSegment(index)}
+        onMouseLeave={() => setActiveSegment(null)}
+      >
+        <div className={styles.colorBox} style={{ backgroundColor: segment.iconColor }}></div>
+        <div className={styles.tokenAmountDetails}>
+          <div className={styles.tokenTitle}>{segment.title}</div>
+          <div className={styles.tokenValue}>{formatNumber(segment.tokens)} SWAMP</div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
             
             {/* PREVIOUS Mobile Pie Chart - Commented out but kept for reference */}
             {/* 
