@@ -3,6 +3,7 @@
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
     url('./assets/images/hero.jpg') no-repeat;
   background-size: cover;
+  z-index: 0 !important; /* Reduce priority */
 }
 
 .mid-bg {
@@ -17,6 +18,23 @@
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
+}
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden;
+}
+
+/* Adjust z-index for hero form */
+.hero .heroForm {
+  z-index: 1 !important;
+}
+
+/* Reset z-index when menu is open */
+body.menu-open .hero .heroForm,
+body.menu-open .hero > *, 
+body.menu-open .hero-bg > * {
+  z-index: auto !important;
 }
 
 @media screen and (max-width: 490px) {
