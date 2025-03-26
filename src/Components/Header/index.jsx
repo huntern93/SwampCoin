@@ -1,28 +1,11 @@
 import { Container } from "react-bootstrap"
 import styles from "./Header.module.css"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
-  const [isSticky, setIsSticky] = useState(false)
   
-  // Handle scroll event to set sticky header
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsSticky(true)
-      } else {
-        setIsSticky(false)
-      }
-    }
-    
-    window.addEventListener('scroll', handleScroll)
-    
-    // Clean up event listener
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  // Removed sticky header functionality and related useEffect
   
   const links = [
     {
@@ -65,7 +48,7 @@ export const Header = () => {
 
   return (
     <>
-      <header id="home" className={`text-white text-center ${isSticky ? styles.stickyHeader : ''}`}>
+      <header id="home" className="text-white text-center">
         <Container className="big-container">
           {/* Desktop Navigation */}
           <nav className={`${styles.headerNav} d-none d-lg-flex`}>
