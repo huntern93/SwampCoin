@@ -1,35 +1,30 @@
-import { ToastContainer } from 'react-toastify'
-import './App.css'
-import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
-
 function App() {
   return (
     <>
-      {/* Full-page background div that extends behind the header */}
-      <div className="full-background"></div>
-      
       <ToastContainer />
-      
-      {/* Header positioned outside of any section for proper z-index */}
       <Header />
       
-      {/* Content sections */}
-      <div className="hero-bg">
+      {/* Wrap hero section and background together */}
+      <div className="hero-bg" style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="full-background"></div>  {/* Background within Hero only */}
         <Hero />
         <About />
       </div>
+
       <div className="mid-bg">
         <Tokenomics />
         <CoreFeatures />
       </div>
+
       <div className="bottom-bg">
         <Roadmap />
         <Team />
         <FAQ />
       </div>
+
       <Copyrights />
     </>
   )
 }
 
-export default App
+export default App;
