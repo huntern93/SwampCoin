@@ -99,8 +99,8 @@ export const Header = () => {
                 </a>
               </div>
               
-              {/* Center - Action Buttons */}
-              <div className={styles.mobileCenterButtons}>
+              {/* Right - Action Buttons + Hamburger */}
+              <div className={styles.mobileRightContainer}>
                 <a className={`${styles.memberArea} ${styles.btn}`} href="#">
                   <svg fill="currentcolor" id="fi_4121044" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3">
                     <circle cx="4" cy="6" r="3"></circle>
@@ -147,10 +147,8 @@ export const Header = () => {
                     </g>
                   </svg>
                 </a>
-              </div>
-              
-              {/* Right - Hamburger Menu */}
-              <div className={styles.mobileRightContainer}>
+                
+                {/* Hamburger Menu */}
                 <div className={styles.hamburgerContainer} onClick={() => setShowMenu(!showMenu)}>
                   <svg 
                     className={`${styles.hamburgerIcon} d-inline-block`}
