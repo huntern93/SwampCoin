@@ -1,3 +1,7 @@
+import { ToastContainer } from 'react-toastify'
+import './App.css'
+import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
+
 function App() {
   return (
     <>
