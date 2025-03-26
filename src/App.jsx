@@ -6,11 +6,10 @@ function App() {
   return (
     <div className="page-wrapper">
       <ToastContainer />
+
+      <div className="full-background"></div>
       
       <Header />
-
-      {/* Full background now behind header and hero */}
-      <div className="full-background"></div>
 
       <div className="hero-bg">
         <Hero />
