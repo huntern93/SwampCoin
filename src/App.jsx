@@ -13,15 +13,23 @@ function App() {
       {/* Header positioned outside of any section for proper z-index */}
       <Header />
       
-      {/* Content sections */}
+      {/* Content sections with dividers to prevent gaps */}
       <div className="hero-bg">
         <Hero />
         <About />
       </div>
+      
+      {/* Divider to ensure smooth transition between sections */}
+      <div className="section-divider"></div>
+      
       <div className="mid-bg">
         <Tokenomics />
         <CoreFeatures />
       </div>
+      
+      {/* Divider to ensure smooth transition between sections */}
+      <div className="section-divider"></div>
+      
       <div className="bottom-bg">
         <Roadmap />
         <Team />

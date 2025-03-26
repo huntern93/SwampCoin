@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  background-color: rgba(156, 183, 99, 1); /* Set base background color */
 }
 
 /* IMPORTANT: Make header background transparent */
@@ -25,32 +26,53 @@ header, .header {
   z-index: -1;
 }
 
-/* Original section backgrounds */
+/* Original section backgrounds with proper overlaps */
 .hero-bg {
   position: relative;
   background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
   z-index: 0;
   padding-top: 0;
+  margin-bottom: -1px; /* Create overlap to prevent gaps */
 }
 
 .mid-bg {
+  position: relative; /* Add position relative */
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
+  margin-top: -1px; /* Create overlap with hero-bg */
+  margin-bottom: -1px; /* Create overlap with bottom-bg */
+  padding-top: 10px; /* Add some padding to ensure content isn't cut off */
+  border-top: 1px solid rgba(156, 183, 99, 1); /* Match background color */
+  border-bottom: 1px solid rgba(156, 183, 99, 1); /* Match background color */
 }
 
 .bottom-bg {
+  position: relative; /* Add position relative */
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
+  margin-top: -1px; /* Create overlap with mid-bg */
+  padding-top: 10px; /* Add some padding to ensure content isn't cut off */
+  border-top: 1px solid rgba(156, 183, 99, 1); /* Match background color */
 }
 
 /* Hero form adjustments */
 .hero .heroForm {
   z-index: 1 !important;
   position: relative;
+}
+
+/* Section divider elements to cover gaps */
+.section-divider {
+  height: 20px;
+  background-color: rgba(156, 183, 99, 1);
+  margin-top: -10px;
+  margin-bottom: -10px;
+  position: relative;
+  z-index: 5;
 }
 
 /* Mobile styles */
