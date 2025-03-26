@@ -1,6 +1,28 @@
 .hero {
   padding-bottom: 7.5vw;
   overflow: hidden;
+  position: relative;
+}
+
+/* Background positioning wrapper */
+.heroBackgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Background image itself */
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .heroForm {
@@ -10,6 +32,8 @@
   border-radius: 20px;
   padding: 2vw;
   margin-left: auto;
+  position: relative;
+  z-index: 2;
 }
 
 .heroForm h2 {
@@ -86,6 +110,8 @@
   display: flex;
   width: 110%;
   margin-left: -5%;
+  position: relative;
+  z-index: 3;
 }
 
 .marquee2 {
@@ -132,7 +158,14 @@
     max-width: 475px;
     margin-right: auto;
   }
+  
+  /* Background position adjustment for tablet */
+  .heroBackground {
+    object-position: center -20px;
+    min-height: 110%;
+  }
 }
+
 @media screen and (max-width: 767px) {
   .heroForm {
     width: 88%;
@@ -151,7 +184,19 @@
   .inputIcon {
     left: 12px;
   }
+  
+  /* Background position adjustment for mobile */
+  .heroBackground {
+    object-position: center -40px; /* Move down to show more of the swamp flag */
+    min-height: 120%;
+  }
+  
+  /* Ensure the hero has enough height to show content */
+  .hero {
+    min-height: 100vh;
+  }
 }
+
 @media screen and (max-width: 490px) {
   .heroForm {
     margin-top: 100px;
@@ -173,5 +218,10 @@
   }
   .trustSafety {
     font-size: 18px;
+  }
+  
+  /* Further background adjustment for very small screens */
+  .heroBackground {
+    object-position: center -50px; /* Move down more for smaller screens */
   }
 }
