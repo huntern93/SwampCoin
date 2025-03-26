@@ -55,6 +55,7 @@ header, .header {
 
 /* Mobile styles */
 @media screen and (max-width: 490px) {
+  /* On mobile, we use one background approach */
   .page-background {
     background: url('./assets/images/hero-mob.jpg') no-repeat;
     background-size: contain;
@@ -62,7 +63,8 @@ header, .header {
   }
   
   .hero-bg {
-    background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 0) 100%);
+    /* Remove any background images from hero-bg on mobile */
+    background: none;
     padding-bottom: 50px;
   }
   
