@@ -33,21 +33,22 @@ html, body {
   z-index: -2;
 }
 
-/* Header styling to ensure it sits over background */
+/* Header styling to ensure it sits over background and blends with hero section */
 header, .header {
   position: relative;
   width: 100%;
   z-index: 1000 !important;
   background-color: transparent !important;
+  margin-bottom: -1px; /* Prevent potential white line */
 }
 
-/* Ensure header doesn't have unexpected margins or paddings */
-header, .header > * {
+/* Ensure header content doesn't create unexpected spacing */
+header > * {
   margin: 0;
   padding: 0;
 }
 
-/* Section backgrounds */
+/* Hero section styling to connect with header background */
 .hero-bg {
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
@@ -55,6 +56,7 @@ header, .header > * {
   background-size: cover;
   position: relative;
   z-index: 0;
+  margin-top: -1px; /* Compensate for potential header margin */
 }
 
 .mid-bg {
@@ -93,6 +95,7 @@ header, .header > * {
     background-size: contain;
     padding-bottom: 50px;
     position: relative;
+    margin-top: 0; /* Reset margin for mobile */
   }
 
   .hero-bg::after {
