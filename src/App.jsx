@@ -1,33 +1,37 @@
+// App.jsx - Updated version
 import { ToastContainer } from 'react-toastify'
 import './App.css'
 import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
 
 function App() {
   return (
-    <div className="page-wrapper">
+    <>
+      {/* Fixed background that stays in place */}
       <div className="full-background"></div>
       
-      <ToastContainer />
-      <Header />
+      <div className="page-content">
+        <ToastContainer />
+        <Header />
 
-      <div className="hero-bg">
-        <Hero />
-        <About />
+        <div className="hero-bg">
+          <Hero />
+          <About />
+        </div>
+
+        <div className="mid-bg">
+          <Tokenomics />
+          <CoreFeatures />
+        </div>
+
+        <div className="bottom-bg">
+          <Roadmap />
+          <Team />
+          <FAQ />
+        </div>
+
+        <Copyrights />
       </div>
-
-      <div className="mid-bg">
-        <Tokenomics />
-        <CoreFeatures />
-      </div>
-
-      <div className="bottom-bg">
-        <Roadmap />
-        <Team />
-        <FAQ />
-      </div>
-
-      <Copyrights />
-    </div>
+    </>
   )
 }
 

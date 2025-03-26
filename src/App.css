@@ -14,11 +14,11 @@ html, body {
   background-color: rgba(156, 183, 99, 1);
 }
 
-.page-wrapper {
+.page-content {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(156, 183, 99, 1);
+  z-index: 1;
 }
 
 /* Full-page background image */
@@ -30,7 +30,7 @@ html, body {
   height: 100vh;
   background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  z-index: -2;
+  z-index: -1;
 }
 
 /* Header styling to ensure it sits over background and blends with hero section */
@@ -44,9 +44,7 @@ header, .header {
 /* Hero section styling to connect with header background */
 .hero-bg {
   background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
-    url('./assets/images/hero.jpg') no-repeat center top;
-  background-size: cover;
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
   position: relative;
   z-index: 0;
   min-height: 100vh; /* Ensure it covers full viewport height */
@@ -78,8 +76,6 @@ header, .header {
   }
 
   .hero-bg {
-    background: url('./assets/images/hero-mob.jpg') no-repeat center top;
-    background-size: cover;
     min-height: 100vh;
     padding-bottom: 50px;
     position: relative;
