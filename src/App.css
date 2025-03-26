@@ -1,19 +1,9 @@
 /* Body styling with base green background */
-html, body {
+body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background-color: rgba(156, 183, 99, 1) !important; /* Force green background everywhere */
-}
-
-/* Force green background on all major containers */
-#root, 
-#app, 
-.app, 
-main,
-.container,
-.content {
-  background-color: rgba(156, 183, 99, 1) !important;
+  background-color: rgba(156, 183, 99, 1); /* Green background for gaps */
 }
 
 /* IMPORTANT: Make header background transparent */
@@ -23,42 +13,13 @@ header, .header {
   background: transparent !important; /* Make header background transparent */
 }
 
-/* Main background container that covers the entire page */
-.page-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: url('./assets/images/hero.jpg') no-repeat;
-  background-size: cover;
-  background-position: center top;
-  z-index: -1;
-}
-
-/* All section containers get green background by default */
-.section, 
-section, 
-.hero-bg, 
-.mid-bg, 
-.bottom-bg,
-.about, 
-.tokenomics, 
-.core-features, 
-.roadmap, 
-.team, 
-.faq,
-.copyrights {
-  background-color: rgba(156, 183, 99, 1) !important;
-  position: relative;
-  z-index: 1;
-}
-
-/* Original section backgrounds with proper overlaps */
+/* Hero background */
 .hero-bg {
-  background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
-  padding-top: 0;
-  position: relative;
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
+    url('./assets/images/hero.jpg') no-repeat;
+  background-size: cover;
+  background-position: top center;
   z-index: 0;
 }
 
@@ -67,9 +28,6 @@ section,
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: 0;
-  padding: 20px 0;
 }
 
 .bottom-bg {
@@ -77,9 +35,6 @@ section,
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
-  position: relative;
-  z-index: 0;
-  padding: 20px 0;
 }
 
 /* Hero form adjustments */
@@ -88,41 +43,13 @@ section,
   position: relative;
 }
 
-/* Make sure any white containers in components get green background */
-.about-container,
-.tokenomics-container,
-.core-features-container,
-.roadmap-container,
-.team-container,
-.faq-container,
-.widget-container,
-.card,
-.panel,
-.box {
-  background-color: rgba(156, 183, 99, 1) !important;
-}
-
-/* Section divider elements to cover gaps */
-.section-divider {
-  height: 40px;
-  background-color: rgba(156, 183, 99, 1) !important;
-  position: relative;
-  z-index: 5;
-}
-
 /* Mobile styles */
 @media screen and (max-width: 490px) {
-  /* On mobile, we use one background approach */
-  .page-background {
+  .hero-bg {
+    position: relative;
     background: url('./assets/images/hero-mob.jpg') no-repeat;
     background-size: contain;
     background-position: top center;
-  }
-  
-  .hero-bg {
-    /* Remove any background images from hero-bg on mobile */
-    background: none;
-    background-color: rgba(156, 183, 99, 1) !important;
     padding-bottom: 50px;
   }
   
