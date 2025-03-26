@@ -5,6 +5,9 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <>
+      {/* Full-page background div that extends behind the header */}
+      <div className="full-background"></div>
+      
       <ToastContainer />
       
       {/* Header positioned outside of any section for proper z-index */}
