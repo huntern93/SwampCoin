@@ -1,10 +1,10 @@
 /* Reset and base styling */
-html, body {
+body, html {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  background-color: rgba(156, 183, 99, 1);
-  min-height: 100vh;
+  background: none !important; /* Remove the green */
+  position: relative;
 }
 
 #root {
@@ -23,14 +23,14 @@ html, body {
 
 /* Full-page background image */
 .full-background {
-  position: fixed;
+  position: fixed; /* Keeps it locked behind everything */
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  z-index: -2;
+  z-index: -2; /* Ensures it's behind the content */
 }
 
 /* Header styling to ensure it sits over background and blends with hero section */
