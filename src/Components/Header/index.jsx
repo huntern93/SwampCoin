@@ -41,6 +41,19 @@ export const Header = () => {
     };
   }, [isMobile]);
   
+  // Prevent body scrolling when menu is open
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showMenu]);
+  
   const links = [
     {
       name: "Home",
@@ -181,17 +194,33 @@ export const Header = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Mobile slide-in menu */}
-            <div className={`${styles.links} gap-xxl-4 gap-3 ${showMenu ? styles.show: ""} `}>
-              {links.map((link, index) => {
-                return (
-                  <a onClick={() => setShowMenu(false)} key={index} href={link.link}>{link.name}</a>
-                )
-              })}
-            </div>
           </nav>
         </Container>
+        
+        {/* Mobile slide-in menu - Full overlay outside the normal flow */}
+        {isMobile && (
+          <div 
+            className={`${styles.links} ${showMenu ? styles.show : ""}`} 
+            style={{ pointerEvents: showMenu ? 'auto' : 'none' }}
+          >
+            <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+              <button 
+                onClick={() => setShowMenu(false)} 
+                style={{ 
+                  background: 'none',
+                  border: 'none',
+                  fontSize: '24px',
+                  cursor: 'pointer'
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            {links.map((link, index) => (
+              <a onClick={() => setShowMenu(false)} key={index} href={link.link}>{link.name}</a>
+            ))}
+          </div>
+        )}
       </header>
     </>
   )

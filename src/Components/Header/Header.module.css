@@ -11,6 +11,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1vw 1.6vw;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
@@ -113,53 +115,42 @@ header {
   transition: all 0.2s ease;
 }
 
-/* Removed sticky header styles */
-
-@media screen and (max-width: 490px) {
-  .headerNav {
-    box-shadow: -1px 2px 0px #000000;
-    padding: 10px 15px;
-  }
-  
-  .logoText {
-    font-size: 20px;
-  }
-  
-  .mobileRightContainer .btn {
-    padding: 5px;
-    margin-left: 0;
-  }
-  
-  .mobileRightContainer {
-    gap: 6px;
-  }
-  
-  .hamburgerContainer {
-    margin-left: 3px;
-  }
-}
-
+/* Sticky header styles for mobile */
 @media screen and (max-width: 991px) {
-  /* Other styles remain the same */
+  .stickyHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9997;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    transition: all 0.3s ease;
+  }
+  
+  header {
+    padding-top: 0;
+  }
 
   .links {
     position: fixed;
     background: #fff;
-    top: 0; /* Change from 66px to 0 */
-    left: 0; /* Change from 12px to 0 */
-    width: 100%; /* Change from calc(100vw - 24px) to 100% */
-    height: 100vh; /* Change from calc(100vh - 80px) to 100vh */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    transform: translateX(-100%); /* Change from -100vw to -100% */
-    z-index: 1060; /* Increase z-index to be above the sticky header */
-    border: none; /* Remove border */
-    border-radius: 0; /* Remove border radius */
-    padding: 80px 25px 25px; /* Add top padding to accommodate the header */
+    transform: translateX(-100%);
+    z-index: 9999;
+    border: none;
+    border-radius: 0;
+    padding: 80px 25px 25px;
     transition: 0.3s all;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
-}
+
   .show {
     transform: translateX(0);
   }
@@ -189,3 +180,38 @@ header {
     width: 20px;
     height: 20px;
   }
+}
+
+/* Desktop - explicitly override sticky header */
+@media screen and (min-width: 992px) {
+  .stickyHeader {
+    position: static !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    padding: 3vw 0 5vw !important;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .headerNav {
+    box-shadow: -1px 2px 0px #000000;
+    padding: 10px 15px;
+  }
+  
+  .logoText {
+    font-size: 20px;
+  }
+  
+  .mobileRightContainer .btn {
+    padding: 5px;
+    margin-left: 0;
+  }
+  
+  .mobileRightContainer {
+    gap: 6px;
+  }
+  
+  .hamburgerContainer {
+    margin-left: 3px;
+  }
+}
