@@ -6,11 +6,13 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <Header />
       
-      {/* Wrap hero section and background together */}
+      <Header />
+
+      {/* Full background now behind header and hero */}
+      <div className="full-background"></div>
+
       <div className="hero-bg" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div className="full-background"></div>  {/* Background within Hero only */}
         <Hero />
         <About />
       </div>

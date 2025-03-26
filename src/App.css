@@ -1,41 +1,46 @@
 /* Body styling with base green background */
-body {
+body, html {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background-color: rgba(156, 183, 99, 1); /* Green background for gaps */
+  background-color: rgba(156, 183, 99, 1); /* Base green background for gaps */
+  position: relative;
 }
 
-/* IMPORTANT: Make header background transparent */
+/* Transparent header, ensuring background visibility behind it */
 header, .header {
   position: relative;
-  z-index: 1000 !important; /* Ensure header is above everything */
-  background: transparent !important; /* Make header background transparent */
+  z-index: 1000 !important;
+  background: transparent !important;
 }
 
-/* Full-page background image */
+/* Full-page background image fixed behind header and hero section */
 .full-background {
-  position: absolute; /* Instead of fixed */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: url('./assets/images/hero.jpg') no-repeat;
+  height: 100vh;
+  background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  background-position: center top;
   z-index: -1;
 }
 
-/* Hero background - no image, just gradient */
+/* Hero background gradient adjustments to prevent unwanted transparency */
 .hero-bg {
-  background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
-  z-index: 0;
+  background: linear-gradient(
+    to top,
+    rgba(156, 183, 99, 1) 0%,
+    rgba(156, 183, 99, 0.8) 70%,
+    rgba(156, 183, 99, 0) 100%
+  );
   position: relative;
+  z-index: 0;
 }
 
 .mid-bg {
   background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
+    linear-gradient(to top, rgba(156, 183, 99, 1), rgba(156, 183, 99, 1)),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
@@ -43,33 +48,32 @@ header, .header {
 
 .bottom-bg {
   background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
+    linear-gradient(to top, rgba(156, 183, 99, 1), rgba(156, 183, 99, 1)),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
 }
 
-/* Hero form adjustments */
+/* Hero form positioning to ensure proper stacking */
 .hero .heroForm {
   z-index: 1 !important;
   position: relative;
 }
 
-/* Mobile styles */
+/* Mobile-specific adjustments for proper display */
 @media screen and (max-width: 490px) {
-  /* Full background for mobile */
   .full-background {
-    background: url('./assets/images/hero-mob.jpg') no-repeat;
-    background-size: contain;
-    background-position: top center;
+    background: url('./assets/images/hero-mob.jpg') no-repeat center top;
+    background-size: cover;
+    height: 100vh;
   }
-  
+
   .hero-bg {
-    background: none; /* Remove gradient on mobile */
+    background: none;
     padding-bottom: 50px;
     position: relative;
   }
-  
+
   /* Strong bottom gradient for mobile only */
   .hero-bg::after {
     content: '';
@@ -82,29 +86,26 @@ header, .header {
     pointer-events: none;
     z-index: 1;
   }
-  
-  /* Mobile-only hero form adjustment */
+
   .hero .heroForm {
-    margin-top: 320px !important; /* Only applies on mobile */
+    margin-top: 320px !important;
   }
-  
-  /* Ensure content stays above the gradient on mobile */
+
   .hero > *, .hero-bg > * {
     position: relative;
     z-index: 2;
   }
 }
 
-/* Ensure menu has proper z-index when opened */
-.menu-open header, 
+/* Ensure menu overlay has proper z-index */
+.menu-open header,
 .menu-open .header,
 .menu-open .mobile-menu {
-  z-index: 9999 !important; /* Extremely high z-index for menu when open */
+  z-index: 9999 !important;
 }
 
-/* Reset z-index when menu is open */
 body.menu-open .hero .heroForm,
-body.menu-open .hero > *, 
+body.menu-open .hero > *,
 body.menu-open .hero-bg > * {
   z-index: auto !important;
 }
