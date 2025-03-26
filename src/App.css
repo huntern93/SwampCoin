@@ -22,11 +22,28 @@
 @media screen and (max-width: 490px) {
   .hero-bg {
     position: relative;
-    background: 
-      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 80%, rgba(156, 183, 99, 0) 100%),
-      url('./assets/images/hero-mob.jpg') no-repeat;
-    background-size: 100% auto;
-    background-position: center -20px; /* Slightly move image down */
-    padding-bottom: 40px; /* Create space for feathering effect */
+    /* Use the original background image approach */
+    background: url('./assets/images/hero-mob.jpg') no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+  
+  /* Add a separate gradient element at the bottom */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Adjust height as needed */
+    background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Make sure content stays above the gradient */
+  .hero-bg > * {
+    position: relative;
+    z-index: 2;
   }
 }
