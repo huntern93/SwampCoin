@@ -41,22 +41,6 @@ export const Header = () => {
     };
   }, [isMobile]);
   
-// Prevent body scrolling when menu is open and add menu-open class
-useEffect(() => {
-  if (showMenu) {
-    document.body.style.overflow = "hidden";
-    document.body.classList.add('menu-open');
-  } else {
-    document.body.style.overflow = "";
-    document.body.classList.remove('menu-open');
-  }
-  
-  return () => {
-    document.body.style.overflow = "";
-    document.body.classList.remove('menu-open');
-  };
-}, [showMenu]);
-  
   const links = [
     {
       name: "Home",
@@ -176,7 +160,7 @@ useEffect(() => {
                   <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" id="fi_2420157">
                     <g id="cart_shop_buy_retail" data-name="cart, shop, buy, retail">
                       <path d="M24,23a3,3,0,1,0,3,3A3.0033,3.0033,0,0,0,24,23Zm0,4a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,24,27Z"></path>
-                      <path d="M18,23H10a1,1,0,0,1,0-2H26a1,1,0,0,0,.9863-.8354l2-12A1,1,0,0,0,28,7H12a1,1,0,0,0,0,2H26.8193L25.1528,19h-12.46L6.9365,3.6489A1.0005,1.0005,0,0,0,6,3H4A1,1,0,0,0,4,5H5.3071l5.25,14H10a2.99,2.99,0,0,0-.7791,5.8823A3.005,3.0033,0,1,0,14.8157,25H18a1,1,0,0,0,0-2Zm-5,3a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,13,26Z"></path>
+                      <path d="M18,23H10a1,1,0,0,1,0-2H26a1,1,0,0,0,.9863-.8354l2-12A1,1,0,0,0,28,7H12a1,1,0,0,0,0,2H26.8193L25.1528,19h-12.46L6.9365,3.6489A1.0005,1.0005,0,0,0,6,3H4A1,1,0,0,0,4,5H5.3071l5.25,14H10a2.99,2.99,0,0,0-.7791,5.8823A3.005,3.005,0,1,0,14.8157,25H18a1,1,0,0,0,0-2Zm-5,3a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,13,26Z"></path>
                     </g>
                   </svg>
                 </a>
@@ -197,33 +181,17 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+            
+            {/* Mobile slide-in menu */}
+            <div className={`${styles.links} gap-xxl-4 gap-3 ${showMenu ? styles.show: ""} `}>
+              {links.map((link, index) => {
+                return (
+                  <a onClick={() => setShowMenu(false)} key={index} href={link.link}>{link.name}</a>
+                )
+              })}
+            </div>
           </nav>
         </Container>
-        
-        {/* Mobile slide-in menu - Full overlay outside the normal flow */}
-        {isMobile && (
-          <div 
-            className={`${styles.links} ${showMenu ? styles.show : ""}`} 
-            style={{ pointerEvents: showMenu ? 'auto' : 'none' }}
-          >
-            <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
-              <button 
-                onClick={() => setShowMenu(false)} 
-                style={{ 
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '24px',
-                  cursor: 'pointer'
-                }}
-              >
-                ✕
-              </button>
-            </div>
-            {links.map((link, index) => (
-              <a onClick={() => setShowMenu(false)} key={index} href={link.link}>{link.name}</a>
-            ))}
-          </div>
-        )}
       </header>
     </>
   )
