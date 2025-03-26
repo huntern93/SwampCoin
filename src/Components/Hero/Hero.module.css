@@ -14,19 +14,6 @@
   z-index: -1;
 }
 
-.heroBackgroundWrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 250px;
-  background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
-  pointer-events: none;
-  z-index: 3;
-  display: block !important;
-}
-
 /* Background image itself */
 .heroBackground {
   position: absolute;
@@ -37,20 +24,17 @@
   object-fit: cover;
   object-position: center;
   min-height: 100%;
-  background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
-  pointer-events: none;
-  z-index: 2;
 }
 
 .heroForm {
-  max-width: 31.45vw;
+  max-width: 31.45vw; /* Reduced from 37vw (15% reduction) */
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 20px;
   padding: 2vw;
   margin-left: auto;
   position: relative;
-  z-index: 5;
+  z-index: 2;
 }
 
 .heroForm h2 {
@@ -134,7 +118,6 @@
 .marquee2 {
   transform: rotate(3.39deg);
 }
-
 .marquee1 {
   transform: rotate(-0.62deg);
   margin-bottom: -55px;
@@ -153,7 +136,6 @@
   justify-content: center !important;
 }
 
-/* Responsiveness */
 @media screen and (max-width: 1690px) {
   .heroForm h2 {
     font-size: 90px;
@@ -162,7 +144,6 @@
     font-size: 70px;
   }
 }
-
 @media screen and (max-width: 1490px) {
   .heroForm h2 {
     font-size: 70px;
@@ -192,56 +173,56 @@
     margin-left: auto;
     margin-right: auto;
   }
-
+  
   .inputWrapper {
     margin-bottom: 15px;
   }
-
+  
   .heroForm :global .form-control {
     padding: 10px 10px 10px 40px;
   }
-
+  
   .inputIcon {
     left: 12px;
   }
-
+  
   /* Background position adjustment for mobile */
   .heroBackground {
-    object-position: center -60px !important; /* Move down to show more of the swamp flag */
+    object-position: center -60px; /* Move down to show more of the swamp flag */
     min-height: 120%;
   }
-
+  
   /* Ensure the hero has enough height to show content */
   .hero {
     min-height: 100vh;
   }
 }
 
-/* Mobile-Specific Fixes */
 @media screen and (max-width: 490px) {
-  /* Restore feathering gradient */
-  .heroBackgroundWrapper::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
-    pointer-events: none;
-    z-index: 5 !important;
-    display: block !important;
-  }
-
-  /* Move form down */
   .heroForm {
-    margin-top: 180px !important;
+    margin-top: 100px;
+    padding: 20px 15px;
   }
-
-  /* Ensure the background image moves down without leaving a gap */
+  .heroForm h2 {
+    font-size: 45px;
+  }
+  .heroForm h3 {
+    font-size: 35px;
+  }
+  .heroForm :global .form-control {
+    font-size: 14px;
+    height: auto;
+    padding: 12px 10px 12px 38px;
+  }
+  .auditedBy {
+    font-size: 16px;
+  }
+  .trustSafety {
+    font-size: 18px;
+  }
+  
+  /* Further background adjustment for very small screens */
   .heroBackground {
-    object-position: center -70px !important;
-    top: 0px !important;
-    background-size: cover !important;
+    object-position: center -50px; /* Move down more for smaller screens */
   }
 }
