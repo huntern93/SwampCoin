@@ -3,15 +3,14 @@ header {
 }
 
 .headerNav {
-  background: white;
-  width: 100%;
-  padding: 20px 0; /* Restore padding */
-  height: auto; /* Ensure height adjusts dynamically */
+  background: #FFFFFF;
   border: 2px solid #000000;
   box-shadow: -1px 6px 0px #000000;
   border-radius: 8px;
-  position: relative;
-  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vw 1.6vw;
 }
 
 .btn {
@@ -57,63 +56,6 @@ header {
   color: #FF3D3D;
 }
 
-/* Logo styles */
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
-.logoLink {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.logoText {
-  font-size: 24px;
-  font-weight: 900;
-  color: #9CB763;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 0px #000000;
-}
-
-/* Mobile Header Specific Styles */
-.mobileHeaderWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.mobileLeftContainer {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-  padding-right: 10px;
-}
-
-.mobileRightContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-}
-
-.hamburgerContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 5px;
-}
-
-.hamburgerIcon {
-  fill: #000;
-  transition: all 0.2s ease;
-}
-
 /* Sticky header styles for mobile */
 @media screen and (max-width: 991px) {
   .stickyHeader {
@@ -135,49 +77,22 @@ header {
   .links {
     position: fixed;
     background: #fff;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    top: 66px;
+    left: 12px;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    transform: translateX(-100%);
-    z-index: 10000 !important; /* Increase z-index */
-    border: none;
-    border-radius: 0;
-    padding: 80px 25px 25px;
+    transform: translateX(100vw);
+    z-index: 1;
+    border: 2px solid #000000;
+    border-radius: 12px;
+    padding: 25px;
     transition: 0.3s all;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
 
   .show {
     transform: translateX(0);
-  }
-  
-  /* Add more spacing between nav links for better mobile usability */
-  .links a {
-    padding: 12px 5px;
-    margin: 2px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-  }
-  
-  .links a:last-child {
-    border-bottom: none;
-  }
-  
-  .mobileRightContainer .btn {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-  
-  .mobileRightContainer svg {
-    width: 20px;
-    height: 20px;
   }
 }
 
@@ -194,23 +109,6 @@ header {
 @media screen and (max-width: 490px) {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
-    padding: 10px 15px;
-  }
-  
-  .logoText {
-    font-size: 20px;
-  }
-  
-  .mobileRightContainer .btn {
-    padding: 5px;
-    margin-left: 0;
-  }
-  
-  .mobileRightContainer {
-    gap: 6px;
-  }
-  
-  .hamburgerContainer {
-    margin-left: 3px;
+    padding: 10px 10px;
   }
 }
