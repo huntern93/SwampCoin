@@ -4,7 +4,7 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 
 function App() {
   return (
-    <>
+    <div className="page-wrapper">
       <ToastContainer />
       
       <Header />
@@ -12,7 +12,7 @@ function App() {
       {/* Full background now behind header and hero */}
       <div className="full-background"></div>
 
-      <div className="hero-bg" style={{ position: 'relative', overflow: 'hidden' }}>
+      <div className="hero-bg">
         <Hero />
         <About />
       </div>
@@ -29,7 +29,7 @@ function App() {
       </div>
 
       <Copyrights />
-    </>
+    </div>
   )
 }
 
