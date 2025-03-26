@@ -146,41 +146,42 @@ export const Tokenomics = () => {
               <p className="size-20 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules.</p>
             </div>
             
-            {/* SVG Pie Chart with Token Allocation Display */}
             <div className={styles.pieChartContainer}>
-              <svg viewBox="0 0 200 200" className={styles.pieChart}>
-                {TokenomicsData.map((item, index) => (
-                  <OverlayTrigger
-                    key={index}
-                    placement="top"
-                    overlay={
-                      <Tooltip id={`tooltip-${index}`}>
-                        <strong>{item.title}</strong><br />
-                        {formatNumber(item.tokens)} SWAMP
-                      </Tooltip>
-                    }
-                  >
-                    <circle 
-                      cx="100" 
-                      cy="100" 
-                      r="80" 
-                      fill="transparent" 
-                      stroke={item.iconColor} 
-                      strokeWidth="80" 
-                      strokeDasharray={item.dasharray} 
-                      strokeDashoffset={item.dashoffset} 
-                      transform="rotate(-90 100 100)"
-                      className={`${styles.pieSegment} ${activeSegment === index ? styles.activeSegment : ''}`}
-                      onClick={() => handleSegmentClick(index)}
-                      onMouseEnter={() => setActiveSegment(index)}
-                      onMouseLeave={() => setActiveSegment(null)}
-                    />
-                  </OverlayTrigger>
-                ))}
-                {/* Border for the pie chart */}
-                <circle cx="100" cy="100" r="81" fill="transparent" stroke="#000" strokeWidth="2" />
-              </svg>
-            </div>
+  <svg viewBox="0 0 200 200" className={styles.pieChart}>
+    {TokenomicsData.map((item, index) => (
+      <OverlayTrigger
+        key={index}
+        placement="top"
+        overlay={
+          <Tooltip id={`tooltip-${index}`}>
+            <strong>{item.title}</strong><br />
+            {formatNumber(item.tokens)} SWAMP
+          </Tooltip>
+        }
+      >
+        <circle 
+          cx="100" 
+          cy="100" 
+          r="70" /* Reduced from 80 to keep stroke inside viewBox */
+          fill="transparent" 
+          stroke={item.iconColor} 
+          strokeWidth="70" /* Reduced from 80 to match radius */
+          strokeDasharray={item.dasharray} 
+          strokeDashoffset={item.dashoffset} 
+          transform="rotate(-90 100 100)"
+          className={`${styles.pieSegment} ${activeSegment === index ? styles.activeSegment : ''}`}
+          onClick={() => handleSegmentClick(index)}
+          onMouseEnter={() => setActiveSegment(index)}
+          onMouseLeave={() => setActiveSegment(null)}
+        />
+      </OverlayTrigger>
+    ))}
+    {/* Border for the pie chart */}
+    <circle cx="100" cy="100" r="70" fill="transparent" stroke="#000" strokeWidth="2" />
+    {/* Center white circle */}
+    <circle cx="100" cy="100" r="25" fill="white" stroke="#000" strokeWidth="1" />
+  </svg>
+</div>
 
             {/* Token Allocation Table */}
             <div className={styles.tokenAllocationTable}>
