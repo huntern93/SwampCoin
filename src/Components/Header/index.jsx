@@ -41,18 +41,21 @@ export const Header = () => {
     };
   }, [isMobile]);
   
-  // Prevent body scrolling when menu is open
-  useEffect(() => {
-    if (showMenu) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showMenu]);
+// Prevent body scrolling when menu is open and add menu-open class
+useEffect(() => {
+  if (showMenu) {
+    document.body.style.overflow = "hidden";
+    document.body.classList.add('menu-open');
+  } else {
+    document.body.style.overflow = "";
+    document.body.classList.remove('menu-open');
+  }
+  
+  return () => {
+    document.body.style.overflow = "";
+    document.body.classList.remove('menu-open');
+  };
+}, [showMenu]);
   
   const links = [
     {
