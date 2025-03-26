@@ -3,7 +3,26 @@
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
     url('./assets/images/hero.jpg') no-repeat;
   background-size: cover;
+  background-position: top center;
   z-index: 0 !important; /* Reduce priority */
+  position: relative;
+  /* Add top padding to account for header height */
+  padding-top: 60px; /* Adjust this value based on your header's height */
+  margin-top: -60px; /* Pull up to cover area behind header */
+}
+
+/* Add a pseudo-element that extends behind the header */
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -60px; /* Match the negative margin-top value */
+  left: 0;
+  width: 100%;
+  height: 60px; /* Match header height */
+  background: url('./assets/images/hero.jpg') no-repeat;
+  background-size: cover;
+  background-position: top center;
+  z-index: -1;
 }
 
 .mid-bg {
@@ -30,6 +49,12 @@ body {
   z-index: 1 !important;
 }
 
+/* Header styling to ensure it's above everything */
+header, .header {
+  position: relative;
+  z-index: 1000 !important; /* Ensure header is above everything */
+}
+
 /* Reset z-index when menu is open */
 body.menu-open .hero .heroForm,
 body.menu-open .hero > *, 
@@ -44,6 +69,14 @@ body.menu-open .hero-bg > * {
     background-size: contain;
     background-position: top center;
     padding-bottom: 50px;
+    margin-top: -60px; /* Keep this consistent with desktop */
+    padding-top: 60px; /* Keep this consistent with desktop */
+  }
+  
+  .hero-bg::before {
+    background: url('./assets/images/hero-mob.jpg') no-repeat;
+    background-size: contain;
+    background-position: top center;
   }
   
   /* Strong bottom gradient for mobile only */
