@@ -13,6 +13,39 @@ header {
   padding: 1vw 1.6vw;
 }
 
+.mobileHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.mobileLeftContainer {
+  flex: 0 1 auto; /* Allow logo to size to its content */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mobileRightContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoLink {
+  text-decoration: none;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 900;
+  color: #9CB763;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0px #000000;
+}
+
 .btn {
   background-color: #615349;
   border: 2px solid #000000;
@@ -25,6 +58,10 @@ header {
   padding: 0.5vw 1vw;
   display: inline-block;
   transition: 0.3s all;
+}
+
+.memberArea {
+  background-color: #615349;
 }
 
 .joinArmy {
@@ -41,39 +78,58 @@ header {
   color: #000;
 }
 
-.links {
+.hamburgerContainer {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 5px;
 }
 
-.links a {
-  text-decoration: none;
-  color: #000;
-  transition: 0.3s all;
+.hamburgerIcon {
+  fill: #000;
+  transition: all 0.2s ease;
 }
 
-.links a:hover {
-  text-decoration: none;
-  color: #FF3D3D;
-}
-
-/* Sticky header styles for mobile */
+/* Mobile-specific styles */
 @media screen and (max-width: 991px) {
+  .headerNav {
+    padding: 10px 15px;
+  }
+
+  .mobileRightContainer .btn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .mobileRightContainer svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logoText {
+    font-size: 20px;
+  }
+
+  /* Sticky header */
   .stickyHeader {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9998 !important; /* Ensure sticky header is under the menu but above content */
+    z-index: 9998 !important;
     background-color: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     transition: all 0.3s ease;
   }
-  
-  header {
-    padding-top: 0;
-  }
 
+  /* Mobile menu styles */
   .links {
     position: fixed;
     background: #fff;
@@ -94,21 +150,25 @@ header {
   .show {
     transform: translateX(0);
   }
+
+  .links a {
+    padding: 12px 5px;
+    margin: 2px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+  }
+
+  .links a:last-child {
+    border-bottom: none;
+  }
 }
 
-/* Desktop - explicitly override sticky header */
+/* Desktop styles */
 @media screen and (min-width: 992px) {
   .stickyHeader {
     position: static !important;
     box-shadow: none !important;
     background-color: transparent !important;
     padding: 3vw 0 5vw !important;
-  }
-}
-
-@media screen and (max-width: 490px) {
-  .headerNav {
-    box-shadow: -1px 2px 0px #000000;
-    padding: 10px 10px;
   }
 }
