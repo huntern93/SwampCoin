@@ -98,6 +98,47 @@ header {
     padding-top: 0;
   }
 
+  /* Sticky header for mobile */
+  .stickyHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  /* Header nav wrapper for mobile */
+  .mobileHeaderWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Mobile nav button container - left side */
+  .mobileNavContainer {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Logo container - center */
+  .mobileCenterLogo {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Mobile action buttons container - right side */
+  .mobileActionsContainer {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
   .links {
     position: fixed;
     background: #fff;
@@ -108,7 +149,7 @@ header {
     display: flex;
     flex-direction: column;
     transform: translateX(100vw);
-    z-index: 1;
+    z-index: 1010;
     border: 2px solid #000000;
     border-radius: 12px;
     padding: 25px;
@@ -117,5 +158,21 @@ header {
 
   .show {
     transform: translateX(0);
+  }
+  
+  /* Add more spacing between nav links for better mobile usability */
+  .links a {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .links a:last-child {
+    border-bottom: none;
+  }
+  
+  /* Smaller action buttons for mobile */
+  .mobileActionsContainer .btn {
+    padding: 6px 8px;
+    margin-left: 5px;
   }
 }
