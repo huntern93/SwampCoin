@@ -16,7 +16,7 @@ header, .header {
 
 /* Full-page background image fixed behind header and hero section */
 .full-background {
-  position: fixed; /* changed from absolute */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -26,21 +26,19 @@ header, .header {
   z-index: -2; /* make sure it's low enough to not overlap content */
 }
 
-/* Hero background gradient adjustments to prevent unwanted transparency */
+/* Hero background with gradient and image */
 .hero-bg {
-  background: linear-gradient(
-    to top,
-    rgba(156, 183, 99, 1) 0%,
-    rgba(156, 183, 99, 0.8) 70%,
-    rgba(156, 183, 99, 0) 100%
-  );
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
+    url('./assets/images/hero.jpg') no-repeat;
+  background-size: cover;
   position: relative;
   z-index: 0;
 }
 
 .mid-bg {
   background:
-    linear-gradient(to top, rgba(156, 183, 99, 1), rgba(156, 183, 99, 1)),
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
@@ -48,7 +46,7 @@ header, .header {
 
 .bottom-bg {
   background:
-    linear-gradient(to top, rgba(156, 183, 99, 1), rgba(156, 183, 99, 1)),
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
@@ -69,7 +67,8 @@ header, .header {
   }
 
   .hero-bg {
-    background: none;
+    background: url('./assets/images/hero-mob.jpg') no-repeat;
+    background-size: contain;
     padding-bottom: 50px;
     position: relative;
   }
@@ -95,7 +94,7 @@ header, .header {
     position: relative;
     z-index: 2;
   }
-} /* Correctly placed closing brace for media query */
+}
 
 /* Ensure menu overlay has proper z-index */
 .menu-open header,
