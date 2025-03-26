@@ -11,19 +11,19 @@ body, html {
 header, .header {
   position: relative;
   z-index: 1000 !important;
-  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Full-page background image fixed behind header and hero section */
 .full-background {
-  position: absolute;
+  position: fixed; /* changed from absolute */
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  z-index: -1;
+  z-index: -2; /* make sure it's low enough to not overlap content */
 }
 
 /* Hero background gradient adjustments to prevent unwanted transparency */
@@ -60,12 +60,12 @@ header, .header {
   position: relative;
 }
 
-/* Mobile-specific adjustments for proper display */
 @media screen and (max-width: 490px) {
   .full-background {
     background: url('./assets/images/hero-mob.jpg') no-repeat center top;
     background-size: cover;
     height: 100vh;
+    position: fixed;
   }
 
   .hero-bg {
@@ -95,7 +95,7 @@ header, .header {
     position: relative;
     z-index: 2;
   }
-}
+} /* Correctly placed closing brace for media query */
 
 /* Ensure menu overlay has proper z-index */
 .menu-open header,
