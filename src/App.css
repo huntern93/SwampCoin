@@ -21,10 +21,12 @@
 
 @media screen and (max-width: 490px) {
   .hero-bg {
+    position: relative;
     background: 
-      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 85%, rgba(156, 183, 99, 0) 100%),
+      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
       url('./assets/images/hero-mob.jpg') no-repeat;
-    background-size: contain;
-    background-position: center 10px; /* Move down slightly - adjust this value as needed */
+    background-size: 110% auto; /* Stretch the image slightly wider */
+    background-position: top center; /* Keep it at the top but centered */
+    min-height: 100vh; /* Ensure sufficient height */
   }
 }
