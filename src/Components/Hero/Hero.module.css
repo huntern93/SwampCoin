@@ -240,6 +240,7 @@
   
   /* Further background adjustment for very small screens */
   .heroBackground {
-    object-position: center -80px; /* Move down more for smaller screens */
+    object-position: center -50px !important;
+    top: -50px !important;
   }
 }
