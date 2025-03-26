@@ -22,32 +22,31 @@
 @media screen and (max-width: 490px) {
   .hero-bg {
     position: relative;
-    /* Fix background image settings */
     background: url('./assets/images/hero-mob.jpg') no-repeat;
-    background-size: contain; /* Return to original sizing */
+    background-size: contain;
     background-position: top center;
-    padding-bottom: 50px; /* Add space at bottom for gradient to show */
+    padding-bottom: 50px;
   }
   
-  /* Strong bottom gradient */
+  /* Strong bottom gradient for mobile only */
   .hero-bg::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 250px; /* Even taller gradient */
+    height: 250px;
     background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
     pointer-events: none;
     z-index: 1;
   }
   
-  /* Move widget down more */
-  .heroForm {
-    margin-top: 250px !important; /* Increased from 160px to 250px */
+  /* Mobile-only hero form adjustment */
+  .hero .heroForm {
+    margin-top: 320px !important; /* Only applies on mobile */
   }
   
-  /* Ensure content stays above the gradient */
+  /* Ensure content stays above the gradient on mobile */
   .hero > *, .hero-bg > * {
     position: relative;
     z-index: 2;
