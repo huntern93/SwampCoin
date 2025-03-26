@@ -113,7 +113,30 @@ header {
   transition: all 0.2s ease;
 }
 
-/* Removed sticky header styles */
+/* Sticky header styles - only applied on mobile */
+@media screen and (max-width: 991px) {
+  .stickyHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Desktop - explicitly override sticky header */
+@media screen and (min-width: 992px) {
+  .stickyHeader {
+    position: static !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    padding: 3vw 0 5vw !important;
+  }
+}
 
 @media screen and (max-width: 490px) {
   .headerNav {

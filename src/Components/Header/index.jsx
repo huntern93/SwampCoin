@@ -1,11 +1,45 @@
 import { Container } from "react-bootstrap"
 import styles from "./Header.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
+  const [isSticky, setIsSticky] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   
-  // Removed sticky header functionality and related useEffect
+  // Check if mobile on initial load and on window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 991);
+    };
+    
+    // Check on mount
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Handle scroll event to set sticky header - only for mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobile && window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isMobile]);
   
   const links = [
     {
@@ -48,7 +82,7 @@ export const Header = () => {
 
   return (
     <>
-      <header id="home" className="text-white text-center">
+      <header id="home" className={`text-white text-center ${isSticky ? styles.stickyHeader : ''}`}>
         <Container className="big-container">
           {/* Desktop Navigation */}
           <nav className={`${styles.headerNav} d-none d-lg-flex`}>
