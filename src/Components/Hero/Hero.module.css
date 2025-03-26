@@ -217,8 +217,7 @@
     z-index: 2;
   }
   .heroForm {
-    margin-top: 100px;
-    padding: 20px 15px;
+    margin-top: 160px !important; /* Increase this value to move it lower */
   }
   .heroForm h2 {
     font-size: 45px;
