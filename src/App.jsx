@@ -5,11 +5,15 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <>
-      {/* Full-page background wrapper */}
-      <div className="page-wrapper"></div>
+      {/* Full-page background that covers everything including behind header */}
+      <div className="page-background"></div>
       
       <ToastContainer />
+      
+      {/* Header positioned outside of any section for proper z-index */}
       <Header />
+      
+      {/* Content sections */}
       <div className="hero-bg">
         <Hero />
         <About />
