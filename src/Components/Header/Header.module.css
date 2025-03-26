@@ -3,16 +3,13 @@ header {
 }
 
 .headerNav {
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Adds a subtle blur effect */
   border: 2px solid #000000;
   box-shadow: -1px 6px 0px #000000;
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1vw 1.6vw;
   position: relative;
-  z-index: 2;
+  z-index: 1000;
 }
 
 .btn {
