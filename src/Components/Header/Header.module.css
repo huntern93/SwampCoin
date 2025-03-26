@@ -10,7 +10,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1vw 1.6vw;
+  padding: 12px 15px; /* More vertical padding */
 }
 
 .btn {
@@ -100,13 +100,13 @@ header {
 
   /* Sticky header for mobile */
   .stickyHeader {
-    position: sticky;
+    position: fixed; /* Change from sticky to fixed */
     top: 0;
-    z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 5px 10px;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    left: 0;
+    width: 100%;
+    z-index: 1050; /* Higher z-index to ensure it stays on top */
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   /* Header nav wrapper for mobile */
@@ -170,9 +170,8 @@ header {
     border-bottom: none;
   }
   
-  /* Smaller action buttons for mobile */
   .mobileActionsContainer .btn {
-    padding: 6px 8px;
-    margin-left: 5px;
+    padding: 5px 7px;
+    margin-left: 8px; /* More spacing between buttons */
   }
 }
