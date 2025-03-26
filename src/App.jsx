@@ -5,10 +5,9 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <div className="page-wrapper">
-      <ToastContainer />
-
       <div className="full-background"></div>
       
+      <ToastContainer />
       <Header />
 
       <div className="hero-bg">
@@ -32,4 +31,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
