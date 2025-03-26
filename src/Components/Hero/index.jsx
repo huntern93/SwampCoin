@@ -1,31 +1,18 @@
 import { Container, Form } from "react-bootstrap"
 import SolidLogo from "../../assets/images/solid.png"
 import Coinsuit from "../../assets/images/coinsult.png"
-import HeroBackground from "../../assets/images/hero.jpg" // Import your background image (update the path as needed)
 import styles from "./Hero.module.css"
 import { JoinCommunity } from "../JoinCommunity"
 import { toast } from "react-toastify"
-
 export const Hero = () => {
   const topRight = () => {
     toast.success('Thank you!', {
       position: 'top-right',
     });
   };
-  
   return (
     <>
       <div className={styles.hero}>
-        {/* Background Image Wrapper */}
-        <div className={styles.heroBackgroundWrapper}>
-          <img 
-            src={HeroBackground} 
-            alt="" 
-            className={styles.heroBackground} 
-            aria-hidden="true"
-          />
-        </div>
-        
         <Container className="text-center big-container">
           <div className={styles.heroForm}>
             <h2 className="mb-0">The Strongest Meme Army</h2>
@@ -56,7 +43,6 @@ export const Hero = () => {
             </div>
           </div>
         </Container>
-        
         <div className={`${styles.marquee} ${styles.marquee1} size-36 fw-bold`}>
           <marquee direction="right">
             {Array.from({ length: 25 }, (_, index) => (
