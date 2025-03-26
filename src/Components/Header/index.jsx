@@ -92,20 +92,9 @@ export const Header = () => {
           {/* Mobile Navigation */}
           <nav className={`${styles.headerNav} d-flex d-lg-none`}>
             <div className={styles.mobileHeaderWrapper}>
-              {/* Left side - Hamburger Menu */}
-              <div className={styles.mobileNavContainer}>
-                <svg 
-                  onClick={() => setShowMenu(!showMenu)} 
-                  className="d-inline-block" 
-                  enableBackground="new 0 0 512 512" 
-                  height="24" 
-                  viewBox="0 0 512 512" 
-                  width="24" 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  id="fi_5259008"
-                >
-                  <path d="m128 102.4c0-14.138 11.462-25.6 25.6-25.6h332.8c14.138 0 25.6 11.462 25.6 25.6s-11.462 25.6-25.6 25.6h-332.8c-14.138 0-25.6-11.463-25.6-25.6zm358.4 128h-460.8c-14.138 0-25.6 11.463-25.6 25.6 0 14.138 11.462 25.6 25.6 25.6h460.8c14.138 0 25.6-11.462 25.6-25.6 0-14.137-11.462-25.6-25.6-25.6zm0 153.6h-230.4c-14.137 0-25.6 11.462-25.6 25.6 0 14.137 11.463 25.6 25.6 25.6h230.4c14.138 0 25.6-11.463 25.6-25.6 0-14.138-11.462-25.6-25.6-25.6z"></path>
-                </svg>
+              {/* Left side - Empty or could add another element */}
+              <div className={styles.mobileLeftContainer}>
+                {/* Left side could be empty or add another element */}
               </div>
               
               {/* Center - Logo */}
@@ -115,10 +104,10 @@ export const Header = () => {
                 </a>
               </div>
               
-              {/* Right - Action Buttons */}
+              {/* Right - Action Buttons and Hamburger Menu */}
               <div className={styles.mobileActionsContainer}>
                 <a className={`${styles.memberArea} ${styles.btn}`} href="#">
-                  <svg fill="currentcolor" id="fi_4121044" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3">
+                  <svg fill="currentcolor" id="fi_4121044" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3">
                     <circle cx="4" cy="6" r="3"></circle>
                     <path d="m7.29 11.07a6.991 6.991 0 0 0 -3.29 5.93h-2a2.006 2.006 0 0 1 -2-2v-2a3.009 3.009 0 0 1 3-3h2a3 3 0 0 1 2.29 1.07z"></path>
                     <circle cx="20" cy="6" r="3"></circle>
@@ -128,7 +117,7 @@ export const Header = () => {
                   </svg>
                 </a>
                 <a className={`${styles.joinArmy} ${styles.btn}`} href="#">
-                  <svg fill="currentcolor" version="1.1" id="fi_455691" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.092 512.092" xmlSpace="preserve">
+                  <svg fill="currentcolor" version="1.1" id="fi_455691" width="22" height="22" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.092 512.092" xmlSpace="preserve">
                     <g>
                       <g>
                         <path d="M312.453,199.601c-6.066-6.102-12.792-11.511-20.053-16.128c-19.232-12.315-41.59-18.859-64.427-18.859
@@ -156,13 +145,28 @@ export const Header = () => {
                   </svg>
                 </a>
                 <a className={`${styles.buyNow} ${styles.btn}`} href="#">
-                  <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" id="fi_2420157">
+                  <svg fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="22" height="22" id="fi_2420157">
                     <g id="cart_shop_buy_retail" data-name="cart, shop, buy, retail">
                       <path d="M24,23a3,3,0,1,0,3,3A3.0033,3.0033,0,0,0,24,23Zm0,4a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,24,27Z"></path>
                       <path d="M18,23H10a1,1,0,0,1,0-2H26a1,1,0,0,0,.9863-.8354l2-12A1,1,0,0,0,28,7H12a1,1,0,0,0,0,2H26.8193L25.1528,19h-12.46L6.9365,3.6489A1.0005,1.0005,0,0,0,6,3H4A1,1,0,0,0,4,5H5.3071l5.25,14H10a2.99,2.99,0,0,0-.7791,5.8823A3.005,3.005,0,1,0,14.8157,25H18a1,1,0,0,0,0-2Zm-5,3a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,13,26Z"></path>
                     </g>
                   </svg>
                 </a>
+                
+                {/* Hamburger Menu now on the right */}
+                <div className={styles.hamburgerContainer} onClick={() => setShowMenu(!showMenu)}>
+                  <svg 
+                    className={`${styles.hamburgerIcon} d-inline-block`}
+                    enableBackground="new 0 0 512 512" 
+                    height="22" 
+                    viewBox="0 0 512 512" 
+                    width="22" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    id="fi_5259008"
+                  >
+                    <path d="m128 102.4c0-14.138 11.462-25.6 25.6-25.6h332.8c14.138 0 25.6 11.462 25.6 25.6s-11.462 25.6-25.6 25.6h-332.8c-14.138 0-25.6-11.463-25.6-25.6zm358.4 128h-460.8c-14.138 0-25.6 11.463-25.6 25.6 0 14.138 11.462 25.6 25.6 25.6h460.8c14.138 0 25.6-11.462 25.6-25.6 0-14.137-11.462-25.6-25.6-25.6zm0 153.6h-230.4c-14.137 0-25.6 11.462-25.6 25.6 0 14.137 11.463 25.6 25.6 25.6h230.4c14.138 0 25.6-11.463 25.6-25.6 0-14.138-11.462-25.6-25.6-25.6z"></path>
+                  </svg>
+                </div>
               </div>
             </div>
             
