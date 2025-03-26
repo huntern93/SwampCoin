@@ -3,11 +3,12 @@ import './App.css'
 import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
 
 function App() {
-
   return (
     <>
+      {/* Full-page background wrapper */}
+      <div className="page-wrapper"></div>
+      
       <ToastContainer />
-      {/* Header moved outside hero-bg */}
       <Header />
       <div className="hero-bg">
         <Hero />
