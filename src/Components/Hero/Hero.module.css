@@ -214,7 +214,8 @@
     height: 250px;
     background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
     pointer-events: none;
-    z-index: 2;
+    z-index: 5 !important;
+    display: block !important;
   }
   .heroForm {
     margin-top: 160px !important; /* Increase this value to move it lower */
@@ -239,6 +240,6 @@
   
   /* Further background adjustment for very small screens */
   .heroBackground {
-    object-position: center -50px; /* Move down more for smaller screens */
+    object-position: center -80px; /* Move down more for smaller screens */
   }
 }
