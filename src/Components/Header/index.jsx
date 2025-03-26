@@ -92,20 +92,15 @@ export const Header = () => {
           {/* Mobile Navigation */}
           <nav className={`${styles.headerNav} d-flex d-lg-none`}>
             <div className={styles.mobileHeaderWrapper}>
-              {/* Left side - Empty or could add another element */}
+              {/* Left side - Logo */}
               <div className={styles.mobileLeftContainer}>
-                {/* Left side could be empty or add another element */}
-              </div>
-              
-              {/* Center - Logo */}
-              <div className={styles.mobileCenterLogo}>
                 <a href="#" className={styles.logoLink}>
                   <span className={styles.logoText}>SWAMP</span>
                 </a>
               </div>
               
-              {/* Right - Action Buttons and Hamburger Menu */}
-              <div className={styles.mobileActionsContainer}>
+              {/* Center - Action Buttons */}
+              <div className={styles.mobileCenterButtons}>
                 <a className={`${styles.memberArea} ${styles.btn}`} href="#">
                   <svg fill="currentcolor" id="fi_4121044" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3">
                     <circle cx="4" cy="6" r="3"></circle>
@@ -152,8 +147,10 @@ export const Header = () => {
                     </g>
                   </svg>
                 </a>
-                
-                {/* Hamburger Menu now on the right */}
+              </div>
+              
+              {/* Right - Hamburger Menu */}
+              <div className={styles.mobileRightContainer}>
                 <div className={styles.hamburgerContainer} onClick={() => setShowMenu(!showMenu)}>
                   <svg 
                     className={`${styles.hamburgerIcon} d-inline-block`}

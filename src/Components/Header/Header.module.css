@@ -60,7 +60,6 @@ header {
 .logoContainer {
   display: flex;
   align-items: center;
-  margin-right: 20px;
 }
 
 .logoLink {
@@ -84,31 +83,30 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin: 0 auto;
 }
 
 .mobileLeftContainer {
   flex: 1;
   display: flex;
   justify-content: flex-start;
+  padding-right: 5px;
 }
 
-.mobileCenterLogo {
-  flex: 2;
+.mobileCenterButtons {
+  flex: 2.5;
   display: flex;
   justify-content: center;
+  gap: 8px;
 }
 
-.mobileActionsContainer {
-  flex: 1;
+.mobileRightContainer {
+  flex: 0.5;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  gap: 7px;
+  padding-left: 5px;
 }
 
 .hamburgerContainer {
-  margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,17 +142,9 @@ header {
     font-size: 20px;
   }
   
-  .logoIcon {
-    font-size: 20px;
-  }
-  
-  .mobileActionsContainer .btn {
-    padding: 5px 7px; /* Smaller buttons */
-    transform: scale(0.9); /* Slightly scale down buttons */
-  }
-  
-  .hamburgerContainer {
-    margin-left: 7px;
+  .mobileCenterButtons .btn {
+    padding: 5px;
+    transform: scale(0.95);
   }
 }
 
@@ -195,14 +185,5 @@ header {
   
   .links a:last-child {
     border-bottom: none;
-  }
-  
-  /* Adding whitespace and improving readability */
-  .mobileActionsContainer {
-    margin-right: 5px;
-  }
-  
-  .mobileActionsContainer .btn {
-    margin-left: 2px;
   }
 }
