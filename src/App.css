@@ -3,9 +3,11 @@ body, html {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background: none !important; /* Remove green */
+  background-color: rgba(156, 183, 99, 1);
   position: relative;
+  min-height: 100vh;
 }
+
 #root {
   position: relative;
   width: 100%;
@@ -22,32 +24,25 @@ body, html {
 
 /* Full-page background image */
 .full-background {
-  position: fixed; /* Ensures it covers entire viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
   background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  z-index: -1; /* Keep it behind the content */
+  z-index: -1;
 }
 
-/* Header styling to ensure it sits over background and blends with hero section */
+/* Header styling */
 header, .header {
   position: relative;
   width: 100%;
   z-index: 1000 !important;
   background-color: transparent !important;
-  margin-bottom: -1px; /* Prevent potential white line */
 }
 
-/* Ensure header content doesn't create unexpected spacing */
-header > * {
-  margin: 0;
-  padding: 0;
-}
-
-/* Hero section styling to connect with header background */
+/* Section backgrounds */
 .hero-bg {
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
@@ -55,7 +50,6 @@ header > * {
   background-size: cover;
   position: relative;
   z-index: 0;
-  margin-top: -1px; /* Compensate for potential header margin */
 }
 
 .mid-bg {
@@ -74,12 +68,6 @@ header > * {
   position: relative;
 }
 
-/* Hero form positioning */
-.hero .heroForm {
-  z-index: 1 !important;
-  position: relative;
-}
-
 /* Mobile responsiveness */
 @media screen and (max-width: 490px) {
   .full-background {
@@ -94,7 +82,6 @@ header > * {
     background-size: contain;
     padding-bottom: 50px;
     position: relative;
-    margin-top: 0; /* Reset margin for mobile */
   }
 
   .hero-bg::after {
@@ -108,18 +95,9 @@ header > * {
     pointer-events: none;
     z-index: 1;
   }
-
-  .hero .heroForm {
-    margin-top: 320px !important;
-  }
-
-  .hero > *, .hero-bg > * {
-    position: relative;
-    z-index: 2;
-  }
 }
 
-/* Menu overlay z-index management */
+/* Z-index management */
 .menu-open header,
 .menu-open .header,
 .menu-open .mobile-menu {
