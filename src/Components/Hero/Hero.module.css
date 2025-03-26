@@ -26,7 +26,7 @@
 }
 
 .heroForm {
-  max-width: 37vw;
+  max-width: 31.45vw; /* Reduced from 37vw (15% reduction) */
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 20px;
@@ -187,7 +187,7 @@
   
   /* Background position adjustment for mobile */
   .heroBackground {
-    object-position: center -40px; /* Move down to show more of the swamp flag */
+    object-position: center -60px; /* Move down to show more of the swamp flag */
     min-height: 120%;
   }
   
