@@ -1,28 +1,12 @@
+/* Base styles for background elements */
 .hero-bg {
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
     url('./assets/images/hero.jpg') no-repeat;
   background-size: cover;
   background-position: top center;
-  z-index: 0 !important; /* Reduce priority */
+  z-index: 0;
   position: relative;
-  /* Add top padding to account for header height */
-  padding-top: 60px; /* Adjust this value based on your header's height */
-  margin-top: -60px; /* Pull up to cover area behind header */
-}
-
-/* Add a pseudo-element that extends behind the header */
-.hero-bg::before {
-  content: '';
-  position: absolute;
-  top: -60px; /* Match the negative margin-top value */
-  left: 0;
-  width: 100%;
-  height: 60px; /* Match header height */
-  background: url('./assets/images/hero.jpg') no-repeat;
-  background-size: cover;
-  background-position: top center;
-  z-index: -1;
 }
 
 .mid-bg {
@@ -44,24 +28,59 @@ body {
   overflow-x: hidden;
 }
 
-/* Adjust z-index for hero form */
-.hero .heroForm {
-  z-index: 1 !important;
-}
-
-/* Header styling to ensure it's above everything */
+/* Header styling for proper z-index management */
 header, .header {
   position: relative;
   z-index: 1000 !important; /* Ensure header is above everything */
 }
 
-/* Reset z-index when menu is open */
-body.menu-open .hero .heroForm,
-body.menu-open .hero > *, 
-body.menu-open .hero-bg > * {
-  z-index: auto !important;
+/* Hero form adjustments */
+.hero .heroForm {
+  z-index: 1 !important;
+  position: relative;
 }
 
+/* Desktop styles */
+@media screen and (min-width: 769px) {
+  /* Desktop background handling */
+  .hero-bg {
+    padding-top: 80px; /* Adjust based on your desktop header height */
+    margin-top: -80px; /* Match the padding-top value */
+  }
+
+  /* Create extension of background image behind header */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -80px; /* Should match negative margin-top */
+    left: 0;
+    width: 100%;
+    height: 80px; /* Should match desktop header height */
+    background-color: rgba(156, 183, 99, 1); /* Match the green color */
+    z-index: -1;
+  }
+}
+
+/* Tablet styles */
+@media screen and (min-width: 491px) and (max-width: 768px) {
+  .hero-bg {
+    padding-top: 70px; /* Adjust based on your tablet header height */
+    margin-top: -70px; /* Match the padding-top value */
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -70px; /* Should match negative margin-top */
+    left: 0;
+    width: 100%;
+    height: 70px; /* Should match tablet header height */
+    background-color: rgba(156, 183, 99, 1); /* Match the green color */
+    z-index: -1;
+  }
+}
+
+/* Mobile styles */
 @media screen and (max-width: 490px) {
   .hero-bg {
     position: relative;
@@ -69,14 +88,20 @@ body.menu-open .hero-bg > * {
     background-size: contain;
     background-position: top center;
     padding-bottom: 50px;
-    margin-top: -60px; /* Keep this consistent with desktop */
-    padding-top: 60px; /* Keep this consistent with desktop */
+    padding-top: 60px; /* Adjust based on your mobile header height */
+    margin-top: -60px; /* Match the padding-top value */
   }
   
+  /* Create extension of background behind header */
   .hero-bg::before {
-    background: url('./assets/images/hero-mob.jpg') no-repeat;
-    background-size: contain;
-    background-position: top center;
+    content: '';
+    position: absolute;
+    top: -60px; /* Should match negative margin-top */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Should match mobile header height */
+    background-color: rgba(156, 183, 99, 1); /* Match the green color */
+    z-index: -1;
   }
   
   /* Strong bottom gradient for mobile only */
@@ -102,4 +127,18 @@ body.menu-open .hero-bg > * {
     position: relative;
     z-index: 2;
   }
+}
+
+/* Ensure menu has proper z-index when opened */
+.menu-open header, 
+.menu-open .header,
+.menu-open .mobile-menu {
+  z-index: 9999 !important; /* Extremely high z-index for menu when open */
+}
+
+/* Reset z-index when menu is open */
+body.menu-open .hero .heroForm,
+body.menu-open .hero > *, 
+body.menu-open .hero-bg > * {
+  z-index: auto !important;
 }
