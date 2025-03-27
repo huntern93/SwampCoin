@@ -56,7 +56,7 @@ header {
   color: #FF3D3D;
 }
 
-/* Swamp Logo Styles */
+/* Swamp Logo Styles - Improved */
 .logoContainer {
   display: none;
 }
@@ -65,12 +65,14 @@ header {
   text-decoration: none;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .logoImage {
-  width: 30px;
-  height: 30px;
-  margin-right: 8px;
+  width: 32px;
+  height: 32px;
+  display: block;
+  object-fit: contain;
   border-radius: 50%;
 }
 
@@ -101,6 +103,11 @@ header {
   box-shadow: -1px 3px 0px #000000;
 }
 
+/* Header Buttons Container */
+.headerButtons {
+  margin-left: auto;
+}
+
 @media screen and (max-width: 490px) {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
@@ -126,10 +133,6 @@ header {
   /* Make buttons smaller on mobile when sticky */
   .stickyHeader .btn {
     padding: 4px 8px;
-  }
-
-  .headerButtons {
-    margin-left: auto;
   }
 
   .links {

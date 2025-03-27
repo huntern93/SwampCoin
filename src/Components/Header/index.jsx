@@ -1,6 +1,8 @@
 import { Container } from "react-bootstrap"
 import styles from "./Header.module.css"
 import { useState, useEffect } from "react"
+// Import the logo directly - this is the recommended way in React
+import logoImage from "../../assets/images/logo.png"
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
@@ -72,7 +74,7 @@ export const Header = () => {
             {/* Swamp Logo - Visible only on mobile */}
             <div className={styles.logoContainer}>
               <a href="#home" className={styles.logoLink}>
-                <img src="./../../assets/images/logo.png" alt="Swamp Logo" className={styles.logoImage} />
+                <img src={logoImage} alt="Swamp Logo" className={styles.logoImage} />
                 <div className={styles.swampLogo}>SWAMP</div>
               </a>
             </div>
