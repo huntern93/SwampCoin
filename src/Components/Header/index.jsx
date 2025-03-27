@@ -88,7 +88,8 @@ export const Header = () => {
             </div>
             
             <div className={`d-flex align-items-center gap-xxl-4 gap-2 ${styles.headerButtons}`}>
-              <div className="d-flex align-items-center position-relative">
+              {/* Members Area with Coming Soon tag */}
+              <div className="position-relative" style={{ paddingLeft: "18px" }}>
                 <div className={styles.comingSoonVertical}>
                   <span>Coming Soon</span>
                 </div>

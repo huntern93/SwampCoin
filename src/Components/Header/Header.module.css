@@ -108,13 +108,13 @@ header {
   margin-left: auto;
 }
 
-/* Vertical Coming Soon indicator */
+/* Vertical Coming Soon indicator - FIXED POSITION */
 .comingSoonVertical {
   position: absolute;
-  left: -10px;
+  left: 5px; /* Adjusted to stay within the header */
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
-  transform-origin: right center;
+  transform-origin: left center; /* Changed to left center */
   font-size: 10px;
   color: #FF3D3D;
   font-weight: 700;
@@ -125,7 +125,7 @@ header {
   letter-spacing: 0.5px;
   animation: pulse 2s infinite;
   white-space: nowrap;
-  z-index: 10;
+  z-index: 5; /* Reduced z-index */
 }
 
 @keyframes pulse {
