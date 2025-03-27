@@ -4,6 +4,7 @@ import TokenomicsImg from "../../assets/images/tokenomics.png"
 import ShrekMoney from "../../assets/images/shrek_money.png"
 import Knight from "../../assets/images/knight.png"
 import Exclusive from "../../assets/images/exclusive.png"
+import Keyhole from "../../assets/images/keyhole.png" // Add this import
 import NFT1 from "../../assets/images/nft1.png"
 import NFT2 from "../../assets/images/nft2.png"
 import NFT3 from "../../assets/images/nft3.png"
