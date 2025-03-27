@@ -7,8 +7,18 @@
 
 .coreFeatureInner h3 {
   font-size: 54px;
+  font-weight: 900;
+  line-height: 1.1;
 }
 
+/* Feature card styling */
+.featureCard {
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Images styling */
 .coreFeatureImg1 {
   width: 110%;
   max-width: none;
@@ -33,10 +43,40 @@
   transform: translate(-50%, -50%);
 }
 
+/* NFT grid styling */
+.nftGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.nftGrid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.nftGrid img:hover {
+  transform: scale(1.05);
+}
+
+/* Last message highlight */
+.lastMessage {
+  background-color: #FFCF00;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin-top: 25px;
+  text-align: center;
+  border: 3px solid #000;
+}
+
 @media screen and (max-width: 1690px) {
   .coreFeatureImg2 {
     width: 107%;
   }
+  
   .coreFeatureInner h3 {
     font-size: 45px;
   }
@@ -57,18 +97,65 @@
   .coreFeatureImg3 {
     margin: 0;
   }
+  
   .coreFeatureInner h3 {
     font-size: 35px;
+  }
+  
+  .featureCard {
+    padding: 15px;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+  }
+  
+  .featureCard:last-child {
+    border-bottom: none;
   }
 }
 
 @media screen and (max-width: 767px) {
-  
   .coreFeatureInner {
-    padding: 20px;
+    padding: 20px 15px;
+    border-width: 5px;
   }
+  
+  .coreFeatureInner h3 {
+    font-size: 28px;
+    margin-top: 15px;
+  }
+  
   .coreFeatureImg1 {
     width: 100%;
     margin: 0;
+  }
+  
+  /* Improved mobile spacing */
+  .featureCard {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+  
+  /* Fix image display on mobile */
+  .mobileImgContainer {
+    display: flex;
+    justify-content: center;
+    margin: 0 -15px;
+  }
+  
+  .mobileImgContainer img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  /* NFT grid mobile adjustments */
+  .nftGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  /* Last message mobile styling */
+  .lastMessage {
+    font-size: 18px;
+    padding: 12px;
   }
 }
