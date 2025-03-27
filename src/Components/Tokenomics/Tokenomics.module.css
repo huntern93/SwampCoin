@@ -12,6 +12,17 @@
   right: 2%;
   max-width: 50%;
   max-height: 80%;
+  transition: transform 0.3s ease;
+}
+
+/* Better image wrapper for proper positioning */
+.tokenomicsImgWrapper {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tokenomics {
@@ -49,6 +60,51 @@
   text-align: center;
   padding: 12px;
   margin-top: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price:hover {
+  transform: translateY(-3px);
+  box-shadow: -1px 5px 0px #000000;
+}
+
+/* New styles for enhancing desktop token items */
+.tokenItem {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.tokenItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.activeTokenItem {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #000;
+  box-shadow: -1px 3px 0px #000000;
+  transform: translateY(-3px);
+}
+
+.activeTokenItem::before {
+  background-color: currentColor;
+}
+
+/* Add some hover effect to the chart column */
+.chartCol:hover .tokenomicsImg {
+  transform: scale(1.03);
 }
 
 /* Mobile Styles */

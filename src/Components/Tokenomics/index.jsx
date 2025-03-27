@@ -6,8 +6,9 @@ import TokenomicsImg from "../../assets/images/tokenomics.png"
 export const Tokenomics = () => {
   // State for tracking active segment
   const [activeSegment, setActiveSegment] = useState(null);
+  const [hoveredItem, setHoveredItem] = useState(null);
   
-  // Refs for allocation items to scroll to
+  // Refs for allocation items
   const allocationRefs = useRef([]);
   
   const TokenomicsData = [
@@ -81,30 +82,18 @@ export const Tokenomics = () => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
   
-  // Handle segment click to scroll to corresponding allocation
-  const handleSegmentClick = (index) => {
-    setActiveSegment(index);
-    if (allocationRefs.current[index]) {
-      allocationRefs.current[index].scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'center' 
-      });
-      
-      // Highlight the item temporarily
-      allocationRefs.current[index].classList.add(styles.highlighted);
-      setTimeout(() => {
-        allocationRefs.current[index].classList.remove(styles.highlighted);
-      }, 1500);
-    }
+  // Handle highlighting of items
+  const handleItemHover = (index) => {
+    setHoveredItem(index);
   };
-  
+
   return (
     <>
       <section id="tokenomics" className={styles.tokenomics}>
         <Container className="big-container">
           <h2 className="section-title pb-md-5 pb-3">TOKENOMICS</h2>
           
-          {/* Desktop View */}
+          {/* Desktop View - Enhanced */}
           <div className={`${styles.tokenomicsInner} d-none d-lg-block`}>
             <div className="ps-md-5">
               <h4 className="size-36 fw-bold mb-0">Total Supply: 10,000,000,000 SWAMP</h4>
@@ -116,10 +105,16 @@ export const Tokenomics = () => {
                   {TokenomicsData.map((item, index) => {
                     return (
                       <Col key={index}>
-                        <div className="d-flex gap-3">
+                        <div 
+                          className={`d-flex gap-3 ${styles.tokenItem} ${hoveredItem === index ? styles.activeTokenItem : ''}`}
+                          onMouseEnter={() => handleItemHover(index)}
+                          onMouseLeave={() => handleItemHover(null)}
+                          ref={el => allocationRefs.current[index] = el}
+                        >
                           <Icon color={item.iconColor} />
                           <div>
                             <h4 className="size-30 fw-bold mb-0">{item.title}</h4>
+                            <p className="size-18 mb-1">{formatNumber(item.tokens)} SWAMP</p>
                             <p className="size-20 fw-bold mb-0">{item.text}</p>
                           </div>
                         </div>
@@ -133,13 +128,16 @@ export const Tokenomics = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col>
+              <Col className={styles.chartCol}>
+                {/* The pie chart image with Shrek is already here */}
+                <div className={styles.tokenomicsImgWrapper}>
+                  <img src={TokenomicsImg} className={styles.tokenomicsImg} alt="Tokenomics with Shrek" />
+                </div>
               </Col>
             </Row>
-            <img src={TokenomicsImg} className={styles.tokenomicsImg} alt="Tokenomics" />
           </div>
           
-          {/* Mobile View */}
+          {/* Mobile View - Unchanged */}
           <div className={`${styles.tokenomicsMobile} d-block d-lg-none`}>
             <div>
               <h4 className="size-24 fw-bold mb-2">Total Supply: 10,000,000,000 SWAMP</h4>
@@ -147,49 +145,49 @@ export const Tokenomics = () => {
             </div>
             
             <div className={styles.pieChartContainer}>
-  <svg viewBox="0 0 200 200" className={styles.pieChart}>
-    {/* Add a circular clipping path */}
-    <defs>
-      <clipPath id="circleView">
-        <circle cx="100" cy="100" r="100" />
-      </clipPath>
-    </defs>
-    
-    <g clipPath="url(#circleView)">
-      {TokenomicsData.map((item, index) => (
-        <OverlayTrigger
-          key={index}
-          placement="top"
-          overlay={
-            <Tooltip id={`tooltip-${index}`}>
-              <strong>{item.title}</strong><br />
-              {formatNumber(item.tokens)} SWAMP
-            </Tooltip>
-          }
-        >
-          <circle 
-            cx="100" 
-            cy="100" 
-            r="70" 
-            fill="transparent" 
-            stroke={item.iconColor} 
-            strokeWidth="70" 
-            strokeDasharray={item.dasharray} 
-            strokeDashoffset={item.dashoffset} 
-            transform="rotate(-90 100 100)"
-            className={`${styles.pieSegment} ${activeSegment === index ? styles.activeSegment : ''}`}
-            onClick={() => handleSegmentClick(index)}
-            onMouseEnter={() => setActiveSegment(index)}
-            onMouseLeave={() => setActiveSegment(null)}
-          />
-        </OverlayTrigger>
-      ))}
-    </g>
-    
-    {/* Clean white center circle without border */}
-    <circle cx="100" cy="100" r="25" fill="white" />
-  </svg>
-</div>
+              <svg viewBox="0 0 200 200" className={styles.pieChart}>
+                {/* Add a circular clipping path */}
+                <defs>
+                  <clipPath id="circleView">
+                    <circle cx="100" cy="100" r="100" />
+                  </clipPath>
+                </defs>
+                
+                <g clipPath="url(#circleView)">
+                  {TokenomicsData.map((item, index) => (
+                    <OverlayTrigger
+                      key={index}
+                      placement="top"
+                      overlay={
+                        <Tooltip id={`tooltip-${index}`}>
+                          <strong>{item.title}</strong><br />
+                          {formatNumber(item.tokens)} SWAMP
+                        </Tooltip>
+                      }
+                    >
+                      <circle 
+                        cx="100" 
+                        cy="100" 
+                        r="70" 
+                        fill="transparent" 
+                        stroke={item.iconColor} 
+                        strokeWidth="70" 
+                        strokeDasharray={item.dasharray} 
+                        strokeDashoffset={item.dashoffset} 
+                        transform="rotate(-90 100 100)"
+                        className={`${styles.pieSegment} ${activeSegment === index ? styles.activeSegment : ''}`}
+                        onClick={() => setActiveSegment(index === activeSegment ? null : index)}
+                        onMouseEnter={() => setActiveSegment(index)}
+                        onMouseLeave={() => setActiveSegment(null)}
+                      />
+                    </OverlayTrigger>
+                  ))}
+                </g>
+                
+                {/* Clean white center circle without border */}
+                <circle cx="100" cy="100" r="25" fill="white" />
+              </svg>
+            </div>
 
             {/* Token Allocation Table */}
             <div className={styles.tokenAllocationTable}>
