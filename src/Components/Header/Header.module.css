@@ -56,6 +56,51 @@ header {
   color: #FF3D3D;
 }
 
+/* Swamp Logo Styles */
+.logoContainer {
+  display: none;
+}
+
+.logoLink {
+  text-decoration: none;
+}
+
+.swampLogo {
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  background: linear-gradient(to bottom, #9ACD32, #4CAF50);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  margin-right: 10px;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 2px 8px;
+  display: inline-block;
+  box-shadow: -1px 2px 0px #000000;
+}
+
+/* Sticky Header Styles */
+.stickyHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 0 !important;
+  transition: all 0.3s ease;
+}
+
+.stickyHeader .headerNav {
+  box-shadow: -1px 3px 0px #000000;
+}
+
 @media screen and (max-width: 490px) {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
@@ -68,6 +113,25 @@ header {
     padding-top: 0;
   }
 
+  /* Display logo on mobile */
+  .logoContainer {
+    display: block;
+  }
+
+  /* Adjust layout for sticky header on mobile */
+  .stickyHeader .headerNav {
+    padding: 8px 10px;
+  }
+  
+  /* Make buttons smaller on mobile when sticky */
+  .stickyHeader .btn {
+    padding: 4px 8px;
+  }
+
+  .headerButtons {
+    margin-left: auto;
+  }
+
   .links {
     position: fixed;
     background: #fff;
@@ -78,7 +142,7 @@ header {
     display: flex;
     flex-direction: column;
     transform: translateX(100vw);
-    z-index: 1;
+    z-index: 1000;
     border: 2px solid #000000;
     border-radius: 12px;
     padding: 25px;

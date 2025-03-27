@@ -1,8 +1,30 @@
 import { Container } from "react-bootstrap"
 import styles from "./Header.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false)
+  const [isSticky, setIsSticky] = useState(false)
+  
+  // Handle scroll for sticky header on mobile
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth <= 991) {
+        setIsSticky(window.scrollY > 10)
+      } else {
+        setIsSticky(false)
+      }
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    // Initial check
+    handleScroll()
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const links = [
     {
       name: "Home",
@@ -44,9 +66,16 @@ export const Header = () => {
 
   return (
     <>
-      <header id="home" className="text-white text-center">
+      <header id="home" className={`text-white text-center ${isSticky ? styles.stickyHeader : ''}`}>
         <Container className="big-container">
           <nav className={styles.headerNav}>
+            {/* Swamp Logo - Visible only on mobile */}
+            <div className={styles.logoContainer}>
+              <a href="#home" className={styles.logoLink}>
+                <div className={styles.swampLogo}>$SWAMP</div>
+              </a>
+            </div>
+            
             <div className={`size-20 ${styles.links} gap-xxl-4 gap-3 ${showMenu ? styles.show: ""} `}>
               {links.map((link, index) => {
                 return (
@@ -54,7 +83,8 @@ export const Header = () => {
                 )
               })}
             </div>
-            <div className="d-flex align-items-center gap-xxl-4 gap-2">
+            
+            <div className={`d-flex align-items-center gap-xxl-4 gap-2 ${styles.headerButtons}`}>
               <a className={`${styles.memberArea} ${styles.btn} size-20`} href="#">
                 <span className="d-none d-xl-inline">Members Area</span>
                 <span className="d-inline-block d-xl-none"><svg fill="currentcolor" id="fi_4121044" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3"><circle cx="4" cy="6" r="3"></circle><path d="m7.29 11.07a6.991 6.991 0 0 0 -3.29 5.93h-2a2.006 2.006 0 0 1 -2-2v-2a3.009 3.009 0 0 1 3-3h2a3 3 0 0 1 2.29 1.07z"></path><circle cx="20" cy="6" r="3"></circle><path d="m24 13v2a2.006 2.006 0 0 1 -2 2h-2a6.991 6.991 0 0 0 -3.29-5.93 3 3 0 0 1 2.29-1.07h2a3.009 3.009 0 0 1 3 3z"></path><circle cx="12" cy="7" r="4"></circle><path d="m18 17v1a3.009 3.009 0 0 1 -3 3h-6a3.009 3.009 0 0 1 -3-3v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5z"></path></svg></span>
@@ -90,9 +120,10 @@ export const Header = () => {
               </a>
               <a className={`${styles.buyNow} ${styles.btn} size-20`} href="#">
                 <span className="d-none d-xl-inline">Buy Now</span>
-                <svg className="d-inline-block d-xl-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" id="fi_2420157"><g id="cart_shop_buy_retail" data-name="cart, shop, buy, retail"><path d="M24,23a3,3,0,1,0,3,3A3.0033,3.0033,0,0,0,24,23Zm0,4a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,24,27Z"></path><path d="M18,23H10a1,1,0,0,1,0-2H26a1,1,0,0,0,.9863-.8354l2-12A1,1,0,0,0,28,7H12a1,1,0,0,0,0,2H26.8193L25.1528,19h-12.46L6.9365,3.6489A1.0005,1.0005,0,0,0,6,3H4A1,1,0,0,0,4,5H5.3071l5.25,14H10a2.99,2.99,0,0,0-.7791,5.8823A3.005,3.005,0,1,0,14.8157,25H18a1,1,0,0,0,0-2Zm-5,3a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,13,26Z"></path></g></svg></a>
+                <svg className="d-inline-block d-xl-none" fill="currentcolor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="24" height="24" id="fi_2420157"><g id="cart_shop_buy_retail" data-name="cart, shop, buy, retail"><path d="M24,23a3,3,0,1,0,3,3A3.0033,3.0033,0,0,0,24,23Zm0,4a1,1,0,1,1,1-1A1.0013,1.0013,0,0,1,24,27Z"></path><path d="M18,23H10a1,1,0,0,1,0-2H26a1,1,0,0,0,.9863-.8354l2-12A1,1,0,0,0,28,7H12a1,1,0,0,0,0,2H26.8193L25.1528,19h-12.46L6.9365,3.6489A1.0005,1.0005,0,0,0,6,3H4A1,1,0,0,0,4,5H5.3071l5.25,14H10a2.99,2.99,0,0,0-.7791,5.8823A3.005,3.005,0,1,0,14.8157,25H18a1,1,0,0,0,0-2Zm-5,3a1,1,0,1,1-1-1A1.0013,1.0013,0,0,1,13,26Z"></path></g></svg>
+              </a>
+              <svg onClick={() => setShowMenu(!showMenu)} className="d-inline-block d-lg-none" enable-background="new 0 0 512 512" height="24" viewBox="0 0 512 512" width="24" xmlns="http://www.w3.org/2000/svg" id="fi_5259008"><path d="m128 102.4c0-14.138 11.462-25.6 25.6-25.6h332.8c14.138 0 25.6 11.462 25.6 25.6s-11.462 25.6-25.6 25.6h-332.8c-14.138 0-25.6-11.463-25.6-25.6zm358.4 128h-460.8c-14.138 0-25.6 11.463-25.6 25.6 0 14.138 11.462 25.6 25.6 25.6h460.8c14.138 0 25.6-11.462 25.6-25.6 0-14.137-11.462-25.6-25.6-25.6zm0 153.6h-230.4c-14.137 0-25.6 11.462-25.6 25.6 0 14.137 11.463 25.6 25.6 25.6h230.4c14.138 0 25.6-11.463 25.6-25.6 0-14.138-11.462-25.6-25.6-25.6z"></path></svg>
             </div>
-            <svg onClick={() => setShowMenu(!showMenu)} className="d-inline-block d-lg-none" enable-background="new 0 0 512 512" height="24" viewBox="0 0 512 512" width="24" xmlns="http://www.w3.org/2000/svg" id="fi_5259008"><path d="m128 102.4c0-14.138 11.462-25.6 25.6-25.6h332.8c14.138 0 25.6 11.462 25.6 25.6s-11.462 25.6-25.6 25.6h-332.8c-14.138 0-25.6-11.463-25.6-25.6zm358.4 128h-460.8c-14.138 0-25.6 11.463-25.6 25.6 0 14.138 11.462 25.6 25.6 25.6h460.8c14.138 0 25.6-11.462 25.6-25.6 0-14.137-11.462-25.6-25.6-25.6zm0 153.6h-230.4c-14.137 0-25.6 11.462-25.6 25.6 0 14.137 11.463 25.6 25.6 25.6h230.4c14.138 0 25.6-11.463 25.6-25.6 0-14.138-11.462-25.6-25.6-25.6z"></path></svg>
           </nav>
         </Container>
       </header>
