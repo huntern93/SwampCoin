@@ -4,7 +4,11 @@ import TokenomicsImg from "../../assets/images/tokenomics.png"
 import ShrekMoney from "../../assets/images/shrek_money.png"
 import Knight from "../../assets/images/knight.png"
 import Exclusive from "../../assets/images/exclusive.png"
-import Keyhole from "../../assets/images/keyhole.png"
+import NFT1 from "../../assets/images/nft1.png"
+import NFT2 from "../../assets/images/nft2.png"
+import NFT3 from "../../assets/images/nft3.png"
+import NFT4 from "../../assets/images/nft4.png"
+
 
 export const CoreFeatures = () => {
   return (
@@ -60,16 +64,16 @@ export const CoreFeatures = () => {
                 {/* NFT Grid - Will be visible on mobile but styled differently */}
                 <div className={styles.nftGrid}>
                   <div className={styles.nftItem}>
-                    <img src={TokenomicsImg} alt="NFT Example 1" />
+                    <img src={NFT1} alt="NFT Example 1" />
                   </div>
                   <div className={styles.nftItem}>
-                    <img src={ShrekMoney} alt="NFT Example 2" />
+                    <img src={NFT2} alt="NFT Example 2" />
                   </div>
                   <div className={styles.nftItem}>
-                    <img src={Knight} alt="NFT Example 3" />
+                    <img src={NFT3} alt="NFT Example 3" />
                   </div>
                   <div className={styles.nftItem}>
-                    <img src={Keyhole} alt="NFT Example 4" />
+                    <img src={NFT4} alt="NFT Example 4" />
                   </div>
                 </div>
               </Col>
