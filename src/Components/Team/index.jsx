@@ -9,19 +9,19 @@ export const Team = () => {
     {
       img: OgreAlpha,
       title: "OGRE ALPHA",
-      role: ""Swamp King" Lead Developer & Visionary",
+      role: '"Swamp King" Lead Developer & Visionary',
       description: "The mastermind who coded our ecosystem from the depths of the swamp. Veteran of three bull runs and countless rugpulls (never his own)."
     },
     {
       img: CryptoDonkey,
       title: "CRYPTO DONKEY",
-      role: ""Liquidity Wizard" Tokenomics Engineer",
+      role: '"Liquidity Wizard" Tokenomics Engineer',
       description: "The mathematical genius behind our staking rewards. Known for optimizing gas like nobody's business and surviving the 2022 bear market on ramen alone."
     },
     {
       img: FairyGodmeme,
       title: "FAIRY GODMEME",
-      role: ""Community Alchemist" Marketing Strategist",
+      role: '"Community Alchemist" Marketing Strategist',
       description: "Turned three failed projects into 100x gems through pure meme magic. Can spot a paper hand from miles away and convert FUDders into diamond-handed believers."
     },
   ]
