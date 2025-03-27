@@ -17,18 +17,8 @@ export const HowToBuy = () => {
       )
     },
     {
-      title: "GET BNB",
-      description: "Purchase BNB from exchanges like Binance, Coinbase, or Crypto.com. Transfer the BNB to your wallet address.",
-      icon: (
-        <svg width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="28.1763" r="25" fill="#F5B700" />
-          <path d="M25 18L18 25L21 28L25 24L29 28L32 25L25 18ZM18 29L21 32L25 28L29 32L32 29L25 22L18 29ZM25 14L35 24L32 27L25 20L18 27L15 24L25 14ZM25 36L35 26L32 23L25 30L18 23L15 26L25 36Z" fill="black"/>
-        </svg>
-      )
-    },
-    {
-      title: "CONNECT TO DEX",
-      description: "Visit PancakeSwap or another preferred DEX. Connect your wallet by clicking 'Connect Wallet' and selecting your wallet provider.",
+      title: "CONNECT WALLET",
+      description: "Connect your wallet to our website once the pre-sale is ready. Simply click the connect button and approve the connection request.",
       icon: (
         <svg width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="25" cy="28.1763" r="25" fill="#A5FF27" />
@@ -37,12 +27,22 @@ export const HowToBuy = () => {
       )
     },
     {
-      title: "SWAP FOR $SWAMP",
-      description: "Enter the $SWAMP contract address, set your slippage to 12%, and swap your BNB for $SWAMP tokens. Confirm the transaction in your wallet.",
+      title: "BUY SWAMP TOKENS",
+      description: "Buy SWAMP tokens using ETH, BNB, USDT or Card Payments. Choose your preferred payment method and complete your purchase.",
+      icon: (
+        <svg width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="28.1763" r="25" fill="#F5B700" />
+          <path d="M25 18L18 25L21 28L25 24L29 28L32 25L25 18ZM18 29L21 32L25 28L29 32L32 29L25 22L18 29ZM25 14L35 24L32 27L25 20L18 27L15 24L25 14ZM25 36L35 26L32 23L25 30L18 23L15 26L25 36Z" fill="black"/>
+        </svg>
+      )
+    },
+    {
+      title: "CLAIM OR STAKE",
+      description: "Stake your tokens straight away for rewards or claim once the pre-sale is over. Staking provides passive income while you hold.",
       icon: (
         <svg width="50" height="54" viewBox="0 0 50 54" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="25" cy="28.1763" r="25" fill="#26BCFF" />
-          <path d="M34 30L29 25L34 20V30ZM24 30H26V20H24V30ZM16 30H18V20H16V30ZM36 16H14C12.9 16 12 16.9 12 18V32C12 33.1 12.9 34 14 34H36C37.1 34 38 33.1 38 32V18C38 16.9 37.1 16 36 16ZM36 32H14V18H36V32Z" fill="black"/>
+          <path d="M33 19L25 27L21 23L17 27L25 35L37 23L33 19ZM25 15C19.5 15 15 19.5 15 25C15 30.5 19.5 35 25 35C30.5 35 35 30.5 35 25C35 19.5 30.5 15 25 15ZM25 33C20.6 33 17 29.4 17 25C17 20.6 20.6 17 25 17C29.4 17 33 20.6 33 25C33 29.4 29.4 33 25 33Z" fill="black"/>
         </svg>
       )
     }

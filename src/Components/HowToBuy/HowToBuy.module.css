@@ -2,7 +2,7 @@
   position: relative;
   z-index: 5;
   padding: 40px 0 60px;
-  background-color: #EFF2F0;
+  background-color: rgba(156, 183, 99, 1); /* Green background matching other sections */
 }
 
 .howToBuyInner {
