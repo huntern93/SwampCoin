@@ -1,4 +1,3 @@
-// App.jsx
 import { ToastContainer } from 'react-toastify'
 import './App.css'
 import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
@@ -11,11 +10,15 @@ function App() {
 
       <div className="hero-bg">
         <Hero />
-        <About />
+        <div className="about-section">
+          <About />
+        </div>
       </div>
 
       <div className="mid-bg">
-        <Tokenomics />
+        <div className="tokenomics-section">
+          <Tokenomics />
+        </div>
         <CoreFeatures />
       </div>
 
