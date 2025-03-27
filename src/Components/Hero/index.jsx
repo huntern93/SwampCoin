@@ -4,6 +4,8 @@ import Coinsuit from "../../assets/images/coinsult.png"
 import styles from "./Hero.module.css"
 import { JoinCommunity } from "../JoinCommunity"
 import { toast } from "react-toastify"
+import { HiOutlineMail } from "react-icons/hi"
+
 export const Hero = () => {
   const topRight = () => {
     toast.success('Thank you!', {
@@ -15,18 +17,32 @@ export const Hero = () => {
       <div className={styles.hero}>
         <Container className="text-center big-container">
           <div className={styles.heroForm}>
-            <h2 className="mb-0">The Strongest Meme Army</h2>
+            <h2 className="mb-0">THE STRONGEST</h2>
+            <h2 className="mb-0">MEME ARMY</h2>
             <h3>PRE SALE</h3>
             <p className="size-24 fw-medium">GET EXCLUSIVE ACCESS FIRST</p>
-            <Form.Control size="lg" type="text" placeholder="Email address" />
-            <button onClick={topRight} className={`btn size-36 fw-bold ${styles.heroBtn}`}>JOIN THE SWAMP</button>
-            <p className="size-24 fw-bold text-uppercase mt-2">Trust And Safety Audits</p>
-            <div className="d-flex gap-4 justify-content-center align-items-center">
-              <img src={SolidLogo} alt="" className="w-25" />
-              <img src={Coinsuit} alt="" className="w-25" />
+            
+            <div className={styles.emailInputWrapper}>
+              <HiOutlineMail className={styles.emailIcon} />
+              <Form.Control size="lg" type="text" placeholder="Enter your email" className={styles.emailInput} />
             </div>
-            <div className="d-flex justify-content-center align-items-center flex-column mt-4">
-              <JoinCommunity size="big" />
+            
+            <button onClick={topRight} className={`btn size-36 fw-bold ${styles.heroBtn}`}>JOIN THE SWAMP</button>
+            
+            <p className="size-20 fw-bold text-uppercase mt-4 mb-2">AUDITED BY</p>
+            <p className="size-24 fw-bold text-uppercase mb-2">TRUST AND SAFETY AUDITS</p>
+            
+            <div className="d-flex gap-4 justify-content-center align-items-center">
+              <img src={SolidLogo} alt="Solid Proof" className="w-25" />
+              <img src={Coinsuit} alt="Coinsult" className="w-25" />
+            </div>
+            
+            <div className="mt-4">
+              <p className="size-20 fw-medium mb-2">Join the community</p>
+              <div className={styles.communityBadge}>10k+</div>
+              <div className="d-flex justify-content-center align-items-center gap-2 mt-2">
+                <JoinCommunity size="big" />
+              </div>
             </div>
           </div>
         </Container>
