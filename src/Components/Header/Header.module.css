@@ -63,25 +63,25 @@ header {
 
 .logoLink {
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+  border-radius: 50%;
 }
 
 .swampLogo {
-  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-family: 'Arial Black', 'Arial Bold', sans-serif;
   font-weight: 800;
-  font-size: 22px;
-  background: linear-gradient(to bottom, #9ACD32, #4CAF50);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  color: #4CAF50;
   letter-spacing: 1px;
-  margin-right: 10px;
   text-transform: uppercase;
-  border: 2px solid #000;
-  border-radius: 6px;
-  padding: 2px 8px;
   display: inline-block;
-  box-shadow: -1px 2px 0px #000000;
 }
 
 /* Sticky Header Styles */
