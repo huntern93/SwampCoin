@@ -14,7 +14,7 @@ export const JoinCommunity = ({ size, className }) => {
           </clipPath>
         </defs>
       </svg>,
-      link: "https://web.telegram.org/"
+      link: "https://t.me/SwampArmyHQ"
     },
     {
       icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,7 @@ export const JoinCommunity = ({ size, className }) => {
       icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M21.1385 2.90991H24.9451L16.6288 12.4149L26.4123 25.3491H18.7519L12.7521 17.5046L5.88682 25.3491H2.07792L10.973 15.1824L1.58771 2.90991H9.44256L14.8659 10.0801L21.1385 2.90991ZM19.8025 23.0706H21.9118L8.29644 5.06867H6.03296L19.8025 23.0706Z" fill="black" />
       </svg>,
-      link: "https://www.twitter.com/"
+      link: "https://x.com/SwampArmy"
     },
     {
       icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@ export const JoinCommunity = ({ size, className }) => {
           </clipPath>
         </defs>
       </svg>,
-      link: "https://discord.com/"
+      link: "https://discord.gg/CbW5GbwS"
     },
     {
       icon: <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
