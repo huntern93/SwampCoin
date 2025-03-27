@@ -50,51 +50,29 @@ export const Roadmap = () => {
       ]
     },
   ]
+  
   return (
     <>
       <section id="roadmap" className={styles.roadmap}>
         <Container>
-          {/* Desktop Version */}
+          {/* Desktop Version - Similar to original layout */}
           <Row className="g-lg-5 d-none d-md-flex">
-            <Col md={12} className="text-center mb-5">
+            <Col md={12} className={styles.roadmapTitleContainer}>
               <img src={Title} className={styles.roadmapTitle} alt="Roadmap" />
             </Col>
-          </Row>
-          
-          <Row className="g-lg-5 d-none d-md-flex position-relative">
-            <div className={styles.timelineBar}></div>
             
-            <Col md={6} className={`${styles.leftColumn} pe-md-5`}>
-              <div className={styles.timePoint}>
-                <div className={styles.timelineCircle}></div>
-              </div>
-              <RoadmapCard className={`${styles.leftCard}`} item={RoadmapData[0]} />
-              
-              <div className={styles.timePoint}>
-                <div className={styles.timelineCircle}></div>
-              </div>
-              <RoadmapCard className={`${styles.leftCard}`} item={RoadmapData[2]} />
+            <Col md={6} className={styles.roadmapRod}>
+              <RoadmapCard className="mt-0" item={RoadmapData[0]} />
+              <RoadmapCard item={RoadmapData[2]} />
             </Col>
-            
-            <Col md={6} className={`${styles.rightColumn} ps-md-5`}>
-              <div className={styles.timePointRight}>
-                <div className={styles.timelineCircle}></div>
-              </div>
-              <RoadmapCard className={`${styles.rightCard}`} item={RoadmapData[1]} />
-              
-              <div className={styles.timePointRight}>
-                <div className={styles.timelineCircle}></div>
-              </div>
-              <RoadmapCard className={`${styles.rightCard}`} item={RoadmapData[3]} />
-              
-              <p className="text-white size-24 fw-bold mt-4 text-center">
-                This roadmap is subject to adjustments based on market conditions and community feedback. 
-                The Swamp Army marches forward together!
-              </p>
+            <Col md={6}>
+              <RoadmapCard item={RoadmapData[1]} />
+              <RoadmapCard item={RoadmapData[3]} />
+              <p className="text-white size-24 fw-bold">This roadmap is subject to adjustments based on market conditions and community feedback. The Swamp Army marches forward together!</p>
             </Col>
           </Row>
           
-          {/* Mobile Version */}
+          {/* Mobile Version - Improved timeline style */}
           <div className="d-block d-md-none">
             <div className="text-center mb-4">
               <img src={Title} className={styles.roadmapTitleMobile} alt="Roadmap" />

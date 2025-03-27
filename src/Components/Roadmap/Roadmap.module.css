@@ -7,7 +7,14 @@
 /* Roadmap Title */
 .roadmapTitle {
   max-width: 650px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+.roadmapTitleContainer {
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 40px;
 }
 
 .roadmapTitleMobile {
@@ -43,7 +50,7 @@
   color: transparent;
 }
 
-/* Timeline styling - FIXED ALIGNMENT */
+/* Timeline styling */
 .timelineBar {
   position: absolute;
   top: 0;
@@ -57,9 +64,9 @@
 
 .timePoint, .timePointRight {
   position: relative;
-  height: 0; /* Changed from 40px to 0 */
+  height: 0;
   width: 100%;
-  margin-top: 40px; /* Added to maintain spacing */
+  margin-top: 50px;
 }
 
 .timelineCircle {
@@ -70,7 +77,8 @@
   background-color: #FFCF00;
   border: 5px solid #000;
   z-index: 2;
-  top: -20px; /* Changed from 20px to -20px to center vertically */
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .timePoint .timelineCircle {
@@ -91,12 +99,11 @@
   margin-left: 40px;
 }
 
-/* Fixed horizontal connector lines */
 .leftCard::after {
   content: '';
   position: absolute;
   right: -40px;
-  top: 60px; /* Adjusted from 30px */
+  top: 80px;
   width: 40px;
   height: 10px;
   background-color: #000;
@@ -106,7 +113,7 @@
   content: '';
   position: absolute;
   left: -40px;
-  top: 60px; /* Adjusted from 30px */
+  top: 80px;
   width: 40px;
   height: 10px;
   background-color: #000;
@@ -129,14 +136,16 @@
 
 .mobileTimePoint {
   position: relative;
-  height: 0; /* Changed from 40px to 0 */
-  margin-top: 40px; /* Added to maintain spacing */
+  height: 30px;
+  margin-top: 40px;
+  margin-bottom: -15px;
 }
 
 .mobileTimelineCircle {
   position: absolute;
   left: -35px;
-  top: -15px; /* Adjusted for vertical centering */
+  top: 50%;
+  transform: translateY(-50%);
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -147,17 +156,44 @@
 
 .mobileCard {
   margin-left: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  position: relative;
 }
 
 .mobileCard::before {
   content: '';
   position: absolute;
   left: -25px;
-  top: 40px; /* Adjusted from 30px */
+  top: 50px;
   width: 25px;
   height: 10px;
   background-color: #000;
+}
+
+/* Original Roadmap Rod - bringing back the old style */
+.roadmapRod {
+  position: relative;
+}
+
+.roadmapRod:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 1px;
+  height: calc(100% + 80px);
+  border: 10px solid #000;
+}
+
+.roadmapRod:after {
+  content: "";
+  position: absolute;
+  bottom: -95px;
+  right: -75px;
+  width: 150px;
+  height: 75px;
+  background-size: 100% 100%;
+  background-image: url('data:image/svg+xml,<svg width="148" height="84" viewBox="0 0 148 84" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M66.9287 81.0712C70.8339 84.9764 77.1656 84.9764 81.0708 81.0712L144.71 17.4316C148.616 13.5263 148.616 7.19466 144.71 3.28942C140.805 -0.615821 134.474 -0.615821 130.568 3.28942L73.9998 59.858L17.4312 3.28942C13.526 -0.615821 7.19432 -0.615821 3.28908 3.28942C-0.616165 7.19466 -0.616165 13.5263 3.28908 17.4316L66.9287 81.0712ZM63.9998 74V74.0001H83.9998V74H63.9998Z" fill="black"/></svg>');
 }
 
 /* Responsive Adjustments */
@@ -166,9 +202,9 @@
     font-size: 42px;
   }
   
-  .leftCard::after, 
+  .leftCard::after,
   .rightCard::after {
-    top: 55px; /* Adjusted for this breakpoint */
+    top: 75px;
   }
 }
 
@@ -181,7 +217,6 @@
   .timePointRight .timelineCircle {
     width: 30px;
     height: 30px;
-    top: -15px; /* Adjusted for smaller circle */
   }
   
   .timePoint .timelineCircle {
@@ -195,7 +230,7 @@
   .leftCard::after,
   .rightCard::after {
     width: 30px;
-    top: 50px; /* Adjusted for this breakpoint */
+    top: 70px;
   }
   
   .leftCard {
@@ -226,7 +261,7 @@
   
   .leftCard::after,
   .rightCard::after {
-    top: 45px; /* Adjusted for this breakpoint */
+    top: 65px;
   }
 }
 
@@ -242,7 +277,7 @@
   .leftCard::after,
   .rightCard::after {
     height: 8px;
-    top: 40px; /* Adjusted for this breakpoint */
+    top: 60px;
   }
 }
 
@@ -253,25 +288,30 @@
   }
   
   .roadmapCard h3 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 15px;
   }
   
   .mobileTimeline {
-    width: 6px;
+    width: 8px;
   }
   
   .mobileTimelineCircle {
-    width: 24px;
-    height: 24px;
-    left: -29px;
-    top: -12px; /* Adjusted for smaller circle */
+    width: 26px;
+    height: 26px;
+    left: -33px;
+    border-width: 4px;
   }
   
   .mobileCard::before {
-    height: 6px;
-    width: 20px;
-    left: -20px;
-    top: 30px; /* Adjusted for mobile */
+    height: 8px;
+    width: 25px;
+    left: -25px;
+    top: 40px;
+  }
+  
+  .roadmapRod:after,
+  .roadmapRod:before {
+    content: none;
   }
 }
