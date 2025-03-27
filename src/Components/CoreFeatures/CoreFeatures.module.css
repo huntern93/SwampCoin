@@ -1,12 +1,15 @@
 .coreFeatureInner {
   background-color: #EFF2F0;
-  padding: 30px;
+  padding: 40px;
   border: 10px solid #000;
   border-radius: 34px;
 }
 
 .coreFeatureInner h3 {
   font-size: 54px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 15px;
 }
 
 .coreFeatureImg1 {
@@ -33,12 +36,22 @@
   transform: translate(-50%, -50%);
 }
 
-/* NFT Grid - Desktop version (4 across) */
+/* Feature sections */
+.featureSection {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.featureSection:last-child {
+  margin-bottom: 25px;
+}
+
+/* NFT Grid with improved styling */
 .nftGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin: 20px 0;
+  gap: 20px;
+  margin: 30px 0;
 }
 
 .nftItem {
@@ -47,6 +60,7 @@
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 3px solid #000;
 }
 
 .nftItem:hover {
@@ -72,6 +86,8 @@
 
 .nftGrid img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -80,14 +96,22 @@
   transform: scale(1.05);
 }
 
-/* Last message styling */
+/* Last message styling - more prominent */
 .lastMessage {
-  padding: 15px;
+  padding: 20px;
   background-color: #FFCF00;
   border-radius: 15px;
   text-align: center;
   border: 3px solid #000;
-  margin-top: 20px;
+  margin-top: 30px;
+  font-weight: 900;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove excessive spacing in the security section */
+.securitySection {
+  position: relative;
+  padding-top: 30px;
 }
 
 @media screen and (max-width: 1690px) {
@@ -103,6 +127,9 @@
   .coreFeatureInner h3 {
     font-size: 40px;
   }
+  .coreFeatureInner {
+    padding: 30px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -114,8 +141,13 @@
   .coreFeatureImg3 {
     margin: 0;
   }
+  
   .coreFeatureInner h3 {
     font-size: 35px;
+  }
+  
+  .featureSection {
+    margin-bottom: 40px;
   }
   
   /* Switch to 2 columns for tablets */
@@ -129,9 +161,12 @@
     padding: 20px;
     border-width: 5px;
   }
+  
   .coreFeatureInner h3 {
-    font-size: 35px;
+    font-size: 32px;
+    margin-bottom: 10px;
   }
+  
   .coreFeatureImg1 {
     width: 100%;
     margin: 0;
@@ -142,15 +177,32 @@
     display: none;
   }
   
+  /* Feature section spacing on mobile */
+  .featureSection {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .featureSection:last-child {
+    border-bottom: none;
+  }
+  
   /* Mobile-optimized NFT grid stays at 2 columns */
   .nftGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .nftItem {
+    border-width: 2px;
   }
   
   /* Mobile-optimized last message */
   .lastMessage {
-    padding: 12px;
-    font-size: 20px;
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 20px;
   }
 }
