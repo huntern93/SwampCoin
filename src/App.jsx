@@ -5,32 +5,26 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <>
-      {/* Fixed background element that stays behind everything */}
-      <div className="full-background"></div>
+      <ToastContainer />
+      <Header />
       
-      {/* Content wrapper */}
-      <div className="page-wrapper">
-        <ToastContainer />
-        <Header />
-        
-        <div className="hero-bg">
-          <Hero />
-          <About />
-        </div>
-        
-        <div className="mid-bg">
-          <Tokenomics />
-          <CoreFeatures />
-        </div>
-        
-        <div className="bottom-bg">
-          <Roadmap />
-          <Team />
-          <FAQ />
-        </div>
-        
-        <Copyrights />
+      <div className="hero-bg">
+        <Hero />
+        <About />
       </div>
+      
+      <div className="mid-bg">
+        <Tokenomics />
+        <CoreFeatures />
+      </div>
+      
+      <div className="bottom-bg">
+        <Roadmap />
+        <Team />
+        <FAQ />
+      </div>
+      
+      <Copyrights />
     </>
   )
 }
