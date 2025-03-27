@@ -21,7 +21,15 @@
 
 @media screen and (max-width: 490px) {
   .hero-bg {
-    background: url('./assets/images/hero-mob.jpg') no-repeat;
+    background: 
+      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.5) 15%, rgba(156, 183, 99, 0) 30%),
+      url('./assets/images/hero-mob.jpg') no-repeat;
     background-size: contain;
+    background-color: rgba(156, 183, 99, 0.3);
+  }
+  
+  /* Add padding at the bottom to ensure gradient shows */
+  .hero {
+    padding-bottom: 15vw !important;
   }
 }
