@@ -48,6 +48,9 @@ export const CoreFeatures = () => {
               </Col>
             </Row>
             <Row className="align-items-center flex-md-row flex-column-reverse">
+              <Col md={6}>
+                <img src={Exclusive} className={`${styles.desktopOnly}`} />
+              </Col>
               <Col md={6} className="position-relative" >
                 <img src={Keyhole} className={styles.coreFeatureImg4} />
                 <h3 className="fw-bold">UNBREAKABLE SECURITY</h3>
