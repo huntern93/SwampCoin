@@ -1,7 +1,6 @@
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "./Roadmap.module.css"
 import Title from "../../assets/images/roadmap-title.png"
-import ShrekRoadmap from "../../assets/images/shrek_roadmap.png" // Add Shrek roadmap character
 
 export const Roadmap = () => {
   const RoadmapData = [
@@ -57,16 +56,12 @@ export const Roadmap = () => {
         <Container>
           {/* Desktop Version */}
           <Row className="g-lg-5 d-none d-md-flex">
-            <Col md={12} className="text-center mb-4">
+            <Col md={12} className="text-center mb-5">
               <img src={Title} className={styles.roadmapTitle} alt="Roadmap" />
             </Col>
           </Row>
           
           <Row className="g-lg-5 d-none d-md-flex position-relative">
-            <div className={styles.roadmapShrekContainer}>
-              <img src={ShrekRoadmap} className={styles.roadmapShrek} alt="Shrek Roadmap" />
-            </div>
-            
             <div className={styles.timelineBar}></div>
             
             <Col md={6} className={`${styles.leftColumn} pe-md-5`}>
@@ -102,15 +97,11 @@ export const Roadmap = () => {
           {/* Mobile Version */}
           <div className="d-block d-md-none">
             <div className="text-center mb-4">
-              <img src={Title} className={styles.roadmapTitle} alt="Roadmap" />
+              <img src={Title} className={styles.roadmapTitleMobile} alt="Roadmap" />
             </div>
             
             <div className={styles.mobileTimelineContainer}>
               <div className={styles.mobileTimeline}></div>
-              
-              <div className={styles.mobileShrekContainer}>
-                <img src={ShrekRoadmap} className={styles.mobileShrek} alt="Shrek Roadmap" />
-              </div>
               
               <div className={styles.mobileCardContainer}>
                 <div className={styles.mobileTimePoint}>

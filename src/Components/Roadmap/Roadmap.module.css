@@ -6,8 +6,13 @@
 
 /* Roadmap Title */
 .roadmapTitle {
-  max-width: 500px;
-  margin: 0 auto 30px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.roadmapTitleMobile {
+  max-width: 100%;
+  margin: 0 auto 20px;
 }
 
 /* Roadmap Cards */
@@ -35,7 +40,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  color: transparent; /* Standard replacement for text-fill-color */
 }
 
 /* Timeline styling */
@@ -106,19 +111,6 @@
   background-color: #000;
 }
 
-/* Shrek Character */
-.roadmapShrekContainer {
-  position: absolute;
-  top: -150px;
-  left: 0;
-  z-index: 3;
-}
-
-.roadmapShrek {
-  height: 300px;
-  transform: rotate(5deg);
-}
-
 /* Mobile Styles */
 .mobileTimelineContainer {
   position: relative;
@@ -164,16 +156,6 @@
   width: 25px;
   height: 10px;
   background-color: #000;
-}
-
-.mobileShrekContainer {
-  position: relative;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.mobileShrek {
-  height: 180px;
 }
 
 /* Responsive Adjustments */
@@ -232,10 +214,6 @@
   .roadmapCard h3 {
     font-size: 32px;
   }
-  
-  .roadmapShrek {
-    height: 250px;
-  }
 }
 
 @media screen and (max-width: 991px) {
@@ -251,19 +229,15 @@
   .rightCard::after {
     height: 8px;
   }
-  
-  .roadmapShrek {
-    height: 200px;
-  }
 }
 
 @media screen and (max-width: 767px) {
-  .mobileCard {
+  .roadmapCard {
     border-width: 5px;
     padding: 15px;
   }
   
-  .mobileCard h3 {
+  .roadmapCard h3 {
     font-size: 24px;
     margin-bottom: 15px;
   }
