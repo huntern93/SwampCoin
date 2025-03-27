@@ -5,6 +5,9 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <>
+      {/* Fixed background that extends under the header */}
+      <div className="full-background"></div>
+      
       <ToastContainer />
       <Header />
       
