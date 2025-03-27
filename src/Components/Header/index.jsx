@@ -72,7 +72,7 @@ export const Header = () => {
             {/* Swamp Logo - Visible only on mobile */}
             <div className={styles.logoContainer}>
               <a href="#home" className={styles.logoLink}>
-                <img src="assets/images/logo.png" alt="Swamp Logo" className={styles.logoImage} />
+                <img src="src/assets/images/logo.png" alt="Swamp Logo" className={styles.logoImage} />
                 <div className={styles.swampLogo}>SWAMP</div>
               </a>
             </div>
