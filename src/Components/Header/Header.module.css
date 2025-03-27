@@ -108,18 +108,19 @@ header {
   margin-left: auto;
 }
 
-/* Coming Soon indicator */
-.comingSoon {
-  font-size: 12px;
+/* Coming Soon indicator - side version */
+.comingSoonInline {
+  font-size: 10px;
   color: #FF3D3D;
   font-weight: 700;
   background: rgba(255, 61, 61, 0.1);
   border-radius: 4px;
-  padding: 2px 8px;
-  margin-bottom: 5px;
+  padding: 2px 6px;
+  margin-left: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   animation: pulse 2s infinite;
+  display: inline-block;
 }
 
 @keyframes pulse {
@@ -132,6 +133,10 @@ header {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
     padding: 10px 10px;
+  }
+  
+  .comingSoonInline {
+    display: none; /* Hide on very small screens */
   }
 }
 
