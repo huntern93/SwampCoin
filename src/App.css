@@ -3,49 +3,26 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: rgba(156, 183, 99, 1);
   min-height: 100vh;
 }
 
-#root {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background-color: rgba(156, 183, 99, 1);
-}
-
-/* Background element for desktop and mobile */
-.full-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: url('./assets/images/hero.jpg') no-repeat center top;
+/* Set the body background directly - simplest approach */
+body {
+  /* Primary background image */
+  background: url('./assets/images/hero.jpg') no-repeat center top; 
   background-size: cover;
-  z-index: -5; /* Very low z-index to ensure it stays behind everything */
+  background-attachment: fixed; /* Keep it fixed while scrolling */
+  background-color: rgba(156, 183, 99, 1); /* Fallback color */
 }
 
-/* Header compatibility */
-header {
-  background-color: transparent !important;
-  position: relative;
-  z-index: 1000;
-}
-
-/* Ensure the sticky header remains transparent */
-header.stickyHeader {
-  background-color: transparent !important;
-}
-
-/* Hero section with just the gradient */
+/* Main content sections */
 .hero-bg {
+  /* Just the gradient overlay */
   background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
-  position: relative;
-  z-index: 0;
   min-height: 100vh;
-  margin-top: -8vw; /* Pull up to go behind header */
-  padding-top: 8vw; /* Add padding to compensate */
+  position: relative;
+  z-index: 1;
+  padding-top: 8vw; /* Space for header */
 }
 
 .mid-bg {
@@ -54,9 +31,7 @@ header.stickyHeader {
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
-  z-index: 1;
-  margin-top: -20px;
-  padding-top: 20px;
+  z-index: 2;
 }
 
 .bottom-bg {
@@ -65,40 +40,21 @@ header.stickyHeader {
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
   position: relative;
-  z-index: 2;
-  margin-top: -20px;
-  padding-top: 20px;
+  z-index: 3;
 }
 
-/* Override any background colors in the sticky header */
-.stickyHeader nav,
-.stickyHeader .headerNav {
-  background-color: white !important; /* Keep nav white */
+/* Keep header transparent */
+header {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 100;
 }
 
 /* Mobile responsiveness */
 @media screen and (max-width: 490px) {
-  .full-background {
+  body {
     background: url('./assets/images/hero-mob.jpg') no-repeat center top;
-    background-size: cover;
-  }
-
-  .hero-bg {
-    margin-top: -10vw; /* Adjusted for mobile */
-    padding-top: 10vw;
-    min-height: 100vh;
-    padding-bottom: 50px;
-  }
-
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 250px;
-    background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
-    pointer-events: none;
-    z-index: 1;
+    background-size: 100% auto; /* Control mobile stretching */
+    background-attachment: fixed;
   }
 }
