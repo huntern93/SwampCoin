@@ -11,13 +11,6 @@ html, body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(156, 183, 99, 1);
-}
-
-.page-content {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
 }
 
 /* Full-page background image */
@@ -29,32 +22,35 @@ html, body {
   height: 100vh;
   background: url('./assets/images/hero.jpg') no-repeat center top;
   background-size: cover;
-  z-index: -1;
+  z-index: -2; /* Lower z-index to ensure it's behind everything */
+}
+
+/* Page wrapper */
+.page-content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent; /* Ensure this doesn't block the background image */
 }
 
 /* Header styling to ensure it sits over background */
 header, .header {
   position: relative;
   width: 100%;
-  z-index: 1000 !important;
+  z-index: 1000;
   background-color: transparent !important;
 }
 
-/* Hero section styling with background image */
+/* Hero section styling with transparent background to show the background image */
 .hero-bg {
   position: relative;
   background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
   min-height: 100vh;
+  z-index: 0;
 }
 
-/* About section should be above the gradient */
-.hero-bg > :nth-child(2) {
-  position: relative;
-  z-index: 2;
-}
-
-/* Hero component itself */
-.hero-bg > :first-child {
+/* Content positioned properly */
+.hero-bg > * {
   position: relative;
   z-index: 2;
 }
@@ -65,6 +61,7 @@ header, .header {
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
+  z-index: 1;
 }
 
 .bottom-bg {
@@ -73,6 +70,7 @@ header, .header {
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
+  z-index: 1;
 }
 
 /* Mobile responsiveness */
