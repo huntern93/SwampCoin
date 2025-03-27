@@ -9,11 +9,6 @@
   font-size: 54px;
 }
 
-/* Feature card styling - only affects mobile */
-.featureCard {
-  overflow: hidden;
-}
-
 .coreFeatureImg1 {
   width: 110%;
   max-width: none;
@@ -38,15 +33,27 @@
   transform: translate(-50%, -50%);
 }
 
-/* Last message highlight */
+/* NFT Grid */
+.nftGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.nftGrid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Last message styling */
 .lastMessage {
-  background-color: #FFCF00;
   padding: 15px;
+  background-color: #FFCF00;
   border-radius: 15px;
-  font-weight: bold;
-  margin-top: 25px;
   text-align: center;
   border: 3px solid #000;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 1690px) {
@@ -76,54 +83,39 @@
   .coreFeatureInner h3 {
     font-size: 35px;
   }
-  
-  /* Mobile feature cards */
-  .featureCard {
-    padding: 15px 0;
-    border-bottom: 2px solid rgba(0,0,0,0.1);
-    margin-bottom: 25px;
-  }
-  
-  .featureCard:last-child {
-    border-bottom: none;
-  }
 }
 
 @media screen and (max-width: 767px) {
   .coreFeatureInner {
-    padding: 20px 15px;
-    border-width: 5px;
+    padding: 20px;
   }
   .coreFeatureInner h3 {
-    font-size: 28px;
-    margin-top: 15px;
+    font-size: 35px;
   }
   .coreFeatureImg1 {
     width: 100%;
     margin: 0;
   }
   
-  /* Improved mobile spacing */
-  .featureCard {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+  /* Hide Exclusive image on mobile */
+  .desktopOnly {
+    display: none;
   }
   
-  /* Fix image display on mobile */
-  .mobileImgContainer {
-    display: flex;
-    justify-content: center;
-    margin: 0;
+  /* Mobile-optimized NFT grid */
+  .nftGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
   
-  .mobileImgContainer img {
-    max-width: 100%;
-    object-fit: contain;
+  .nftItem {
+    border-radius: 8px;
+    overflow: hidden;
   }
   
-  /* Last message mobile styling */
+  /* Mobile-optimized last message */
   .lastMessage {
-    font-size: 18px;
     padding: 12px;
+    font-size: 20px;
   }
 }
