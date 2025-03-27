@@ -33,8 +33,9 @@
   overflow: hidden;
 }
 
+/* Make knight smaller to fit inside the box better */
 .coreFeatureImg3 {
-  max-width: 80%;
+  max-width: 65%; /* Reduced from 80% to 65% */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -221,7 +222,7 @@
   }
 
   .coreFeatureImg3 {
-    max-width: 70%;
+    max-width: 60%;
   }
   
   .coreFeatureInner h3 {
@@ -294,11 +295,11 @@
   }
   
   .aiTradingImage {
-    max-width: 80%;
+    max-width: 70%;
   }
   
   .imageContainer {
-    min-height: 180px;
+    min-height: 160px;
   }
   
   /* Mobile-optimized NFT grid stays at 2 columns */

@@ -45,31 +45,53 @@ export const CoreFeatures = () => {
 
             {/* Feature 3 & 4: Game & Holder Rewards + AI-Powered Trading */}
             <div className={styles.featureSection}>
-              <Row>
+              {/* Desktop layout - side by side */}
+              <Row className="d-none d-md-flex">
                 {/* First create a row just for images with fixed height */}
-                <Col lg={6} md={12}>
+                <Col lg={6} md={6}>
                   <div className={styles.imageContainer}>
                     <img src={Knight} className={styles.coreFeatureImg3} alt="Game rewards" />
                   </div>
                 </Col>
-                <Col lg={6} md={12}>
+                <Col lg={6} md={6}>
                   <div className={styles.imageContainer}>
                     <img src={AITrading} className={styles.aiTradingImage} alt="AI Trading" />
                   </div>
                 </Col>
               </Row>
               
-              {/* Then create a separate row for titles and text that will naturally align */}
-              <Row className="mt-4">
-                <Col lg={6} md={12}>
+              {/* Desktop titles and text */}
+              <Row className="mt-4 d-none d-md-flex">
+                <Col lg={6} md={6}>
                   <h3 className="fw-bold">GAME & HOLDER REWARDS</h3>
                   <p className="size-24 fw-medium">Our Defend The Swamp game rewards the top 10 players and top 10 holders with 1 MILLION TOKENS every month! Play, dominate the leaderboard, and HODL to claim your share of the swamp's riches!</p>
                 </Col>
-                <Col lg={6} md={12}>
+                <Col lg={6} md={6}>
                   <h3 className="fw-bold">AI-POWERED TRADING</h3>
                   <p className="size-24 fw-medium">Hold 10,000 SWAMP to access our exclusive AI trading tools. Share access with friends through our unique delegation system – power to the community.</p>
                 </Col>
               </Row>
+              
+              {/* Mobile layout - stacked vertically */}
+              <div className="d-md-none">
+                {/* Game & Holder Rewards */}
+                <div className="mb-5">
+                  <div className={styles.imageContainer}>
+                    <img src={Knight} className={styles.coreFeatureImg3} alt="Game rewards" />
+                  </div>
+                  <h3 className="fw-bold mt-3">GAME & HOLDER REWARDS</h3>
+                  <p className="size-24 fw-medium">Our Defend The Swamp game rewards the top 10 players and top 10 holders with 1 MILLION TOKENS every month! Play, dominate the leaderboard, and HODL to claim your share of the swamp's riches!</p>
+                </div>
+                
+                {/* AI-Powered Trading */}
+                <div>
+                  <div className={styles.imageContainer}>
+                    <img src={AITrading} className={styles.aiTradingImage} alt="AI Trading" />
+                  </div>
+                  <h3 className="fw-bold mt-3">AI-POWERED TRADING</h3>
+                  <p className="size-24 fw-medium">Hold 10,000 SWAMP to access our exclusive AI trading tools. Share access with friends through our unique delegation system – power to the community.</p>
+                </div>
+              </div>
             </div>
 
             {/* Feature 5: Unbreakable Security */}
