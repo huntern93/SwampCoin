@@ -43,7 +43,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Security Lock Image */
+/* Security Lock Image - Larger on desktop */
 .securityLockContainer {
   text-align: center;
   margin-bottom: 20px;
@@ -51,23 +51,33 @@
 }
 
 .securityLockImage {
-  width: 30%;
+  width: 50%; /* Increased from 30% to 50% */
   margin: 0 auto;
   display: block;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Feature sections */
+.securitySection:hover .securityLockImage {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+}
+
+/* Feature sections - Always highlighted */
 .featureSection {
   margin-bottom: 70px;
   position: relative;
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
   transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.6); /* Always highlighted */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .featureSection:hover {
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
 }
 
 .featureSection:last-child {
@@ -76,10 +86,18 @@
 
 /* Security section specific styling */
 .securitySection {
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff; /* Changed to white for more contrast */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.securitySection:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
 }
 
 /* NFT Grid with improved styling */
@@ -167,16 +185,19 @@
     margin-bottom: 50px;
   }
   .securityLockImage {
-    width: 40%;
+    width: 45%;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .securityLockImage {
-    width: 50%;
+    width: 45%;
   }
   .aiTradingImage {
     max-width: 90%;
+  }
+  .securitySection {
+    padding: 25px;
   }
 }
 
@@ -204,7 +225,7 @@
   }
   
   .securityLockImage {
-    width: 25%;
+    width: 35%;
     margin-bottom: 20px;
   }
   
@@ -214,6 +235,7 @@
   
   .securitySection {
     text-align: center;
+    padding: 25px;
   }
 }
 
@@ -237,6 +259,7 @@
   .featureSection {
     margin-bottom: 30px;
     padding-bottom: 20px;
+    padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   
@@ -245,7 +268,11 @@
   }
   
   .securityLockImage {
-    width: 35%;
+    width: 30%;
+  }
+  
+  .securitySection {
+    padding: 20px;
   }
   
   .aiTradingImage {
