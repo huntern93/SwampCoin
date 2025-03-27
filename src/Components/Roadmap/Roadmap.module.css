@@ -40,10 +40,10 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent; /* Standard replacement for text-fill-color */
+  color: transparent;
 }
 
-/* Timeline styling */
+/* Timeline styling - FIXED ALIGNMENT */
 .timelineBar {
   position: absolute;
   top: 0;
@@ -57,8 +57,9 @@
 
 .timePoint, .timePointRight {
   position: relative;
-  height: 40px;
+  height: 0; /* Changed from 40px to 0 */
   width: 100%;
+  margin-top: 40px; /* Added to maintain spacing */
 }
 
 .timelineCircle {
@@ -69,16 +70,15 @@
   background-color: #FFCF00;
   border: 5px solid #000;
   z-index: 2;
+  top: -20px; /* Changed from 20px to -20px to center vertically */
 }
 
 .timePoint .timelineCircle {
   right: -30px;
-  top: 20px;
 }
 
 .timePointRight .timelineCircle {
   left: -30px;
-  top: 20px;
 }
 
 .leftCard {
@@ -91,11 +91,12 @@
   margin-left: 40px;
 }
 
+/* Fixed horizontal connector lines */
 .leftCard::after {
   content: '';
   position: absolute;
   right: -40px;
-  top: 30px;
+  top: 60px; /* Adjusted from 30px */
   width: 40px;
   height: 10px;
   background-color: #000;
@@ -105,7 +106,7 @@
   content: '';
   position: absolute;
   left: -40px;
-  top: 30px;
+  top: 60px; /* Adjusted from 30px */
   width: 40px;
   height: 10px;
   background-color: #000;
@@ -128,13 +129,14 @@
 
 .mobileTimePoint {
   position: relative;
-  height: 40px;
+  height: 0; /* Changed from 40px to 0 */
+  margin-top: 40px; /* Added to maintain spacing */
 }
 
 .mobileTimelineCircle {
   position: absolute;
   left: -35px;
-  top: 20px;
+  top: -15px; /* Adjusted for vertical centering */
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -152,7 +154,7 @@
   content: '';
   position: absolute;
   left: -25px;
-  top: 30px;
+  top: 40px; /* Adjusted from 30px */
   width: 25px;
   height: 10px;
   background-color: #000;
@@ -162,6 +164,11 @@
 @media screen and (max-width: 1690px) {
   .roadmapCard h3 {
     font-size: 42px;
+  }
+  
+  .leftCard::after, 
+  .rightCard::after {
+    top: 55px; /* Adjusted for this breakpoint */
   }
 }
 
@@ -174,6 +181,7 @@
   .timePointRight .timelineCircle {
     width: 30px;
     height: 30px;
+    top: -15px; /* Adjusted for smaller circle */
   }
   
   .timePoint .timelineCircle {
@@ -187,6 +195,7 @@
   .leftCard::after,
   .rightCard::after {
     width: 30px;
+    top: 50px; /* Adjusted for this breakpoint */
   }
   
   .leftCard {
@@ -214,6 +223,11 @@
   .roadmapCard h3 {
     font-size: 32px;
   }
+  
+  .leftCard::after,
+  .rightCard::after {
+    top: 45px; /* Adjusted for this breakpoint */
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -228,6 +242,7 @@
   .leftCard::after,
   .rightCard::after {
     height: 8px;
+    top: 40px; /* Adjusted for this breakpoint */
   }
 }
 
@@ -250,11 +265,13 @@
     width: 24px;
     height: 24px;
     left: -29px;
+    top: -12px; /* Adjusted for smaller circle */
   }
   
   .mobileCard::before {
     height: 6px;
     width: 20px;
     left: -20px;
+    top: 30px; /* Adjusted for mobile */
   }
 }
