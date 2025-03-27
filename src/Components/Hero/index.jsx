@@ -38,8 +38,6 @@ export const Hero = () => {
             </div>
             
             <div className="mt-3">
-              <p className="size-20 fw-medium mb-2">Join the community</p>
-              <div className={styles.communityBadge}>10k+</div>
               <JoinCommunity size="big" />
             </div>
           </div>

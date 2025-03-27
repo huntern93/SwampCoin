@@ -16,7 +16,7 @@
 }
 
 .heroForm h2 {
-  font-size: 48px;
+  font-size: 56px;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1.05;
@@ -133,7 +133,7 @@
 
 @media screen and (max-width: 1690px) {
   .heroForm h2 {
-    font-size: 36px;
+    font-size: 50px;
   }
   .heroForm h3 {
     font-size: 32px;
@@ -142,7 +142,7 @@
 
 @media screen and (max-width: 1490px) {
   .heroForm h2 {
-    font-size: 32px;
+    font-size: 45px;
   }
   .heroForm h3 {
     font-size: 28px;
