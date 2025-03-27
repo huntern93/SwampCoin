@@ -4,25 +4,33 @@
   border: 10px solid #000;
   border-radius: 34px;
   position: relative;
+  overflow: hidden;
 }
 
+/* Completely revised image handling */
 .tokenomicsImg {
   position: absolute;
+  right: 0;
   bottom: 0;
-  right: 2%;
-  max-width: 50%;
-  max-height: 80%;
+  max-width: 90%; /* Increased from 50% */
+  max-height: 90%; /* Increased from 80% */
+  z-index: 1;
   transition: transform 0.3s ease;
 }
 
-/* Better image wrapper for proper positioning */
-.tokenomicsImgWrapper {
+/* Ensure the first column doesn't take too much space */
+.tokenomics .row-cols-lg-2 > .col:first-child {
+  flex: 0 0 auto;
+  width: 55%; /* This gives 45% space to the image column */
+}
+
+/* Make chart column position relative for absolute positioning */
+.chartCol {
   position: relative;
-  height: 100%;
-  min-height: 400px;
+  min-height: 500px; /* Ensure enough height */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .tokenomics {
@@ -100,11 +108,6 @@
 
 .activeTokenItem::before {
   background-color: currentColor;
-}
-
-/* Add some hover effect to the chart column */
-.chartCol:hover .tokenomicsImg {
-  transform: scale(1.03);
 }
 
 /* Mobile Styles */

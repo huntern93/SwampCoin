@@ -93,15 +93,17 @@ export const Tokenomics = () => {
         <Container className="big-container">
           <h2 className="section-title pb-md-5 pb-3">TOKENOMICS</h2>
           
-          {/* Desktop View - Enhanced */}
+          {/* Desktop View - Enhanced with better image handling */}
           <div className={`${styles.tokenomicsInner} d-none d-lg-block`}>
             <div className="ps-md-5">
               <h4 className="size-36 fw-bold mb-0">Total Supply: 10,000,000,000 SWAMP</h4>
               <p className="size-24 fw-bold">A fixed supply with zero inflation and no hidden mints. Our tokenomics are designed for long-term sustainability, with clear allocations and transparent vesting schedules. Every SWAMP token is accounted for from day one - no surprises, no hidden team wallets.</p>
             </div>
-            <Row className="row-cols-1 row-cols-lg-2">
+            
+            <Row className="row-cols-1 row-cols-lg-2 g-0">
+              {/* Left column with allocation items */}
               <Col>
-                <Row className="row-cols-1 row-cols-md-2 g-4">
+                <Row className="row-cols-1 row-cols-md-2 g-3">
                   {TokenomicsData.map((item, index) => {
                     return (
                       <Col key={index}>
@@ -110,29 +112,29 @@ export const Tokenomics = () => {
                           onMouseEnter={() => handleItemHover(index)}
                           onMouseLeave={() => handleItemHover(null)}
                           ref={el => allocationRefs.current[index] = el}
+                          style={{borderColor: hoveredItem === index ? item.iconColor : 'transparent'}}
                         >
                           <Icon color={item.iconColor} />
                           <div>
-                            <h4 className="size-30 fw-bold mb-0">{item.title}</h4>
-                            <p className="size-18 mb-1">{formatNumber(item.tokens)} SWAMP</p>
-                            <p className="size-20 fw-bold mb-0">{item.text}</p>
+                            <h4 className="size-24 fw-bold mb-0">{item.title}</h4>
+                            <p className="size-16 mb-1">{formatNumber(item.tokens)} SWAMP</p>
+                            <p className="size-18 fw-bold mb-0">{item.text}</p>
                           </div>
                         </div>
                       </Col>
                     )
                   })}
-                  <Col>
+                  <Col className="mt-3">
                     <div className={styles.price}>
                       <p className="size-20 text-white fw-bold mb-0">Initial Price: $0.0002 USD <br/> Final Presale Price: $0.0060 USD <br/>Price Levels: 100<br/>Return Potential: 30x</p>
                     </div>
                   </Col>
                 </Row>
               </Col>
+              
+              {/* Right column with the pie chart image */}
               <Col className={styles.chartCol}>
-                {/* The pie chart image with Shrek is already here */}
-                <div className={styles.tokenomicsImgWrapper}>
-                  <img src={TokenomicsImg} className={styles.tokenomicsImg} alt="Tokenomics with Shrek" />
-                </div>
+                <img src={TokenomicsImg} className={styles.tokenomicsImg} alt="Tokenomics with Shrek" />
               </Col>
             </Row>
           </div>
