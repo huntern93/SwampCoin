@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap"
 import styles from "./Roadmap.module.css"
 import Title from "../../assets/images/roadmap-title.png"
+import ShrekRoadmap from "../../assets/images/shrek_roadmap.png" // Add Shrek roadmap character
 
 export const Roadmap = () => {
   const RoadmapData = [
@@ -12,7 +13,7 @@ export const Roadmap = () => {
         "🧪 Smart contract audit completion",
         "🔒 Initial team token lock-in established",
         "🎭 First community NFTs distributed to early supporters",
-        "💫 Grand Opening of Offi cial SWAMP Merch Store - Premium apparel and collectibles for the Swamp Army"
+        "💫 Grand Opening of Official SWAMP Merch Store - Premium apparel and collectibles for the Swamp Army"
       ]
     },
     {
@@ -23,7 +24,8 @@ export const Roadmap = () => {
         "🏦 Staking platform activation with tiered APY rewards",
         "🏆 Distribution of 800 NFTs to presale participants",
         "🔝 Release of 100 NFTs to top wallet holders",
-        "🤝 First strategic partnership announcement🎮 Game rewards platform launch"
+        "🤝 First strategic partnership announcement",
+        "🎮 Game rewards platform launch"
       ]
     },
     {
@@ -33,7 +35,8 @@ export const Roadmap = () => {
         "📊 Additional exchange listings (CEX integration)",
         "📱 Mobile app beta release",
         "🌉 Cross-chain expansion",
-        "🏛️ Introduction of governance proposals for community voting🌐 Global marketing campaign",
+        "🏛️ Introduction of governance proposals for community voting",
+        "🌐 Global marketing campaign"
       ]
     },
     {
@@ -44,7 +47,7 @@ export const Roadmap = () => {
         "🏗️ Launch of Swamp DAO for community governance",
         "💫 Revolutionary ecosystem feature (to be revealed)",
         "🚀 Community-driven development initiatives",
-        "🌊 The future of Swamp will be decided by our community!",
+        "🌊 The future of Swamp will be decided by our community!"
       ]
     },
   ]
@@ -52,24 +55,90 @@ export const Roadmap = () => {
     <>
       <section id="roadmap" className={styles.roadmap}>
         <Container>
+          {/* Desktop Version */}
           <Row className="g-lg-5 d-none d-md-flex">
-            <Col md={6} className={styles.roadmapRod}>
-              <img src={Title} />
-              <RoadmapCard className="mt-0" item={RoadmapData[1]} />
-              <RoadmapCard item={RoadmapData[3]} />
-            </Col>
-            <Col md={6}>
-              <RoadmapCard item={RoadmapData[0]} />
-              <RoadmapCard item={RoadmapData[2]} />
-              <p className="text-white size-24 fw-bold">This roadmap is subject to adjustments based on market conditions and community feedback. The Swamp Army marches forward together!</p>
+            <Col md={12} className="text-center mb-4">
+              <img src={Title} className={styles.roadmapTitle} alt="Roadmap" />
             </Col>
           </Row>
+          
+          <Row className="g-lg-5 d-none d-md-flex position-relative">
+            <div className={styles.roadmapShrekContainer}>
+              <img src={ShrekRoadmap} className={styles.roadmapShrek} alt="Shrek Roadmap" />
+            </div>
+            
+            <div className={styles.timelineBar}></div>
+            
+            <Col md={6} className={`${styles.leftColumn} pe-md-5`}>
+              <div className={styles.timePoint}>
+                <div className={styles.timelineCircle}></div>
+              </div>
+              <RoadmapCard className={`${styles.leftCard}`} item={RoadmapData[0]} />
+              
+              <div className={styles.timePoint}>
+                <div className={styles.timelineCircle}></div>
+              </div>
+              <RoadmapCard className={`${styles.leftCard}`} item={RoadmapData[2]} />
+            </Col>
+            
+            <Col md={6} className={`${styles.rightColumn} ps-md-5`}>
+              <div className={styles.timePointRight}>
+                <div className={styles.timelineCircle}></div>
+              </div>
+              <RoadmapCard className={`${styles.rightCard}`} item={RoadmapData[1]} />
+              
+              <div className={styles.timePointRight}>
+                <div className={styles.timelineCircle}></div>
+              </div>
+              <RoadmapCard className={`${styles.rightCard}`} item={RoadmapData[3]} />
+              
+              <p className="text-white size-24 fw-bold mt-4 text-center">
+                This roadmap is subject to adjustments based on market conditions and community feedback. 
+                The Swamp Army marches forward together!
+              </p>
+            </Col>
+          </Row>
+          
+          {/* Mobile Version */}
           <div className="d-block d-md-none">
-            <img src={Title} />
-            <RoadmapCard item={RoadmapData[0]} />
-            <RoadmapCard item={RoadmapData[1]} />
-            <RoadmapCard item={RoadmapData[2]} />
-            <RoadmapCard item={RoadmapData[3]} />
+            <div className="text-center mb-4">
+              <img src={Title} className={styles.roadmapTitle} alt="Roadmap" />
+            </div>
+            
+            <div className={styles.mobileTimelineContainer}>
+              <div className={styles.mobileTimeline}></div>
+              
+              <div className={styles.mobileShrekContainer}>
+                <img src={ShrekRoadmap} className={styles.mobileShrek} alt="Shrek Roadmap" />
+              </div>
+              
+              <div className={styles.mobileCardContainer}>
+                <div className={styles.mobileTimePoint}>
+                  <div className={styles.mobileTimelineCircle}></div>
+                </div>
+                <RoadmapCard item={RoadmapData[0]} className={styles.mobileCard} />
+                
+                <div className={styles.mobileTimePoint}>
+                  <div className={styles.mobileTimelineCircle}></div>
+                </div>
+                <RoadmapCard item={RoadmapData[1]} className={styles.mobileCard} />
+                
+                <div className={styles.mobileTimePoint}>
+                  <div className={styles.mobileTimelineCircle}></div>
+                </div>
+                <RoadmapCard item={RoadmapData[2]} className={styles.mobileCard} />
+                
+                <div className={styles.mobileTimePoint}>
+                  <div className={styles.mobileTimelineCircle}></div>
+                </div>
+                <RoadmapCard item={RoadmapData[3]} className={styles.mobileCard} />
+              </div>
+            </div>
+            
+            <p className="text-white size-20 fw-bold mt-4 text-center">
+              This roadmap is subject to adjustments based on market conditions and community feedback. 
+              The Swamp Army marches forward together!
+            </p>
           </div>
         </Container>
       </section>
@@ -79,10 +148,14 @@ export const Roadmap = () => {
 
 const RoadmapCard = ({ item, className }) => {
   return (
-    <div className={`${styles.roadmapCard} ${className}`} >
+    <div className={`${styles.roadmapCard} ${className}`}>
       <h3>{item.title}</h3>
       <ul className="size-24 fw-bold list-unstyled">
-        {item.list.map((list, i) => <li key={i} className="mb-3">{list}</li>)}
+        {item.list.map((list, i) => (
+          <li key={i} className="mb-3">
+            {list}
+          </li>
+        ))}
       </ul>
     </div>
   )
