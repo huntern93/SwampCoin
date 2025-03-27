@@ -1,4 +1,3 @@
-// App.jsx - Updated version
 import { ToastContainer } from 'react-toastify'
 import './App.css'
 import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
@@ -6,13 +5,14 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 function App() {
   return (
     <>
-      {/* Fixed background that stays in place */}
+      {/* Background stays fixed and covers the entire viewport */}
       <div className="full-background"></div>
       
       <div className="page-content">
         <ToastContainer />
         <Header />
 
+        {/* Hero section with gradient overlay */}
         <div className="hero-bg">
           <Hero />
           <About />

@@ -18,7 +18,6 @@ html, body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  z-index: 1;
 }
 
 /* Full-page background image */
@@ -33,7 +32,7 @@ html, body {
   z-index: -1;
 }
 
-/* Header styling to ensure it sits over background and blends with hero section */
+/* Header styling to ensure it sits over background */
 header, .header {
   position: relative;
   width: 100%;
@@ -41,29 +40,39 @@ header, .header {
   background-color: transparent !important;
 }
 
-/* Hero section styling to connect with header background */
+/* Hero section styling with background image */
 .hero-bg {
-  background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
   position: relative;
-  z-index: 0;
-  min-height: 100vh; /* Ensure it covers full viewport height */
+  background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
+  min-height: 100vh;
+}
+
+/* About section should be above the gradient */
+.hero-bg > :nth-child(2) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero component itself */
+.hero-bg > :first-child {
+  position: relative;
+  z-index: 2;
 }
 
 .mid-bg {
+  position: relative;
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
-  position: relative;
 }
 
 .bottom-bg {
+  position: relative;
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/bottom-bg.jpg') no-repeat;
   background-size: cover;
-  position: relative;
 }
 
 /* Mobile responsiveness */
@@ -71,14 +80,11 @@ header, .header {
   .full-background {
     background: url('./assets/images/hero-mob.jpg') no-repeat center top;
     background-size: cover;
-    height: 100vh;
-    position: fixed;
   }
 
   .hero-bg {
     min-height: 100vh;
     padding-bottom: 50px;
-    position: relative;
   }
 
   .hero-bg::after {
