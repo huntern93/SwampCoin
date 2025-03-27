@@ -29,21 +29,57 @@
   display: block;
 }
 
-.coreFeatureImg4 {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* AI Trading Image */
+.aiTradingImageContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.aiTradingImage {
+  max-width: 80%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Security Lock Image */
+.securityLockContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.securityLockImage {
+  width: 30%;
+  margin: 0 auto;
+  display: block;
 }
 
 /* Feature sections */
 .featureSection {
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   position: relative;
+  padding: 10px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.featureSection:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .featureSection:last-child {
   margin-bottom: 25px;
+}
+
+/* Security section specific styling */
+.securitySection {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* NFT Grid with improved styling */
@@ -108,27 +144,39 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Remove excessive spacing in the security section */
-.securitySection {
-  position: relative;
-  padding-top: 30px;
-}
-
 @media screen and (max-width: 1690px) {
   .coreFeatureImg2 {
     width: 107%;
   }
   .coreFeatureInner h3 {
-    font-size: 45px;
+    font-size: 48px;
+  }
+  .featureSection {
+    margin-bottom: 60px;
   }
 }
 
 @media screen and (max-width: 1490px) {
   .coreFeatureInner h3 {
-    font-size: 40px;
+    font-size: 42px;
   }
   .coreFeatureInner {
     padding: 30px;
+  }
+  .featureSection {
+    margin-bottom: 50px;
+  }
+  .securityLockImage {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .securityLockImage {
+    width: 50%;
+  }
+  .aiTradingImage {
+    max-width: 90%;
   }
 }
 
@@ -143,7 +191,7 @@
   }
   
   .coreFeatureInner h3 {
-    font-size: 35px;
+    font-size: 36px;
   }
   
   .featureSection {
@@ -153,6 +201,19 @@
   /* Switch to 2 columns for tablets */
   .nftGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .securityLockImage {
+    width: 25%;
+    margin-bottom: 20px;
+  }
+  
+  .aiTradingImage {
+    max-width: 60%;
+  }
+  
+  .securitySection {
+    text-align: center;
   }
 }
 
@@ -172,11 +233,6 @@
     margin: 0;
   }
   
-  /* Hide Exclusive image on mobile */
-  .desktopOnly {
-    display: none;
-  }
-  
   /* Feature section spacing on mobile */
   .featureSection {
     margin-bottom: 30px;
@@ -186,6 +242,14 @@
   
   .featureSection:last-child {
     border-bottom: none;
+  }
+  
+  .securityLockImage {
+    width: 35%;
+  }
+  
+  .aiTradingImage {
+    max-width: 80%;
   }
   
   /* Mobile-optimized NFT grid stays at 2 columns */
