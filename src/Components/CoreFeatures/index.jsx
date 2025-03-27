@@ -4,7 +4,7 @@ import TokenomicsImg from "../../assets/images/tokenomics.png"
 import ShrekMoney from "../../assets/images/shrek_money.png"
 import Knight from "../../assets/images/knight.png"
 import Keyhole from "../../assets/images/keyhole.png"
-import AITrading from "../../assets/images/aitrading.png" // Add AI Trading image
+import AITrading from "../../assets/images/aitrading.png"
 import NFT1 from "../../assets/images/nft1.png"
 import NFT2 from "../../assets/images/nft2.png"
 import NFT3 from "../../assets/images/nft3.png"
@@ -47,18 +47,26 @@ export const CoreFeatures = () => {
             <div className={styles.featureSection}>
               <Row className="align-items-center">
                 <Col lg={6} md={12}>
-                  <div className="position-relative">
-                    <img src={Knight} className={styles.coreFeatureImg3} alt="Game rewards" />
+                  <div className={styles.gameRewardsContainer}>
+                    <div className={styles.imageContainer}>
+                      <img src={Knight} className={styles.coreFeatureImg3} alt="Game rewards" />
+                    </div>
+                    <div className={styles.titleContainer}>
+                      <h3 className="fw-bold">GAME & HOLDER REWARDS</h3>
+                      <p className="size-24 fw-medium">Our Defend The Swamp game rewards the top 10 players and top 10 holders with 1 MILLION TOKENS every month! Play, dominate the leaderboard, and HODL to claim your share of the swamp's riches!</p>
+                    </div>
                   </div>
-                  <h3 className="fw-bold mt-4">GAME & HOLDER REWARDS</h3>
-                  <p className="size-24 fw-medium">Our Defend The Swamp game rewards the top 10 players and top 10 holders with 1 MILLION TOKENS every month! Play, dominate the leaderboard, and HODL to claim your share of the swamp's riches!</p>
                 </Col>
                 <Col lg={6} md={12} className="mt-lg-0 mt-5">
-                  <div className={styles.aiTradingImageContainer}>
-                    <img src={AITrading} className={styles.aiTradingImage} alt="AI Trading" />
+                  <div className={styles.aiTradingContainer}>
+                    <div className={styles.imageContainer}>
+                      <img src={AITrading} className={styles.aiTradingImage} alt="AI Trading" />
+                    </div>
+                    <div className={styles.titleContainer}>
+                      <h3 className="fw-bold">AI-POWERED TRADING</h3>
+                      <p className="size-24 fw-medium">Hold 10,000 SWAMP to access our exclusive AI trading tools. Share access with friends through our unique delegation system – power to the community.</p>
+                    </div>
                   </div>
-                  <h3 className="fw-bold">AI-POWERED TRADING</h3>
-                  <p className="size-24 fw-medium">Hold 10,000 SWAMP to access our exclusive AI trading tools. Share access with friends through our unique delegation system – power to the community.</p>
                 </Col>
               </Row>
             </div>
