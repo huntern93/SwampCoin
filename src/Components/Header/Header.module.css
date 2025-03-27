@@ -108,19 +108,24 @@ header {
   margin-left: auto;
 }
 
-/* Coming Soon indicator - side version */
-.comingSoonInline {
+/* Vertical Coming Soon indicator */
+.comingSoonVertical {
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
   font-size: 10px;
   color: #FF3D3D;
   font-weight: 700;
   background: rgba(255, 61, 61, 0.1);
   border-radius: 4px;
   padding: 2px 6px;
-  margin-left: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   animation: pulse 2s infinite;
-  display: inline-block;
+  white-space: nowrap;
+  z-index: 10;
 }
 
 @keyframes pulse {
@@ -135,7 +140,7 @@ header {
     padding: 10px 10px;
   }
   
-  .comingSoonInline {
+  .comingSoonVertical {
     display: none; /* Hide on very small screens */
   }
 }
