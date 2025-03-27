@@ -29,20 +29,18 @@ export const Hero = () => {
             
             <button onClick={topRight} className={`btn size-36 fw-bold ${styles.heroBtn}`}>JOIN THE SWAMP</button>
             
-            <p className="size-20 fw-bold text-uppercase mt-4 mb-2">AUDITED BY</p>
-            <p className="size-24 fw-bold text-uppercase mb-2">TRUST AND SAFETY AUDITS</p>
+            <p className="size-18 fw-bold text-uppercase mt-4 mb-1">AUDITED BY</p>
+            <p className="size-24 fw-bold text-uppercase mb-3">TRUST AND SAFETY AUDITS</p>
             
-            <div className="d-flex gap-4 justify-content-center align-items-center">
-              <img src={SolidLogo} alt="Solid Proof" className="w-25" />
-              <img src={Coinsuit} alt="Coinsult" className="w-25" />
+            <div className={styles.auditLogos}>
+              <img src={SolidLogo} alt="Solid Proof" />
+              <img src={Coinsuit} alt="Coinsult" />
             </div>
             
-            <div className="mt-4">
+            <div className="mt-3">
               <p className="size-20 fw-medium mb-2">Join the community</p>
               <div className={styles.communityBadge}>10k+</div>
-              <div className="d-flex justify-content-center align-items-center gap-2 mt-2">
-                <JoinCommunity size="big" />
-              </div>
+              <JoinCommunity size="big" />
             </div>
           </div>
         </Container>

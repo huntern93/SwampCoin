@@ -4,20 +4,20 @@
 }
 
 .heroForm {
-  max-width: 450px;
+  max-width: 500px;
   background: #FFFFFF;
   border: 5px solid #000000;
   border-radius: 20px;
   padding: 2vw;
-  margin: 0 auto;
+  margin-left: auto; /* Position to the right on desktop */
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .heroForm h2 {
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 48px;
+  font-weight: 900;
   text-transform: uppercase;
   line-height: 1.05;
   margin: 0;
@@ -87,6 +87,20 @@
   box-shadow: none;
 }
 
+/* Audit logos */
+.auditLogos {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+
+.auditLogos img {
+  width: 120px;
+  height: auto;
+}
+
 /* Community Badge */
 .communityBadge {
   background-color: #FFD700;
@@ -138,7 +152,9 @@
 @media screen and (max-width: 991px) {
   .heroForm {
     margin-top: 160px;
-    max-width: 400px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
