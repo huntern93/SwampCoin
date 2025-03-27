@@ -1,6 +1,5 @@
 header {
   padding: 3vw 0 5vw;
-  background-color: transparent !important;
 }
 
 .headerNav {
@@ -57,113 +56,10 @@ header {
   color: #FF3D3D;
 }
 
-/* Logo styles */
-.logoContainer {
-  display: flex;
-  align-items: center;
-}
-
-.logoLink {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.logoText {
-  font-size: 24px;
-  font-weight: 900;
-  color: #9CB763;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 0px #000000;
-}
-
-/* Mobile Header Specific Styles */
-.mobileHeaderWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.mobileLeftContainer {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-  padding-right: 10px;
-}
-
-.mobileRightContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-}
-
-.hamburgerContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 5px;
-  margin-left: 5px;
-}
-
-.hamburgerIcon {
-  fill: #000;
-  transition: all 0.2s ease;
-}
-
-/* Sticky header styles - only applied on mobile */
-@media screen and (max-width: 991px) {
-  .stickyHeader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1050;
-    background-color: transparent !important; /* Override to keep transparent */
-    padding: 10px 0;
-    transition: all 0.3s ease;
-  }
-  
-  /* Only the nav gets a background, not the header itself */
-  .stickyHeader .headerNav {
-    background: #FFFFFF;
-  }
-}
-
-/* Desktop - explicitly override sticky header */
-@media screen and (min-width: 992px) {
-  .stickyHeader {
-    position: static !important;
-    box-shadow: none !important;
-    background-color: transparent !important;
-    padding: 3vw 0 5vw !important;
-  }
-}
-
 @media screen and (max-width: 490px) {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
-    padding: 10px 15px;
-  }
-  
-  .logoText {
-    font-size: 20px;
-  }
-  
-  .mobileRightContainer .btn {
-    padding: 5px;
-    margin-left: 0;
-  }
-  
-  .mobileRightContainer {
-    gap: 6px;
-  }
-  
-  .hamburgerContainer {
-    margin-left: 3px;
+    padding: 10px 10px;
   }
 }
 
@@ -177,46 +73,19 @@ header {
     background: #fff;
     top: 66px;
     left: 12px;
-    width: calc(100vw - 24px);
+    width: calc(100vw - 40px);
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
-    transform: translateX(-100vw);
-    z-index: 1010;
+    transform: translateX(100vw);
+    z-index: 1;
     border: 2px solid #000000;
     border-radius: 12px;
     padding: 25px;
     transition: 0.3s all;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
 
   .show {
     transform: translateX(0);
-  }
-  
-  /* Add more spacing between nav links for better mobile usability */
-  .links a {
-    padding: 12px 5px;
-    margin: 2px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-  }
-  
-  .links a:last-child {
-    border-bottom: none;
-  }
-  
-  .mobileRightContainer .btn {
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-  }
-  
-  .mobileRightContainer svg {
-    width: 20px;
-    height: 20px;
   }
 }
