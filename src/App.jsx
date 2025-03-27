@@ -1,7 +1,6 @@
-
 import { ToastContainer } from 'react-toastify'
 import './App.css'
-import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics } from './Components'
+import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Tokenomics, HowToBuy } from './Components'
 
 function App() {
 
@@ -18,6 +17,7 @@ function App() {
         <CoreFeatures />
       </div>
       <div className="bottom-bg">
+        <HowToBuy />
         <Roadmap />
         <Team />
         <FAQ />

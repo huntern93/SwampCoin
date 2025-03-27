@@ -1,10 +1,12 @@
-export * from "./Copyrights";
-export * from "./FAQ";
-export * from "./Team";
-export * from "./Roadmap";
-export * from "./CoreFeatures";
-export * from "./About";
-export * from "./Tokenomics";
-export * from "./JoinCommunity";
-export * from "./Hero";
-export * from "./Header";
+// Export all components here for easy imports
+export { About } from './About'
+export { Copyrights } from './Copyrights'
+export { CoreFeatures } from './CoreFeatures'
+export { FAQ } from './FAQ'
+export { Header } from './Header'
+export { Hero } from './Hero'
+export { HowToBuy } from './HowToBuy'
+export { Roadmap } from './Roadmap'
+export { Team } from './Team'
+export { Tokenomics } from './Tokenomics'
+export { JoinCommunity } from './JoinCommunity'
