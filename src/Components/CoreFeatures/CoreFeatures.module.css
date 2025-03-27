@@ -7,18 +7,13 @@
 
 .coreFeatureInner h3 {
   font-size: 54px;
-  font-weight: 900;
-  line-height: 1.1;
 }
 
-/* Feature card styling */
+/* Feature card styling - only affects mobile */
 .featureCard {
-  margin-bottom: 40px;
-  position: relative;
   overflow: hidden;
 }
 
-/* Images styling */
 .coreFeatureImg1 {
   width: 110%;
   max-width: none;
@@ -43,24 +38,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* NFT grid styling */
-.nftGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.nftGrid img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.nftGrid img:hover {
-  transform: scale(1.05);
-}
-
 /* Last message highlight */
 .lastMessage {
   background-color: #FFCF00;
@@ -76,7 +53,6 @@
   .coreFeatureImg2 {
     width: 107%;
   }
-  
   .coreFeatureInner h3 {
     font-size: 45px;
   }
@@ -97,13 +73,13 @@
   .coreFeatureImg3 {
     margin: 0;
   }
-  
   .coreFeatureInner h3 {
     font-size: 35px;
   }
   
+  /* Mobile feature cards */
   .featureCard {
-    padding: 15px;
+    padding: 15px 0;
     border-bottom: 2px solid rgba(0,0,0,0.1);
     margin-bottom: 25px;
   }
@@ -118,12 +94,10 @@
     padding: 20px 15px;
     border-width: 5px;
   }
-  
   .coreFeatureInner h3 {
     font-size: 28px;
     margin-top: 15px;
   }
-  
   .coreFeatureImg1 {
     width: 100%;
     margin: 0;
@@ -139,18 +113,12 @@
   .mobileImgContainer {
     display: flex;
     justify-content: center;
-    margin: 0 -15px;
+    margin: 0;
   }
   
   .mobileImgContainer img {
     max-width: 100%;
     object-fit: contain;
-  }
-  
-  /* NFT grid mobile adjustments */
-  .nftGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
   }
   
   /* Last message mobile styling */

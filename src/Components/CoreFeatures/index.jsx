@@ -5,11 +5,6 @@ import ShrekMoney from "../../assets/images/shrek_money.png"
 import Knight from "../../assets/images/knight.png"
 import Exclusive from "../../assets/images/exclusive.png"
 import Keyhole from "../../assets/images/keyhole.png"
-// Import the NFT images as needed - replace these with your actual images
-import NFT1 from "../../assets/images/nft1.png" // Astronaut Shrek
-import NFT2 from "../../assets/images/nft2.png" // Cool Shrek
-import NFT3 from "../../assets/images/nft3.png" // Demon Shrek
-import NFT4 from "../../assets/images/nft4.png" // Cyber Shrek
 
 export const CoreFeatures = () => {
   return (
@@ -87,14 +82,6 @@ export const CoreFeatures = () => {
                 <Col md={12}>
                   <h3 className="fw-bold">EXCLUSIVE NFTs</h3>
                   <p className="size-24 fw-medium mb-4">Join the Swamp Army with our ultra-exclusive NFTs – 800 reserved for presale pioneers buying 100K+ tokens, 100 for top holders after launch, and just 100 for community rewards. Only 1,000 will ever exist, unlocking premium ecosystem benefits and legendary status.</p>
-                  
-                  {/* NFT Grid */}
-                  <div className={styles.nftGrid}>
-                    <img src={NFT1} alt="Astronaut Shrek NFT" />
-                    <img src={NFT2} alt="Cool Shrek NFT" />
-                    <img src={NFT3} alt="Demon Shrek NFT" />
-                    <img src={NFT4} alt="Cyber Shrek NFT" />
-                  </div>
                 </Col>
               </Row>
             </div>
