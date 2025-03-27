@@ -6,17 +6,11 @@
 }
 
 .mid-bg {
-  background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
-    url('./assets/images/mid-bg.jpg') no-repeat;
-  background-size: cover;
+  background-color: rgba(156, 183, 99, 1); /* Just the green color */
 }
 
 .bottom-bg {
-  background:
-    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
-    url('./assets/images/bottom-bg.jpg') no-repeat;
-  background-size: cover;
+  background-color: rgba(156, 183, 99, 1); /* Just the green color */
 }
 
 @media screen and (max-width: 490px) {
