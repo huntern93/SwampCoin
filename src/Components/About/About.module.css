@@ -8,7 +8,21 @@
 }
 
 .about {
-  margin-bottom: 7.9vw;
+  margin-bottom: 60px; /* Reduced from 7.9vw to create less gap */
+  position: relative; /* Added for z-index control */
+  z-index: 5; /* Ensure it's above other elements */
+}
+
+/* Add a green background extension below about section */
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(156, 183, 99, 1); /* Solid green background */
+  z-index: -1;
 }
 
 .aboutImg1 {

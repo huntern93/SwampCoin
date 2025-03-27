@@ -15,6 +15,19 @@ body {
   background-color: rgba(156, 183, 99, 1); /* Fallback color */
 }
 
+#root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Keep header transparent */
+header {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 100;
+}
+
 /* Main content sections */
 .hero-bg {
   /* Just the gradient overlay */
@@ -25,13 +38,41 @@ body {
   padding-top: 8vw; /* Space for header */
 }
 
+/* Add a pseudo-element to extend the green background below hero-bg */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; /* Adjust based on the gap size */
+  left: 0;
+  width: 100%;
+  height: 60px; /* Overlap area */
+  background: rgba(156, 183, 99, 1); /* Solid green background */
+  z-index: 0;
+}
+
+/* Ensure sections connect properly */
 .mid-bg {
+  position: relative;
   background:
     linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
     url('./assets/images/mid-bg.jpg') no-repeat;
   background-size: cover;
-  position: relative;
+  background-color: rgba(156, 183, 99, 1);
+  padding-top: 1px; /* Minimal padding to prevent margin collapse */
+  margin-top: -40px; /* Pull up to overlap with the about section */
   z-index: 2;
+}
+
+/* Fix for mid-bg to bottom-bg transition */
+.mid-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(156, 183, 99, 1);
+  z-index: 0;
 }
 
 .bottom-bg {
@@ -41,13 +82,24 @@ body {
   background-size: cover;
   position: relative;
   z-index: 3;
+  margin-top: -30px; /* Create overlap with mid-bg */
+  padding-top: 30px; /* Add padding to compensate */
 }
 
-/* Keep header transparent */
-header {
-  background-color: transparent !important;
+/* Fix the About section's margin */
+#about, 
+section#about,
+.about {
+  margin-bottom: 60px; /* Reduce the large margin */
   position: relative;
-  z-index: 100;
+  z-index: 1;
+}
+
+/* Special positioning for Tokenomics section */
+.tokenomics {
+  position: relative;
+  z-index: 5;
+  margin-top: 40px; /* Adjust to create proper spacing */
 }
 
 /* Mobile responsiveness */
@@ -56,5 +108,26 @@ header {
     background: url('./assets/images/hero-mob.jpg') no-repeat center top;
     background-size: 100% auto; /* Control mobile stretching */
     background-attachment: fixed;
+  }
+  
+  /* Adjust section connections for mobile */
+  .hero-bg::after {
+    height: 80px; /* Increased overlap for mobile */
+    bottom: -40px;
+  }
+  
+  .mid-bg {
+    margin-top: -50px;
+    padding-top: 50px;
+  }
+  
+  .mid-bg::after {
+    height: 80px;
+    bottom: -40px;
+  }
+  
+  .bottom-bg {
+    margin-top: -40px;
+    padding-top: 40px;
   }
 }

@@ -15,11 +15,30 @@
 }
 
 .tokenomics {
+  position: relative; /* Added for z-index control */
+  z-index: 10; /* Higher than About section */
   margin-bottom: 30px;
+  margin-top: 0; /* Ensure no top margin */
+  padding-top: 20px; /* Add padding instead of margin */
+  background-color: rgba(156, 183, 99, 1); /* Ensure background matches */
+}
+
+/* Add a pseudo-element to extend the green background upward */
+.tokenomics::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(156, 183, 99, 1);
+  z-index: -1;
 }
 
 .tokenomics h2 {
   transform: rotate(-3.08deg);
+  position: relative; /* Ensure the title stays above the background */
+  z-index: 2;
 }
 
 .price {
@@ -40,6 +59,7 @@
   border-radius: 20px;
 }
 
+/* Rest of the styles remain unchanged */
 /* Pie Chart Styles */
 .pieChartContainer {
   width: 220px;
