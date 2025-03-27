@@ -3,128 +3,96 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: rgba(156, 183, 99, 1);
   min-height: 100vh;
-  background-color: rgba(156, 183, 99, 1); /* Fallback color */
 }
 
-/* Main container with overflow protection */
 #root {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden; /* Prevent any content from creating horizontal scrollbars */
+  background-color: rgba(156, 183, 99, 1);
 }
 
-.app-container {
+.page-wrapper {
+  position: relative;
   width: 100%;
   min-height: 100vh;
-  position: relative;
-  z-index: 1;
+  background-color: rgba(156, 183, 99, 1);
 }
 
-/* Desktop-specific background - fixed position to avoid gaps */
-@media screen and (min-width: 491px) {
-  body {
-    background: url('./assets/images/hero.jpg') no-repeat center top fixed;
-    background-size: cover;
-  }
-  
-  /* Add an overlay div to prevent seeing through gaps */
-  .app-container::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(156, 183, 99, 1);
-    z-index: -1;
-  }
+/* Full-page background image */
+.full-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: url('./assets/images/hero.jpg') no-repeat center top;
+  background-size: cover;
+  z-index: -2;
 }
 
-/* Mobile-specific background - scrollable */
-@media screen and (max-width: 490px) {
-  body {
-    background: url('./assets/images/hero-mob.jpg') no-repeat center top;
-    background-size: 100% auto; /* Control stretching */
-    background-color: rgba(156, 183, 99, 1);
-  }
-}
-
-/* Header styling */
+/* Header styling to ensure it sits over background and blends with hero section */
 header, .header {
   position: relative;
   width: 100%;
   z-index: 1000 !important;
   background-color: transparent !important;
-  padding: 3vw 0 5vw;
 }
 
-/* Hero section styling */
+/* Hero section styling to connect with header background */
 .hero-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
+    url('./assets/images/hero.jpg') no-repeat center top;
+  background-size: cover;
   position: relative;
-  z-index: 5;
+  z-index: 0;
+  min-height: 100vh; /* Ensure it covers full viewport height */
   padding-bottom: 20px;
-  min-height: 100vh;
 }
 
-/* Desktop-specific hero background */
-@media screen and (min-width: 491px) {
-  .hero-bg {
-    background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%);
-  }
-}
-
-/* Section backgrounds with proper z-index and positioning */
 .mid-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
+    url('./assets/images/mid-bg.jpg') no-repeat;
+  background-size: cover;
   position: relative;
-  z-index: 10;
-  padding-top: 40px;
+  z-index: 1;
   margin-top: -20px;
-  background-color: rgba(156, 183, 99, 1);
-}
-
-@media screen and (min-width: 491px) {
-  .mid-bg {
-    background:
-      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 1) 100%),
-      url('./assets/images/mid-bg.jpg') no-repeat;
-    background-size: cover;
-  }
+  padding-top: 20px;
 }
 
 .bottom-bg {
+  background:
+    linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
+    url('./assets/images/bottom-bg.jpg') no-repeat;
+  background-size: cover;
   position: relative;
-  z-index: 15;
-  padding-top: 40px;
+  z-index: 2;
   margin-top: -20px;
-  background-color: rgba(156, 183, 99, 1);
+  padding-top: 20px;
 }
 
-@media screen and (min-width: 491px) {
-  .bottom-bg {
-    background:
-      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 30%, rgba(156, 183, 99, 1) 100%),
-      url('./assets/images/bottom-bg.jpg') no-repeat;
-    background-size: cover;
-  }
-}
-
-/* Extra padding to ensure sections connect properly */
-.about-section {
-  padding-bottom: 60px;
-}
-
-.tokenomics-section {
-  padding-top: 60px;
-}
-
-/* Mobile styles */
+/* Mobile responsiveness */
 @media screen and (max-width: 490px) {
+  .full-background {
+    background: url('./assets/images/hero-mob.jpg') no-repeat center top;
+    background-size: cover;
+    height: 100vh;
+    position: fixed;
+  }
+
   .hero-bg {
+    background:
+      linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0) 59%, rgba(156, 183, 99, 0) 100%),
+      url('./assets/images/hero-mob.jpg') no-repeat center top;
+    background-size: contain;
+    background-color: #87CEEB; /* Light blue sky background */
+    min-height: 100vh;
     padding-bottom: 50px;
-    box-sizing: border-box;
-    width: 100%;
+    position: relative;
   }
 
   .hero-bg::after {
@@ -137,12 +105,6 @@ header, .header {
     background: linear-gradient(to top, rgba(156, 183, 99, 1) 0%, rgba(156, 183, 99, 0.8) 30%, rgba(156, 183, 99, 0) 100%);
     pointer-events: none;
     z-index: 1;
-  }
-  
-  /* Ensure all content stays within viewport width */
-  .app-container {
-    max-width: 100vw;
-    overflow-x: hidden;
   }
 }
 

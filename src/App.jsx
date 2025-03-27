@@ -4,32 +4,28 @@ import { About, Copyrights, CoreFeatures, FAQ, Header, Hero, Roadmap, Team, Toke
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <ToastContainer />
       <Header />
-
+      
       <div className="hero-bg">
         <Hero />
-        <div className="about-section">
-          <About />
-        </div>
+        <About />
       </div>
-
+      
       <div className="mid-bg">
-        <div className="tokenomics-section">
-          <Tokenomics />
-        </div>
+        <Tokenomics />
         <CoreFeatures />
       </div>
-
+      
       <div className="bottom-bg">
         <Roadmap />
         <Team />
         <FAQ />
       </div>
-
+      
       <Copyrights />
-    </div>
+    </>
   )
 }
 
