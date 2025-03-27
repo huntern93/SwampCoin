@@ -108,25 +108,23 @@ header {
   margin-left: auto;
 }
 
-/* Vertical Coming Soon indicator - FIXED POSITION */
-.comingSoonVertical {
-  position: absolute;
-  width: 80px; /* Set fixed width */
-  text-align: center; /* Center text */
-  left: -27px; /* Position to align with button */
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 10px;
+/* Button text container for two-line layout */
+.buttonTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+}
+
+/* Coming Soon underneath members area text */
+.comingSoonUnder {
+  font-size: 9px;
   color: #FF3D3D;
   font-weight: 700;
-  background: rgba(255, 61, 61, 0.1);
-  border-radius: 4px;
-  padding: 2px 6px;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
   animation: pulse 2s infinite;
-  white-space: nowrap;
-  z-index: 5;
+  margin-top: 2px;
 }
 
 @keyframes pulse {
@@ -139,10 +137,6 @@ header {
   .headerNav {
     box-shadow: -1px 2px 0px #000000;
     padding: 10px 10px;
-  }
-  
-  .comingSoonVertical {
-    display: none; /* Hide on very small screens */
   }
 }
 

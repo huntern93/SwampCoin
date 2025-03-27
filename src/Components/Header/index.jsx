@@ -88,16 +88,15 @@ export const Header = () => {
             </div>
             
             <div className={`d-flex align-items-center gap-xxl-4 gap-2 ${styles.headerButtons}`}>
-              {/* Members Area with Coming Soon tag */}
-              <div className="position-relative" style={{ paddingLeft: "18px" }}>
-                <div className={styles.comingSoonVertical}>
-                  <span>Coming Soon</span>
-                </div>
-                <a className={`${styles.memberArea} ${styles.btn} size-20`} href="#">
-                  <span className="d-none d-xl-inline">Members Area</span>
-                  <span className="d-inline-block d-xl-none"><svg fill="currentcolor" id="fi_4121044" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3"><circle cx="4" cy="6" r="3"></circle><path d="m7.29 11.07a6.991 6.991 0 0 0 -3.29 5.93h-2a2.006 2.006 0 0 1 -2-2v-2a3.009 3.009 0 0 1 3-3h2a3 3 0 0 1 2.29 1.07z"></path><circle cx="20" cy="6" r="3"></circle><path d="m24 13v2a2.006 2.006 0 0 1 -2 2h-2a6.991 6.991 0 0 0 -3.29-5.93 3 3 0 0 1 2.29-1.07h2a3.009 3.009 0 0 1 3 3z"></path><circle cx="12" cy="7" r="4"></circle><path d="m18 17v1a3.009 3.009 0 0 1 -3 3h-6a3.009 3.009 0 0 1 -3-3v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5z"></path></svg></span>
-                </a>
-              </div>
+              <a className={`${styles.memberArea} ${styles.btn} size-20`} href="#">
+                <span className="d-none d-xl-inline">
+                  <div className={styles.buttonTextContainer}>
+                    <div>Members Area</div>
+                    <div className={styles.comingSoonUnder}>Coming Soon</div>
+                  </div>
+                </span>
+                <span className="d-inline-block d-xl-none"><svg fill="currentcolor" id="fi_4121044" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 3"><circle cx="4" cy="6" r="3"></circle><path d="m7.29 11.07a6.991 6.991 0 0 0 -3.29 5.93h-2a2.006 2.006 0 0 1 -2-2v-2a3.009 3.009 0 0 1 3-3h2a3 3 0 0 1 2.29 1.07z"></path><circle cx="20" cy="6" r="3"></circle><path d="m24 13v2a2.006 2.006 0 0 1 -2 2h-2a6.991 6.991 0 0 0 -3.29-5.93 3 3 0 0 1 2.29-1.07h2a3.009 3.009 0 0 1 3 3z"></path><circle cx="12" cy="7" r="4"></circle><path d="m18 17v1a3.009 3.009 0 0 1 -3 3h-6a3.009 3.009 0 0 1 -3-3v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5z"></path></svg></span>
+              </a>
               
               <a className={`${styles.joinArmy} ${styles.btn} size-20`} href="#">
                 <span className="d-none d-xl-inline">Join The Army</span>
