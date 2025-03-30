@@ -62,7 +62,7 @@ export const Header = () => {
     },
     {
       name: "Whitepaper",
-      link: "/src/WhitePaper.pdf",
+      link: "/WhitePaper.pdf",
     },
   ]
 
