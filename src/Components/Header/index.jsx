@@ -116,7 +116,7 @@ export const Header = () => {
                 onClick={scrollToHero}
               >
                 <span className="d-none d-xl-inline">Join The Army</span>
-                <svg className="d-inline-block d-xl-none" fill="currentcolor" version="1.1" id="fi_455691" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.092 512.092" xml:space="preserve">
+                <svg className="d-inline-block d-xl-none" fill="currentcolor" version="1.1" id="fi_455691" width="24" height="24" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.092 512.092" xmlSpace="preserve">
                   <g>
                     <g>
                       <path d="M312.453,199.601c-6.066-6.102-12.792-11.511-20.053-16.128c-19.232-12.315-41.59-18.859-64.427-18.859
@@ -159,4 +159,5 @@ export const Header = () => {
         </Container>
       </header>
     </>
-  )
+  );
+};
