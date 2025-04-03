@@ -1,19 +1,8 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/vite"
-    }
-  ],
-  "routes": [
+  "rewrites": [
     { 
-      "src": "/api/(.*)", 
-      "dest": "/api/$1" 
-    },
-    { 
-      "src": "/(.*)", 
-      "dest": "/$1" 
+      "source": "/api/(.*)", 
+      "destination": "/api/$1" 
     }
   ]
 }
