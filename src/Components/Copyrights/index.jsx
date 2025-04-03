@@ -1,8 +1,6 @@
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./Copyrights.module.css";
-// Import icons (if you're using react-icons)
-// import { FaTelegram, FaTwitter, FaDiscord, FaInstagram, FaMedium } from "react-icons/fa";
 
 export const Copyrights = () => {
   const currentYear = new Date().getFullYear();
@@ -22,25 +20,6 @@ export const Copyrights = () => {
               <span className={styles.separator}>|</span>
               <Link to="/contact" className={styles.footerLink}>Contact Us</Link>
             </div>
-
-            {/* Social Media Links - Uncomment if needed */}
-            {/* <div className={styles.socialLinks}>
-              <a href="https://t.me/SwampArmyHQ" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <FaTelegram size={20} />
-              </a>
-              <a href="https://twitter.com/SwampArmy" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <FaTwitter size={20} />
-              </a>
-              <a href="https://discord.gg/swamparmyhq" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <FaDiscord size={20} />
-              </a>
-              <a href="https://instagram.com/swamparmy" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <FaInstagram size={20} />
-              </a>
-              <a href="https://medium.com/@swampcoin" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                <FaMedium size={20} />
-              </a>
-            </div> */}
             
             {/* Disclaimer Section */}
             <div className={styles.disclaimerSection}>
