@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import App from './App';
-import TermsOfService from './pages/TermsOfService';
-import CookiesPolicy from './pages/CookiesPolicy';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import ContactUs from './pages/ContactUs';
+import TermsOfService from '/pages/TermsOfService';
+import CookiesPolicy from '/pages/CookiesPolicy';
+import PrivacyPolicy from '/pages/PrivacyPolicy';
+import ContactUs from '/pages/ContactUs';
 
 const AppRoutes = () => {
   return (
